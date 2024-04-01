@@ -1,10 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <script type="module" src="main.js"></script>
-    <script src="DragDropTouch.js"></script>
-    <link rel="stylesheet" href="main.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+    <script type="module" src="assets/js/main.js"></script>
+    <script src="assets/js/DragDropTouch.js"></script>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="canonical" href="https://www.chesscoordinates.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <meta
+      name="description"
+      content="Enhance your chess skills with ChessCoordinates.com – a web app for mastering algebraic notation and position memorization. Training modes include file and rank naming, square identification, color recognition, and memory challenges. Perfect for beginners and seasoned players aiming to sharpen their board awareness and strategic play."
+    />
+    <title>Chess coordinate and memory practice</title>
   </head>
 
   <body>
@@ -12,15 +18,15 @@
       <section class="nav-wrapper">
         <p>Practice mode:</p>
         <nav>
-          <button id="rank-button" data-game-type="ranks">ranks</button>
-          <button id="file-button" data-game-type="files">files</button>
-          <button id="square-button" data-game-type="squares">squares</button>
-          <button id="position-button" data-game-type="positions">positions</button>
-          <button id="colour-button" data-game-type="colours">colours</button>
+          <a id="rank-button" data-game-type="ranks" aria-label="ranks" href="/ranks">ranks</a>
+          <a id="file-button" data-game-type="files" aria-label="files" href="/files">files</a>
+          <a id="square-button" data-game-type="squares" aria-label="squares" href="/squares">squares</a>
+          <a id="position-button" data-game-type="positions" aria-label="positions" href="/positions">positions</a>
+          <a id="colour-button" data-game-type="colours" aria-label="colours" href="/colours">colours</a>
         </nav>
       </section>
 
-      <section id="ranks-files-squares-game" class="game-section hidden">
+      <section id="ranks-files-squares-game" class="game-section">
         <div class="board-wrapper">
           <table class="board">
             <tbody>
@@ -436,7 +442,7 @@
             </tbody>
           </table>
 
-          <button class="flip-board-button">
+          <button class="flip-board-button" aria-label="flip board">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
               <g>
                 <g id="media-player" stroke="none" stroke-width="10" fill="none" fill-rule="evenodd">
@@ -453,7 +459,7 @@
 
           <p class="prompt"></p>
         </div>
-        <button class="start-stop-button"><span class="start-stop-text">start</span> <span class="countdown-sec"></span></button>
+        <button class="start-stop-button" aria-label="start"><span class="start-stop-text">start</span> <span class="countdown-sec"></span></button>
       </section>
 
       <section id="positions-game" class="game-section hidden">
@@ -558,7 +564,7 @@
             </tbody>
           </table>
 
-          <button class="flip-board-button">
+          <button class="flip-board-button" aria-label="flip board">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
               <g>
                 <g id="media-player" stroke="none" stroke-width="10" fill="none" fill-rule="evenodd">
@@ -742,13 +748,13 @@
         </div>
 
         <!-- buttons -->
-        <button class="start-button">start</button>
-        <button class="check-position-button hidden">done</button>
+        <button class="start-button" aria-label="start">start</button>
+        <button class="check-position-button hidden" aria-label="done">done</button>
         <div class="positions-game-finished-buttons-container hidden">
-          <button class="show-prompt-position-button">original</button>
-          <button class="show-user-input-position-button active">my answer</button>
+          <button class="show-prompt-position-button" aria-label="show original">original</button>
+          <button class="show-user-input-position-button active" aria-label="show my answer">my answer</button>
         </div>
-        <button class="new-positions-game-button hidden">new position</button>
+        <button class="new-positions-game-button hidden" aria-label="new position">new position</button>
         <!-- /buttons -->
       </section>
 
@@ -770,10 +776,10 @@
             <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
           </svg>
         </div>
-        <button class="start-stop-button"><span class="start-stop-text">start</span> <span class="countdown-sec"></span></button>
+        <button class="start-stop-button" aria-label="start"><span class="start-stop-text">start</span> <span class="countdown-sec"></span></button>
       </section>
 
-      <aside id="score">
+      <aside id="score" class="hidden">
         <p class="score-heading">score (<span class="score-heading-game-type"></span>)</p>
         <section class="score-correct">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#519872">
@@ -787,7 +793,7 @@
           </svg>
           <span class="wrong-count">2</span>
         </section>
-        <button class="score-close-button">
+        <button class="score-close-button" aria-label="close">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
           </svg>

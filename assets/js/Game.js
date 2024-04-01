@@ -37,8 +37,11 @@ export class Game {
     this.dragDrop = new DragDrop();
     this.intervalId = null;
 
-    if (window.location.pathname != '/') this.setGameType(pathnameToGameTypeMap[window.location.pathname]);
-    else this.setGameType('squares');
+    if (window.location.pathname != '/' && window.location.pathname in pathnameToGameTypeMap) {
+      this.setGameType(pathnameToGameTypeMap[window.location.pathname]);
+    } else {
+      this.setGameType('squares');
+    }
   }
 
   setGameType = (type) => {

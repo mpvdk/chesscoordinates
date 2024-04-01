@@ -10,7 +10,7 @@ export class UiHandler {
     // universal
     this.els = {};
     this.els.nav = document.querySelector('nav');
-    this.els.navButtons = document.querySelectorAll('nav button');
+    this.els.navButtons = document.querySelectorAll('nav a');
     this.els.score = document.querySelector('#score');
     this.els.scoreCloseButton = document.querySelector('#score button');
     this.els.scoreGameType = document.querySelector('#score .score-heading-game-type');
@@ -133,6 +133,7 @@ export class UiHandler {
   };
 
   handleNavClick = (e) => {
+    e.preventDefault();
     this.game.setGameType(e.target.dataset.gameType);
   };
 

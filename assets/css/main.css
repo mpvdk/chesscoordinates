@@ -63,8 +63,8 @@ main {
     justify-content: space-evenly;
     width: 100%;
 
-    button {
-      font-size: 1.1rem;
+    a {
+      font-size: 1.2rem;
       padding: 5px 10px;
       border: none;
       background-color: white;
@@ -72,6 +72,7 @@ main {
       border-radius: 5px;
       color: rgb(120, 120, 120);
       outline: none;
+      text-decoration: none;
 
       &.active {
         background-color: #519872;
@@ -163,7 +164,7 @@ main {
 
         &.position-highlight-wrong {
           &::after {
-            content: url(assets/mult.svg);
+            content: url(../mult.svg);
             width: 100%;
             height: 100%;
             position: absolute;
@@ -226,7 +227,6 @@ main {
     font-size: 2rem;
     padding: 5px;
     width: 80vw;
-    /* check */
     max-width: 600px;
     border-radius: 5px;
     background-color: rgb(184, 139, 74);
@@ -234,6 +234,7 @@ main {
     color: white;
     border: none;
     margin-top: 40px;
+    cursor: pointer;
   }
 }
 
@@ -272,6 +273,7 @@ main {
   align-items: stretch;
   width: 100%;
   max-width: 500px;
+  padding: 0px 10px;
 
   .colours-game-answer {
     display: flex;
@@ -562,6 +564,7 @@ main {
     #colours-game {
       max-width: 600px;
       grid-template-columns: 3fr 1fr 3fr;
+      padding: 0px;
 
       .colours-game-answer {
         max-width: 200px;
