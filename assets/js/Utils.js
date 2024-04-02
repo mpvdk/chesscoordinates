@@ -71,23 +71,23 @@ export function mapToFen(map) {
   return fen;
 }
 
-export const pathnameToGameTypeMap = {
-  '/row': 'ranks',
-  '/rows': 'ranks',
-  '/rank': 'ranks',
-  '/ranks': 'ranks',
-  '/column': 'files',
-  '/columns': 'files',
-  '/file': 'files',
-  '/files': 'files',
-  '/square': 'squares',
-  '/squares': 'squares',
-  '/position': 'positions',
-  '/positions': 'positions',
-  '/colour': 'colours',
-  '/colours': 'colours',
-  '/color': 'colours',
-  '/colors': 'colours',
+export const queryParamToGameTypeMap = {
+  row: 'ranks',
+  rows: 'ranks',
+  rank: 'ranks',
+  ranks: 'ranks',
+  column: 'files',
+  columns: 'files',
+  file: 'files',
+  files: 'files',
+  square: 'squares',
+  squares: 'squares',
+  position: 'positions',
+  positions: 'positions',
+  colour: 'colours',
+  colours: 'colours',
+  color: 'colours',
+  colors: 'colours',
 };
 
 export const ranks = ['1', '2', '3', '4', '5', '6', '7', '8'];

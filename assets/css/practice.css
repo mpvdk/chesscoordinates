@@ -1,16 +1,4 @@
-* {
-  margin: 0px;
-  box-sizing: border-box;
-  font-family: sans-serif;
-}
-
-html {
-  font-size: 16px;
-}
-
-.hidden {
-  display: none !important;
-}
+@import 'common.css';
 
 .flipped {
   rotate: 180deg !important;
@@ -70,13 +58,14 @@ main {
       background-color: white;
       cursor: pointer;
       border-radius: 5px;
-      color: rgb(120, 120, 120);
+      color: rgb(80, 80, 80);
       outline: none;
       text-decoration: none;
 
       &.active {
-        background-color: #519872;
-        color: white;
+        background-color: #5198721f;
+        color: #519872;
+        font-weight: bold;
       }
     }
   }
@@ -383,7 +372,7 @@ main {
     &.show-hint {
       &::before {
         content: 'h8';
-        top: -55%;
+        top: -35%;
         right: 20%;
       }
     }
@@ -497,7 +486,7 @@ main {
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 765px) {
   .nav-wrapper {
     nav {
       button {
@@ -508,7 +497,7 @@ main {
     }
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1060px) {
     body {
       display: flex;
       flex-direction: column;
@@ -519,7 +508,8 @@ main {
       flex-direction: row;
       align-items: flex-start;
       justify-content: center;
-      margin-top: 40px;
+      gap: 40px;
+      margin-top: 100px;
       width: 100%;
       max-width: 1200px;
     }
@@ -528,6 +518,7 @@ main {
       flex-flow: column;
       align-items: flex-start;
       max-width: 400px;
+      margin-top: 0px;
 
       p {
         font-size: 2rem;
@@ -539,15 +530,31 @@ main {
         align-items: flex-start;
         gap: 10px;
 
-        button {
-          font-size: 1.5rem;
-          padding: 10px 15px;
-          border-radius: 7px;
+        a {
+          &.active {
+            /* background-color: #5198721f; */
+            background-color: #fff;
+            /* color: #519872; */
+            margin-left: 20px;
+            position: relative;
+
+            &::before {
+              content: '\2023';
+              position: absolute;
+              font-size: 3rem;
+              left: -15px;
+              top: 50%;
+              transform: translateY(-50%);
+              /* color: rgb(200, 200, 200); */
+              color: #51987256;
+            }
+          }
         }
       }
     }
 
     .game-section {
+      position: relative;
       .board-wrapper {
         .flip-board-button {
           svg {
@@ -556,8 +563,17 @@ main {
         }
       }
 
-      button {
-        font-size: 2.2rem;
+      &#ranks-files-squares-game,
+      &#positions-game {
+        .start-stop-button,
+        .start-button {
+          /* font-size: 2.2rem; */
+          position: absolute;
+          bottom: 0px;
+          left: -440px;
+          margin: 0px;
+          width: 360px;
+        }
       }
     }
 
@@ -591,10 +607,23 @@ main {
     #positions-game {
       position: relative;
 
+      .check-position-button,
+      .new-positions-game-button {
+        /* font-size: 2.2rem; */
+        position: absolute;
+        bottom: 0px;
+        left: -440px;
+        margin: 0px;
+        width: 360px;
+      }
+
       .positions-game-finished-buttons-container {
-        max-width: 600px;
-        width: 600px;
+        max-width: 360px;
+        width: 360px;
         margin: 0px 0px;
+        position: absolute;
+        left: -440px;
+        bottom: 80px;
 
         button {
           max-width: 45%;
@@ -621,7 +650,7 @@ main {
         position: relative;
         &.show-hint {
           &::before {
-            font-size: 1.3rem;
+            font-size: 1rem;
           }
         }
       }
@@ -631,7 +660,7 @@ main {
         &.show-hint {
           &::before {
             content: 'a1';
-            top: 73%;
+            top: 70%;
             left: 0%;
           }
         }
@@ -650,12 +679,12 @@ main {
     }
 
     .pieces-container {
-      width: 300px;
+      width: 360px;
       margin-top: 0px;
       margin-bottom: 0px;
       position: absolute;
-      left: -370px;
-      bottom: 108px;
+      left: -440px;
+      bottom: 90px;
 
       .row {
         display: flex;

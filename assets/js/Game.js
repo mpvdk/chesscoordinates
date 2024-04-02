@@ -1,6 +1,6 @@
 import { UiHandler } from './UiHandler.js';
 import { DragDrop } from './DragDrop.js';
-import { fenArray, pathnameToGameTypeMap, squaresColoursMap, files, ranks, squareToFenMapFromFen, squareToFenMapFromUi, mapToFen } from './Utils.js';
+import { fenArray, queryParamToGameTypeMap, squaresColoursMap, files, ranks, squareToFenMapFromFen, squareToFenMapFromUi, mapToFen } from './Utils.js';
 
 export class Game {
   constructor() {
@@ -37,21 +37,26 @@ export class Game {
     this.dragDrop = new DragDrop();
     this.intervalId = null;
 
-    if (window.location.pathname != '/' && window.location.pathname in pathnameToGameTypeMap) {
-      this.setGameType(pathnameToGameTypeMap[window.location.pathname]);
-    } else {
-      this.setGameType('squares');
-    }
+    this.setGameType(false);
+    window.addEventListener('popstate', () => this.setGameType(false));
   }
 
-  setGameType = (type) => {
-    if (!type || type == this.state.gameType) return;
-    if (type == 'positions') this.state.prompt.fen = fenArray[Math.floor(Math.random() * fenArray.length)];
+  setGameType = (updateNav, newGameType = null) => {
+    if (!newGameType) {
+      const urlParams = new URLSearchParams(window.location.search);
+      const mode = urlParams.get('mode');
+      newGameType = mode in queryParamToGameTypeMap ? queryParamToGameTypeMap[mode] : 'squares';
+    }
+
+    if (!newGameType == this.state.gameType) return;
+    if (newGameType == 'positions') this.state.prompt.fen = fenArray[Math.floor(Math.random() * fenArray.length)];
     if (this.state.active) this.stopGame();
 
-    this.state.gameType = type;
-    history.pushState({ page: 1 }, 'Chess coordinates', '/' + type);
-    this.uiHandler.setGameType(type);
+    this.state.gameType = newGameType;
+    if (updateNav) {
+      history.pushState({ page: 1 }, 'Chess coordinates', `?mode=${newGameType}`);
+    }
+    this.uiHandler.setGameType(newGameType);
   };
 
   handleRanksFilesSquaresAnswer = (e) => {

@@ -134,7 +134,7 @@ export class UiHandler {
 
   handleNavClick = (e) => {
     e.preventDefault();
-    this.game.setGameType(e.target.dataset.gameType);
+    this.game.setGameType(true, e.target.dataset.gameType);
   };
 
   updatePrompt = (square, gameType) => {
