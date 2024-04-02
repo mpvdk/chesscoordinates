@@ -42,9 +42,9 @@ main {
     .link-coordinates,
     .link-memory {
       display: block;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       height: 75px;
-      padding: 0px 5px;
+      padding: 0px 10px;
       border-radius: 5px;
       background-color: rgb(184, 139, 74);
       background-color: #519872;
@@ -61,6 +61,17 @@ main {
         border: 2px solid #519872;
         color: #519872;
         transition: all 50ms ease-in-out;
+      }
+    }
+  }
+}
+
+@media (min-width: 412px) {
+  main {
+    nav {
+      .link-coordinates,
+      .link-memory {
+        height: 60px;
       }
     }
   }
@@ -89,9 +100,9 @@ main {
     }
     nav {
       .link-coordinates,
-      .link-memory,
-      link-home {
+      .link-memory {
         font-size: 1.4rem;
+        height: 75px;
       }
     }
   }
