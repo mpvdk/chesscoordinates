@@ -65,7 +65,7 @@ main {
       &.active {
         background-color: #5198721f;
         color: #519872;
-        font-weight: bold;
+        font-family: 'Roboto Bold', sans-serif;
       }
     }
   }
