@@ -35,12 +35,12 @@ main {
   display: flex;
   flex-flow: column;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 12px;
   width: 100%;
   max-width: 600px;
 
   p {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   nav {
@@ -65,7 +65,7 @@ main {
       &.active {
         background-color: #5198721f;
         color: #519872;
-        font-family: 'Roboto Bold', sans-serif;
+        font-family: 'OpenSans Bold', sans-serif;
       }
     }
   }
@@ -372,7 +372,7 @@ main {
     &.show-hint {
       &::before {
         content: 'h8';
-        top: -35%;
+        top: -25px;
         right: 20%;
       }
     }

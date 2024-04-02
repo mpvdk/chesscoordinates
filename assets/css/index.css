@@ -17,9 +17,10 @@ main {
   h1 {
     font-size: 1.8rem;
   }
+
   h2 {
     font-size: 1.3rem;
-    font-weight: normal;
+    font-family: 'OpenSans', sans-serif;
   }
 
   nav {
