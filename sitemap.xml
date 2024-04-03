@@ -6,44 +6,12 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://www.chesscoordinates.com/rank</loc>
-        <changefreq>weekly</changefreq>
+        <loc>https://www.chesscoordinates.com/practice</loc>
+        <changefreq>daily</changefreq>
     </url>
     <url>
-        <loc>https://www.chesscoordinates.com/ranks</loc>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://www.chesscoordinates.com/file</loc>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://www.chesscoordinates.com/files</loc>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://www.chesscoordinates.com/square</loc>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://www.chesscoordinates.com/squares</loc>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://www.chesscoordinates.com/position</loc>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://www.chesscoordinates.com/positions</loc>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://www.chesscoordinates.com/colour</loc>
-        <changefreq>weekly</changefreq>
-    </url>
-    <url>
-        <loc>https://www.chesscoordinates.com/colours</loc>
-        <changefreq>weekly</changefreq>
+        <loc>https://www.chesscoordinates.com/404</loc>
+        <changefreq>daily</changefreq>
     </url>
 </urlset>
 
