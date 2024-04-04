@@ -54,38 +54,38 @@ export class UiHandler {
     // =========
     // listeners
     // =========
-    if (navigator.maxTouchPoints > 0) this.els.nav.addEventListener('touchstart', this.handleNavClick, { passive: true });
-    else this.els.nav.addEventListener('click', this.handleNavClick);
+    // if (navigator.maxTouchPoints > 0) this.els.nav.addEventListener('touchstart', this.handleNavClick, { passive: true });
+    this.els.nav.addEventListener('click', this.handleNavClick);
 
-    if (navigator.maxTouchPoints > 0) this.els.scoreCloseButton.addEventListener('touchstart', this.hideScore, { passive: true });
-    else this.els.scoreCloseButton.addEventListener('click', this.hideScore);
+    // if (navigator.maxTouchPoints > 0) this.els.scoreCloseButton.addEventListener('touchstart', this.hideScore, { passive: true });
+    this.els.scoreCloseButton.addEventListener('click', this.hideScore);
 
-    if (navigator.maxTouchPoints > 0) this.els.ranksFilesSquaresGame.flipBoardButton.addEventListener('touchstart', this.flipRanksFilesSquaresGameBoard, { passive: true });
-    else this.els.ranksFilesSquaresGame.flipBoardButton.addEventListener('click', this.flipRanksFilesSquaresGameBoard);
+    // if (navigator.maxTouchPoints > 0) this.els.ranksFilesSquaresGame.flipBoardButton.addEventListener('touchstart', this.flipRanksFilesSquaresGameBoard, { passive: true });
+    this.els.ranksFilesSquaresGame.flipBoardButton.addEventListener('click', this.flipRanksFilesSquaresGameBoard);
 
-    if (navigator.maxTouchPoints > 0) this.els.ranksFilesSquaresGame.startStopButton.addEventListener('touchstart', this.ranksFilesSquaresStartStopButtonPressed, { passive: true });
-    else this.els.ranksFilesSquaresGame.startStopButton.addEventListener('click', this.ranksFilesSquaresStartStopButtonPressed);
+    // if (navigator.maxTouchPoints > 0) this.els.ranksFilesSquaresGame.startStopButton.addEventListener('touchstart', this.ranksFilesSquaresStartStopButtonPressed, { passive: true });
+    this.els.ranksFilesSquaresGame.startStopButton.addEventListener('click', this.ranksFilesSquaresStartStopButtonPressed);
 
-    if (navigator.maxTouchPoints > 0) this.els.coloursGame.startStopButton.addEventListener('touchstart', this.coloursGameStartStopButtonPressed, { passive: true });
-    else this.els.coloursGame.startStopButton.addEventListener('click', this.coloursGameStartStopButtonPressed);
+    // if (navigator.maxTouchPoints > 0) this.els.coloursGame.startStopButton.addEventListener('touchstart', this.coloursGameStartStopButtonPressed, { passive: true });
+    this.els.coloursGame.startStopButton.addEventListener('click', this.coloursGameStartStopButtonPressed);
 
-    if (navigator.maxTouchPoints > 0) this.els.positionsGame.startButton.addEventListener('touchstart', this.positionsGameStartButtonPressed, { passive: true });
-    else this.els.positionsGame.startButton.addEventListener('click', this.positionsGameStartButtonPressed);
+    // if (navigator.maxTouchPoints > 0) this.els.positionsGame.startButton.addEventListener('touchstart', this.positionsGameStartButtonPressed, { passive: true });
+    this.els.positionsGame.startButton.addEventListener('click', this.positionsGameStartButtonPressed);
 
-    if (navigator.maxTouchPoints > 0) this.els.positionsGame.checkPositionButton.addEventListener('touchstart', this.checkPositionButtonPressed, { passive: true });
-    else this.els.positionsGame.checkPositionButton.addEventListener('click', this.checkPositionButtonPressed);
+    // if (navigator.maxTouchPoints > 0) this.els.positionsGame.checkPositionButton.addEventListener('touchstart', this.checkPositionButtonPressed, { passive: true });
+    this.els.positionsGame.checkPositionButton.addEventListener('click', this.checkPositionButtonPressed);
 
-    if (navigator.maxTouchPoints > 0) this.els.positionsGame.showPromptPositionButton.addEventListener('touchstart', this.fillBoardWithPromptPosition, { passive: true });
-    else this.els.positionsGame.showPromptPositionButton.addEventListener('click', this.fillBoardWithPromptPosition);
+    // if (navigator.maxTouchPoints > 0) this.els.positionsGame.showPromptPositionButton.addEventListener('touchstart', this.fillBoardWithPromptPosition, { passive: true });
+    this.els.positionsGame.showPromptPositionButton.addEventListener('click', this.fillBoardWithPromptPosition);
 
-    if (navigator.maxTouchPoints > 0) this.els.positionsGame.showUserInputPositionButton.addEventListener('touchstart', this.fillBoardWithUserInputPosition, { passive: true });
-    else this.els.positionsGame.showUserInputPositionButton.addEventListener('click', this.fillBoardWithUserInputPosition);
+    // if (navigator.maxTouchPoints > 0) this.els.positionsGame.showUserInputPositionButton.addEventListener('touchstart', this.fillBoardWithUserInputPosition, { passive: true });
+    this.els.positionsGame.showUserInputPositionButton.addEventListener('click', this.fillBoardWithUserInputPosition);
 
-    if (navigator.maxTouchPoints > 0) this.els.positionsGame.flipBoardButton.addEventListener('touchstart', this.flipPositionsGameBoard, { passive: true });
-    else this.els.positionsGame.flipBoardButton.addEventListener('click', this.flipPositionsGameBoard);
+    // if (navigator.maxTouchPoints > 0) this.els.positionsGame.flipBoardButton.addEventListener('touchstart', this.flipPositionsGameBoard, { passive: true });
+    this.els.positionsGame.flipBoardButton.addEventListener('click', this.flipPositionsGameBoard);
 
-    if (navigator.maxTouchPoints > 0) this.els.positionsGame.newPositionsGameButton.addEventListener('touchstart', game.resetPositionsGame, { passive: true });
-    else this.els.positionsGame.newPositionsGameButton.addEventListener('click', game.resetPositionsGame);
+    // if (navigator.maxTouchPoints > 0) this.els.positionsGame.newPositionsGameButton.addEventListener('touchstart', game.resetPositionsGame, { passive: true });
+    this.els.positionsGame.newPositionsGameButton.addEventListener('click', game.resetPositionsGame);
   }
 
   // =========
