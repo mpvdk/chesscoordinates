@@ -1,15 +1,15 @@
-@font-face {
+/* @font-face {
   font-family: 'OpenSans Bold';
   src: url('../fonts/OpenSans-Bold.ttf') format('truetype');
-}
+} */
 @font-face {
   font-family: 'OpenSans';
   src: url('../fonts/OpenSans-Regular.ttf') format('truetype');
 }
-@font-face {
+/* @font-face {
   font-family: 'Source Code Pro Bold';
   src: url('../fonts/SourceCodePro-Bold.ttf') format('truetype');
-}
+} */
 @font-face {
   font-family: 'Source Code Pro';
   src: url('../fonts/SourceCodePro-Regular.ttf') format('truetype');
@@ -22,7 +22,7 @@
 }
 
 h1 {
-  font-family: 'OpenSans Bold', sans-serif;
+  /* font-family: 'OpenSans Bold', sans-serif; */
 }
 
 html {

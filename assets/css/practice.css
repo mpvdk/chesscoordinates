@@ -65,7 +65,6 @@ main {
       &.active {
         background-color: #5198721f;
         color: #519872;
-        font-family: 'OpenSans Bold', sans-serif;
       }
     }
   }
