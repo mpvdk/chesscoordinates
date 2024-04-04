@@ -15,24 +15,16 @@
 
   <body>
     <header>
-      <a href="https://chesscoordinates.com" class="title">ChessCoordinates</a>
+      <a href="https://chesscoordinates.com" class="title">ChessCoordinates<span class="dotcom">.com</span></a>
       <div class="nav-buttons-container">
         <a href="https://github.com/mpvdk/chesscoordinates" target="_blank">
           <img width="30px" height="30px" src="assets/github-mark.png" alt="github logo" />
         </a>
-        <div id="emailbtn">
-          <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75.294 75.294">
-            <path
-              d="M66.097,12.089h-56.9C4.126,12.089,0,16.215,0,21.286v32.722c0,5.071,4.126,9.197,9.197,9.197h56.9 c5.071,0,9.197-4.126,9.197-9.197V21.287C75.295,16.215,71.169,12.089,66.097,12.089z M61.603,18.089L37.647,33.523L13.691,18.089 H61.603z M66.097,57.206h-56.9C7.434,57.206,6,55.771,6,54.009V21.457l29.796,19.16c0.04,0.025,0.083,0.042,0.124,0.065 c0.043,0.024,0.087,0.047,0.131,0.069c0.231,0.119,0.469,0.215,0.712,0.278c0.025,0.007,0.05,0.01,0.075,0.016 c0.267,0.063,0.537,0.102,0.807,0.102c0.001,0,0.002,0,0.002,0c0.002,0,0.003,0,0.004,0c0.27,0,0.54-0.038,0.807-0.102 c0.025-0.006,0.05-0.009,0.075-0.016c0.243-0.063,0.48-0.159,0.712-0.278c0.044-0.022,0.088-0.045,0.131-0.069 c0.041-0.023,0.084-0.04,0.124-0.065l29.796-19.16v32.551C69.295,55.771,67.86,57.206,66.097,57.206z"
-            ></path>
-          </svg>
-        </div>
       </div>
-      <div id="toast" class="toast-hidden"></div>
     </header>
     <main>
       <section class="nav-wrapper">
-        <p>Practice mode:</p>
+        <p>practice mode</p>
         <nav>
           <a id="rank-button" data-game-type="ranks" aria-label="ranks" href="/practice?mode=ranks">ranks</a>
           <a id="file-button" data-game-type="files" aria-label="files" href="/practice?mode=files">files</a>
@@ -775,22 +767,24 @@
       </section>
 
       <section id="colours-game" class="game-section hidden">
-        <div class="colours-game-light colours-game-answer">
-          <svg xmlns="http://www.w3.org/2000/svg" class="colours-game-svg hidden colours-game-light-checkmark" viewBox="0 0 24 24" fill="#519872">
-            <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" class="colours-game-svg hidden colours-game-light-cross" viewBox="0 0 24 24" fill="#CF3C3A">
-            <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
-          </svg>
-        </div>
-        <span class="colours-game-prompt">...</span>
-        <div class="colours-game-dark colours-game-answer">
-          <svg xmlns="http://www.w3.org/2000/svg" class="colours-game-svg hidden colours-game-dark-checkmark" viewBox="0 0 24 24" fill="#519872">
-            <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
-          </svg>
-          <svg xmlns="http://www.w3.org/2000/svg" class="colours-game-svg hidden colours-game-dark-cross" viewBox="0 0 24 24" fill="#CF3C3A">
-            <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
-          </svg>
+        <div class="answers">
+          <div class="colours-game-light colours-game-answer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="colours-game-svg hidden colours-game-light-checkmark" viewBox="0 0 24 24" fill="#519872">
+              <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="colours-game-svg hidden colours-game-light-cross" viewBox="0 0 24 24" fill="#CF3C3A">
+              <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
+            </svg>
+          </div>
+          <span class="colours-game-prompt">...</span>
+          <div class="colours-game-dark colours-game-answer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="colours-game-svg hidden colours-game-dark-checkmark" viewBox="0 0 24 24" fill="#519872">
+              <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="colours-game-svg hidden colours-game-dark-cross" viewBox="0 0 24 24" fill="#CF3C3A">
+              <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
+            </svg>
+          </div>
         </div>
         <button class="start-stop-button" aria-label="start"><span class="start-stop-text">start</span> <span class="countdown-sec"></span></button>
       </section>

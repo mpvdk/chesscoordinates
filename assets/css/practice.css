@@ -44,7 +44,7 @@ main {
   }
 
   nav {
-    margin: 20px 0px 30px;
+    margin: 5px 0px 30px;
     display: flex;
     flex-flow: row;
     align-items: center;
@@ -251,18 +251,22 @@ main {
 }
 
 #colours-game {
-  position: relative;
-  margin-top: 60px;
-  display: grid;
-  grid-template-areas:
-    'answer-light prompt answer-dark'
-    'button button button';
-  grid-template-columns: 2fr 1fr 2fr;
-  justify-items: stretch;
-  align-items: stretch;
-  width: 100%;
-  max-width: 500px;
-  padding: 0px 10px;
+  width: 100vw;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+
+  .answers {
+    width: 100%;
+    height: 100vw;
+    max-width: 600px;
+    max-height: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    padding: 0px 5px;
+  }
 
   .colours-game-answer {
     display: flex;
@@ -270,54 +274,62 @@ main {
     justify-content: center;
     position: relative;
     cursor: pointer;
+    width: 100%;
+    height: 50%;
+    position: relative;
   }
 
   .colours-game-svg {
-    width: 60%;
+    height: 60%;
     fill: black;
     opacity: 0.2;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .colours-game-light {
-    grid-area: answer-light;
     width: 100%;
-    height: 150px;
     background-color: rgb(227, 193, 111);
     border-radius: 10px;
   }
 
   .colours-game-dark {
-    grid-area: answer-dark;
     width: 100%;
-    height: 150px;
     background-color: rgb(184, 139, 74);
     border-radius: 10px;
   }
 
   .colours-game-prompt {
-    grid-area: prompt;
     pointer-events: none;
     cursor: none;
-    font-size: 3rem;
     position: absolute;
-    left: 50%;
     top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
+    color: black;
     z-index: 1;
     background-color: rgba(255, 255, 255, 1);
     padding: 0px 5px;
     width: 6rem;
     text-align: center;
     border-radius: 10px;
+    font-size: 3rem;
   }
 
   button {
-    grid-area: button;
-    margin-top: 100px;
-    width: 100%;
-    align-self: center;
-    justify-self: center;
-    /* max-width: 80%; */
+    font-size: 2rem;
+    padding: 5px;
+    width: 80vw;
+    max-width: 600px;
+    border-radius: 5px;
+    background-color: rgb(184, 139, 74);
+    background-color: #519872;
+    color: white;
+    border: none;
+    margin-top: 40px;
+    cursor: pointer;
   }
 }
 
@@ -532,9 +544,7 @@ main {
 
         a {
           &.active {
-            /* background-color: #5198721f; */
             background-color: #fff;
-            /* color: #519872; */
             margin-left: 20px;
             position: relative;
 
@@ -545,7 +555,6 @@ main {
               left: -15px;
               top: 50%;
               transform: translateY(-50%);
-              /* color: rgb(200, 200, 200); */
               color: #51987256;
             }
           }
@@ -578,29 +587,19 @@ main {
     }
 
     #colours-game {
-      max-width: 600px;
-      grid-template-columns: 3fr 1fr 3fr;
       padding: 0px;
 
-      .colours-game-answer {
-        max-width: 200px;
-      }
-
       .colours-game-prompt {
-        width: 100px;
-      }
-
-      .colours-game-light {
-        justify-self: end;
-      }
-
-      .colours-game-dark {
-        justify-self: start;
+        width: 140px;
+        font-size: 5rem;
       }
 
       button {
-        max-width: 500px;
-        margin-top: 100px;
+        position: absolute;
+        bottom: 0px;
+        left: -440px;
+        margin: 0px;
+        width: 360px;
       }
     }
 

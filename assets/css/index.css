@@ -15,11 +15,27 @@ main {
   }
 
   h1 {
-    font-size: 1.8rem;
+    font-weight: normal;
+    font-size: 2rem;
+    font-family: 'Source Code Pro', monospace;
+
+    .dotcom {
+      font-size: 0.5em;
+      font-family: 'Source Code Pro', monospace;
+    }
+  }
+
+  .divider {
+    display: inline-block;
+    width: 200px;
+    height: 1px;
+    background-color: rgb(150, 150, 150);
+    margin: 10px 0px;
   }
 
   h2 {
     font-size: 1.3rem;
+    font-weight: normal;
     font-family: 'OpenSans', sans-serif;
   }
 
@@ -67,6 +83,34 @@ main {
   }
 }
 
+.link-mail {
+  grid-area: mail;
+  cursor: pointer;
+  text-decoration: underline;
+  position: relative;
+  margin-top: 30px;
+
+  #toast {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    top: -10px;
+    padding: 10px 20px;
+    opacity: 1;
+    background-color: rgb(251, 255, 215);
+    border: 2px solid rgb(207, 219, 100);
+    color: rgb(72, 73, 17);
+    border-radius: 10px;
+    transition: all 200ms ease-in-out;
+
+    &.toast-hidden {
+      transform: translate(-50%, 40px);
+      opacity: 0;
+      transition: all 100ms ease-in-out;
+    }
+  }
+}
+
 @media (min-width: 412px) {
   main {
     nav {
@@ -92,14 +136,18 @@ main {
 
 @media (min-width: 600px) {
   main {
+    svg {
+      margin-bottom: 90px;
+    }
     h1 {
-      font-size: 2.2rem;
+      font-size: 2.5rem;
     }
     h2 {
       font-size: 1.5rem;
       font-weight: normal;
     }
     nav {
+      margin-top: 110px;
       .link-coordinates,
       .link-memory {
         font-size: 1.4rem;

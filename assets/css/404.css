@@ -11,17 +11,21 @@ main {
 
   svg {
     width: 160px;
-    transform: translateX(-10px) rotate(-135deg);
-    margin-bottom: 70px;
+    transform: translateX(-10px) rotate(-140deg);
+    margin: 20px 0px 60px;
   }
 
   h1 {
     font-size: 1.3rem;
     font-weight: normal;
   }
+  h2 {
+    font-size: 1.3rem;
+    font-weight: normal;
+  }
 
   nav {
-    margin-top: 90px;
+    margin-top: 80px;
     display: grid;
     grid-template-areas:
       'coordinates memory'
@@ -98,10 +102,17 @@ main {
 
 @media (min-width: 600px) {
   main {
+    svg {
+      margin: 3 0px 0px 90px;
+    }
     h1 {
       font-size: 2.2rem;
     }
+    h2 {
+      font-size: 2.2rem;
+    }
     nav {
+      margin-top: 110px;
       .link-coordinates,
       .link-memory {
         font-size: 1.4rem;
