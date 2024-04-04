@@ -555,6 +555,7 @@ main {
             background-color: #fff;
             margin-left: 20px;
             position: relative;
+            font-family: 'OpenSans Bold', sans-serif;
 
             &::before {
               content: '\2023';
