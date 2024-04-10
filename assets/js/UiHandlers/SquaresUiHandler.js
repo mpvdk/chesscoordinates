@@ -1,10 +1,12 @@
-export class SquaresUiHandler {
+import UiHandler from './UiHandler.js';
+
+export class SquaresUiHandler extends UiHandler {
   constructor(game) {
+    super();
     this.game = game;
     // ========
     // elements
     // ========
-    this.els = {};
     this.els.score = document.querySelector('#score');
     this.els.scoreCloseButton = document.querySelector('#score button');
     this.els.scoreGameType = document.querySelector('#score .score-heading-game-type');
@@ -16,7 +18,7 @@ export class SquaresUiHandler {
     this.els.countDown = document.querySelector('.countdown-sec');
     this.els.startStopButton = document.querySelector('.start-stop-button');
     this.els.startStopText = document.querySelector('.start-stop-text');
-    this.els.flipBoardButton = document.querySelector('.flip-board-button');
+    this.els.flipBoardButton = document.querySelector('#flip-board-button');
 
     // =========
     // listeners

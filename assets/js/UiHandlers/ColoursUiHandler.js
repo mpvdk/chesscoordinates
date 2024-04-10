@@ -1,11 +1,13 @@
-export class ColoursUiHandler {
+import UiHandler from './UiHandler.js';
+
+export class ColoursUiHandler extends UiHandler {
   constructor(game) {
+    super();
     this.game = game;
 
     // ========
     // elements
     // ========
-    this.els = {};
     this.els.score = document.querySelector('#score');
     this.els.scoreCloseButton = document.querySelector('#score button');
     this.els.scoreCorrectCount = document.querySelector('#score .correct-count');

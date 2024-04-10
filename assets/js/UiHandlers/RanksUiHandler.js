@@ -1,12 +1,14 @@
-export class RanksUiHandler {
+import UiHandler from './UiHandler.js';
+
+export class RanksUiHandler extends UiHandler {
   constructor(game) {
+    super();
     this.game = game;
 
     // ========
     // elements
     // ========
     // universal
-    this.els = {};
     this.els.score = document.querySelector('#score');
     this.els.scoreCloseButton = document.querySelector('#score button');
     this.els.scoreCorrectCount = document.querySelector('#score .correct-count');
@@ -17,7 +19,7 @@ export class RanksUiHandler {
     this.els.countDown = document.querySelector('.countdown-sec');
     this.els.startStopButton = document.querySelector('.start-stop-button');
     this.els.startStopText = document.querySelector('.start-stop-text');
-    this.els.flipBoardButton = document.querySelector('.flip-board-button');
+    this.els.flipBoardButton = document.querySelector('#flip-board-button');
 
     // =========
     // listeners
@@ -32,13 +34,6 @@ export class RanksUiHandler {
   // =========
   hideScore = () => {
     this.els.score.classList.add('hidden');
-  };
-
-  showScore = (correctCount, wrongCount, gameType) => {
-    this.els.scoreCorrectCount.textContent = correctCount;
-    this.els.scoreWrongCount.textContent = wrongCount;
-    this.els.scoreGameType.textContent = gameType;
-    this.els.score.classList.remove('hidden');
   };
 
   updatePrompt = (rank) => {

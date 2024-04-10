@@ -17,7 +17,7 @@
   <body>
     <header>
       <a href="https://chesscoordinates.com" class="title">ChessCoordinates<span class="dotcom">.com</span></a>
-      <div class="nav-buttons-container">
+      <div class="header-github-container">
         <a href="https://github.com/mpvdk/chesscoordinates" target="_blank">
           <img width="30px" height="30px" src="assets/images/github-mark.png" alt="github logo" />
         </a>
@@ -25,14 +25,34 @@
     </header>
     <main>
       <section class="nav-wrapper">
-        <p>practice mode</p>
+        <div class="nav-wrapper-heading">
+          <div class="mobile-only mobile-nav-heading">
+            <div class="mobile-nav-heading-current-mode">current mode: <span>colours</span></div>
+            <div class="mobile-nav-heading-button">
+              <svg viewBox="0 0 120 80" width="30">
+                <rect rx="8" width="120" height="15"></rect>
+                <rect rx="8" y="30" width="120" height="15"></rect>
+                <rect rx="8" y="60" width="120" height="15"></rect>
+              </svg>
+              <span>change mode</span>
+            </div>
+          </div>
+          <p class="desktop-only">practice mode</p>
+        </div>
         <nav>
           <a id="ranks-button" data-game-type="ranks" aria-label="ranks" href="/ranks">ranks</a>
           <a id="files-button" data-game-type="files" aria-label="files" href="/files">files</a>
           <a id="squares-button" data-game-type="squares" aria-label="squares" href="/squares">squares</a>
-          <!-- <a id="moves-button" data-game-type="moves" aria-label="moves" href="/moves">moves</a> -->
+          <a id="moves-button" data-game-type="moves" aria-label="moves" href="/moves">moves</a>
           <a id="colours-button" data-game-type="colours" aria-label="colours" href="/colours" class="active">colours</a>
           <a id="memory-button" data-game-type="memory" aria-label="memory" href="/memory">memory</a>
+          <span class="mobile-nav-close-button mobile-only">
+            <svg fill="#xxx" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92.132 92.132">
+              <path
+                d="M2.141,89.13c1.425,1.429,3.299,2.142,5.167,2.142c1.869,0,3.742-0.713,5.167-2.142l33.591-33.592L79.657,89.13 c1.426,1.429,3.299,2.142,5.167,2.142c1.867,0,3.74-0.713,5.167-2.142c2.854-2.854,2.854-7.48,0-10.334L56.398,45.205 l31.869-31.869c2.855-2.853,2.855-7.481,0-10.334c-2.853-2.855-7.479-2.855-10.334,0L46.065,34.87L14.198,3.001 c-2.854-2.855-7.481-2.855-10.333,0c-2.855,2.853-2.855,7.481,0,10.334l31.868,31.869L2.143,78.795 C-0.714,81.648-0.714,86.274,2.141,89.13z"
+              ></path>
+            </svg>
+          </span>
         </nav>
       </section>
 

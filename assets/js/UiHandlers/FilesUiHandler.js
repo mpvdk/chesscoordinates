@@ -1,11 +1,13 @@
-export class FilesUiHandler {
+import UiHandler from './UiHandler.js';
+
+export class FilesUiHandler extends UiHandler {
   constructor(game) {
+    super();
     this.game = game;
 
     // ========
     // elements
     // ========
-    this.els = {};
     this.els.score = document.querySelector('#score');
     this.els.scoreCloseButton = document.querySelector('#score button');
     this.els.scoreCorrectCount = document.querySelector('#score .correct-count');
@@ -16,7 +18,7 @@ export class FilesUiHandler {
     this.els.countDown = document.querySelector('.countdown-sec');
     this.els.startStopButton = document.querySelector('.start-stop-button');
     this.els.startStopText = document.querySelector('.start-stop-text');
-    this.els.flipBoardButton = document.querySelector('.flip-board-button');
+    this.els.flipBoardButton = document.querySelector('#flip-board-button');
 
     // =========
     // listeners

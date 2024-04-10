@@ -1,0 +1,116 @@
+footer {
+  width: 100vw;
+  border-top: 1px solid rgb(216, 216, 216);
+  margin-top: 100px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  .footer-inner-container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 50px;
+    padding: 50px 0px;
+    width: 100%;
+    max-width: 1400px;
+
+    section {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+
+      h1 {
+        margin-bottom: 10px;
+        font-size: 1rem;
+        font-weight: normal;
+        text-decoration: underline;
+        font-family: 'Source Code Pro' !important;
+
+        a {
+          font-size: 1rem;
+          font-weight: normal;
+          text-decoration: underline;
+          font-family: 'Source Code Pro' !important;
+        }
+      }
+
+      ul,
+      li,
+      p {
+        font-size: 0.9rem;
+        text-wrap: nowrap;
+      }
+
+      ul {
+        list-style-type: none;
+        padding: 0px;
+        margin: 0px;
+        text-align: center;
+
+        li {
+          margin-bottom: 5px;
+        }
+      }
+
+      svg {
+        width: 30px;
+        margin-bottom: 10px;
+      }
+
+      a {
+        color: black;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      .emailbtn {
+        cursor: pointer;
+      }
+    }
+
+    div {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      gap: 50px;
+      max-width: 500px;
+    }
+  }
+}
+
+@media (min-width: 765px) {
+  footer {
+    margin-top: 120px;
+
+    .footer-inner-container {
+      flex-flow: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 50px 50px 80px 50px;
+
+      section {
+        align-items: flex-start;
+        ul {
+          text-align: start;
+        }
+      }
+
+      .footer-sitemap,
+      .footer-contact {
+        margin-top: 40px;
+      }
+
+      div {
+        display: flex;
+        flex-flow: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        width: 40%;
+      }
+    }
+  }
+}

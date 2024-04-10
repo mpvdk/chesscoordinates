@@ -1,14 +1,15 @@
 import { fenToSVGMap } from '../common/Utils.js';
+import UiHandler from './UiHandler.js';
 
-export class MemoryUiHandler {
+export class MemoryUiHandler extends UiHandler {
   constructor(game) {
+    super();
     this.game = game;
 
     // ========
     // elements
     // ========
     // universal
-    this.els = {};
     this.els.container = document.querySelector('#memory-game');
     this.els.board = document.querySelector('.board');
     this.els.startButton = document.querySelector('.start-button');
@@ -17,7 +18,7 @@ export class MemoryUiHandler {
     this.els.showPromptPositionButton = document.querySelector('.show-prompt-position-button');
     this.els.showUserInputPositionButton = document.querySelector('.show-user-input-position-button');
     this.els.newmemoryGameButton = document.querySelector('.new-memory-game-button');
-    this.els.flipBoardButton = document.querySelector('.flip-board-button');
+    this.els.flipBoardButton = document.querySelector('#flip-board-button');
     this.els.piecesContainer = document.querySelector('.pieces-container');
     this.els.difficultySelectionInputs = document.querySelectorAll('.difficulty-selection-container input');
     this.els.difficultyWarning = document.querySelector('.difficulty-warning');

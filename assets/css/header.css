@@ -1,0 +1,39 @@
+header {
+  width: 100vw;
+  padding: 5px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+
+  .title {
+    text-decoration: none;
+    color: black;
+    font-size: 1.3rem;
+    font-family: 'Source Code Pro', monospace;
+
+    .dotcom {
+      font-size: 0.5em;
+      font-family: 'Source Code Pro', monospace;
+    }
+  }
+
+  .header-github-container {
+    margin-bottom: -5px;
+
+    a {
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    img {
+      width: 30px;
+    }
+  }
+}
+
+@media (min-width: 1060px) {
+  header {
+    padding: 20px 30px;
+  }
+}

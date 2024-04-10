@@ -1,7 +1,7 @@
 @import 'common.css';
 
 main {
-  margin-top: 70px;
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,7 +10,7 @@ main {
   padding: 0px 10px;
 
   svg {
-    width: 160px;
+    width: 120px;
     margin-bottom: 70px;
   }
 
@@ -39,34 +39,50 @@ main {
     font-family: 'OpenSans', sans-serif;
   }
 
-  nav {
+  .nav-heading {
     margin-top: 90px;
-    display: grid;
-    grid-template-areas: 'coordinates memory';
-    grid-template-columns: 1fr 1fr;
-    width: 100%;
-    max-width: 500px;
-    gap: 30px 20px;
-    align-items: stretch;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+  }
 
-    .link-coordinates {
-      grid-area: coordinates;
+  nav {
+    display: grid;
+    grid-template-areas: 'files moves' 'ranks colours' 'squares memory';
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: 100%;
+    justify-items: center;
+    gap: 15px;
+
+    .link-files {
+      grid-area: files;
+    }
+    .link-ranks {
+      grid-area: ranks;
+    }
+    .link-squares {
+      grid-area: squares;
+    }
+    .link-moves {
+      grid-area: moves;
+    }
+    .link-colours {
+      grid-area: colours;
     }
     .link-memory {
       grid-area: memory;
     }
-
-    .link-coordinates,
-    .link-memory {
+    a {
       display: block;
       font-size: 1.1rem;
-      height: 75px;
-      padding: 0px 10px;
+      max-width: 240px;
+      width: 100%;
+      padding: 12px 10px;
       border-radius: 5px;
       background-color: rgb(184, 139, 74);
       background-color: #519872;
       color: white;
-      border: none;
+      border: 2px solid #519872;
       cursor: pointer;
       text-decoration: none;
       display: flex;
@@ -77,25 +93,17 @@ main {
         background-color: #5198723d;
         border: 2px solid #519872;
         color: #519872;
+        text-decoration: underline;
         transition: all 50ms ease-in-out;
       }
     }
   }
 }
 
-.link-mail {
-  grid-area: mail;
-  cursor: pointer;
-  text-decoration: underline;
-  position: relative;
-  margin-top: 30px;
-}
-
 @media (min-width: 412px) {
   main {
     nav {
-      .link-coordinates,
-      .link-memory {
+      .a {
         height: 60px;
       }
     }
@@ -105,11 +113,14 @@ main {
 @media (min-width: 500px) {
   main {
     svg {
-      width: 200px;
+      width: 160px;
+    }
+    .nav-heading {
+      margin-bottom: 30px;
     }
     nav {
       max-width: 550px;
-      gap: 30px 40px;
+      gap: 30px 30px;
     }
   }
 }
@@ -117,7 +128,7 @@ main {
 @media (min-width: 600px) {
   main {
     svg {
-      margin-bottom: 90px;
+      margin-bottom: 120px;
     }
     h1 {
       font-size: 2.5rem;
@@ -126,10 +137,11 @@ main {
       font-size: 1.5rem;
       font-weight: normal;
     }
+    .nav-heading {
+      margin-top: 120px;
+    }
     nav {
-      margin-top: 110px;
-      .link-coordinates,
-      .link-memory {
+      .a {
         font-size: 1.4rem;
         height: 75px;
       }
