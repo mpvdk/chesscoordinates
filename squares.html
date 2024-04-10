@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="module">
+      import { SquaresGame } from '/assets/js/Games/SquaresGame.js';
+      new SquaresGame();
+    </script>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.png" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/squares.css" />
+    <link rel="canonical" href="https://www.chesscoordinates.com/squares" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <meta name="description" content="Improve your chess skills with ChessCoordinates.com – an app for mastering algebraic notation and position memorization." />
+    <title>ChessCoordinates.com | Algebraic Notation | Squares</title>
+  </head>
+
+  <body>
+    <header>
+      <a href="https://chesscoordinates.com" class="title">ChessCoordinates<span class="dotcom">.com</span></a>
+      <div class="nav-buttons-container">
+        <a href="https://github.com/mpvdk/chesscoordinates" target="_blank">
+          <img width="30px" height="30px" src="assets/images/github-mark.png" alt="github logo" />
+        </a>
+      </div>
+    </header>
+    <main>
+      <section class="nav-wrapper">
+        <p>practice mode</p>
+        <nav>
+          <a id="ranks-button" data-game-type="ranks" aria-label="ranks" href="/ranks">ranks</a>
+          <a id="files-button" data-game-type="files" aria-label="files" href="/files">files</a>
+          <a id="squares-button" data-game-type="squares" aria-label="squares" href="/squares" class="active">squares</a>
+          <!-- <a id="moves-button" data-game-type="moves" aria-label="moves" href="/moves">moves</a> -->
+          <a id="colours-button" data-game-type="colours" aria-label="colours" href="/colours">colours</a>
+          <a id="memory-button" data-game-type="memory" aria-label="memory" href="/memory">memory</a>
+        </nav>
+      </section>
+
+      <section id="squares-game" class="game-section">
+        <div class="board-wrapper">
+          <table class="board">
+            <tbody>
+              <!-- rank #8 -->
+              <tr class="rank" data-rank="8">
+                <td data-square="a8" data-file="a" data-rank="8" class="square light">
+                  <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                    <g>
+                      <path
+                        fill="#000000"
+                        d="M406 484.7H106v-60h300v60zm-56.67-330.83h-50.05V91.3h-82.39v62.57h-54.22V91.3h-54.23v113.67h295.12V91.3h-54.23v62.57zm23.35 67.23H139.32v187.6h233.36V221.1z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="b8" data-file="b" data-rank="8" class="square dark">
+                  <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <g>
+                      <g>
+                        <path
+                          d="M7.2,16l1.1-0.2c1.6-0.3,3.3-0.5,5-0.7c-2.4,2.3-3.9,5.3-4.7,7.9h14.7c0.4-1.5,1.1-3,2.3-4.1l0.2-0.2 c0.2-0.2,0.3-0.4,0.3-0.6C26.6,13,24.2,8,19.8,5.3c-0.8-1.4-2-2.4-3.6-2.9l-0.9-0.3C15,2,14.7,2,14.4,2.2C14.2,2.4,14,2.7,14,3v2.4 l-1.4,0.7C12.2,6.3,12,6.6,12,7v0.5l-4.7,3.1C6.5,11.1,6,12.1,6,13.1V15c0,0.3,0.1,0.6,0.4,0.8C6.6,16,6.9,16,7.2,16z"
+                        ></path>
+                        <path d="M6.8,25C6.3,25.5,6,26.2,6,27v2c0,0.6,0.4,1,1,1h18c0.6,0,1-0.4,1-1v-2c0-0.8-0.3-1.5-0.8-2H6.8z"></path>
+                      </g>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="c8" data-file="c" data-rank="8" class="square light">
+                  <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 226.417 226.417">
+                    <g>
+                      <g>
+                        <path
+                          d="M175.827,200.452v25.966H50.59v-25.966H175.827z M158.438,166.801h-13.748v-55.218h13.748V85.615h-16.893 c5.627-6.366,9.066-14.709,9.066-23.871C150.611,41.807,114.506,0,114.506,0S78.415,41.807,78.415,61.744 c0,9.171,3.443,17.517,9.073,23.871H67.973v25.969h13.746v55.218H67.973v25.973h90.464V166.801L158.438,166.801z"
+                        ></path>
+                      </g>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="d8" data-file="d" data-rank="8" class="square dark">
+                  <svg fill="#000000" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        d="M256 112a56 56 0 1 0-56-56 56 56 0 0 0 56 56zm176 336H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h352a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm72.87-263.84l-28.51-15.92c-7.44-5-16.91-2.46-22.29 4.68a47.59 47.59 0 0 1-47.23 18.23C383.7 186.86 368 164.93 368 141.4a13.4 13.4 0 0 0-13.4-13.4h-38.77c-6 0-11.61 4-12.86 9.91a48 48 0 0 1-93.94 0c-1.25-5.92-6.82-9.91-12.86-9.91H157.4a13.4 13.4 0 0 0-13.4 13.4c0 25.69-19 48.75-44.67 50.49a47.5 47.5 0 0 1-41.54-19.15c-5.28-7.09-14.73-9.45-22.09-4.54l-28.57 16a16 16 0 0 0-5.44 20.47L104.24 416h303.52l102.55-211.37a16 16 0 0 0-5.44-20.47z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="e8" data-file="e" data-rank="8" class="square light">
+                  <svg fill="#000000" viewBox="-32 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        d="M400 448H48a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h352a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm16-288H256v-48h40a8 8 0 0 0 8-8V56a8 8 0 0 0-8-8h-40V8a8 8 0 0 0-8-8h-48a8 8 0 0 0-8 8v40h-40a8 8 0 0 0-8 8v48a8 8 0 0 0 8 8h40v48H32a32 32 0 0 0-30.52 41.54L74.56 416h298.88l73.08-214.46A32 32 0 0 0 416 160z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="f8" data-file="f" data-rank="8" class="square dark">
+                  <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 226.417 226.417">
+                    <g>
+                      <g>
+                        <path
+                          d="M175.827,200.452v25.966H50.59v-25.966H175.827z M158.438,166.801h-13.748v-55.218h13.748V85.615h-16.893 c5.627-6.366,9.066-14.709,9.066-23.871C150.611,41.807,114.506,0,114.506,0S78.415,41.807,78.415,61.744 c0,9.171,3.443,17.517,9.073,23.871H67.973v25.969h13.746v55.218H67.973v25.973h90.464V166.801L158.438,166.801z"
+                        ></path>
+                      </g>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="g8" data-file="g" data-rank="8" class="square light">
+                  <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <g>
+                      <g>
+                        <path
+                          d="M7.2,16l1.1-0.2c1.6-0.3,3.3-0.5,5-0.7c-2.4,2.3-3.9,5.3-4.7,7.9h14.7c0.4-1.5,1.1-3,2.3-4.1l0.2-0.2 c0.2-0.2,0.3-0.4,0.3-0.6C26.6,13,24.2,8,19.8,5.3c-0.8-1.4-2-2.4-3.6-2.9l-0.9-0.3C15,2,14.7,2,14.4,2.2C14.2,2.4,14,2.7,14,3v2.4 l-1.4,0.7C12.2,6.3,12,6.6,12,7v0.5l-4.7,3.1C6.5,11.1,6,12.1,6,13.1V15c0,0.3,0.1,0.6,0.4,0.8C6.6,16,6.9,16,7.2,16z"
+                        ></path>
+                        <path d="M6.8,25C6.3,25.5,6,26.2,6,27v2c0,0.6,0.4,1,1,1h18c0.6,0,1-0.4,1-1v-2c0-0.8-0.3-1.5-0.8-2H6.8z"></path>
+                      </g>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="h8" data-file="h" data-rank="8" class="square dark">
+                  <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                    <g>
+                      <path
+                        fill="#000000"
+                        d="M406 484.7H106v-60h300v60zm-56.67-330.83h-50.05V91.3h-82.39v62.57h-54.22V91.3h-54.23v113.67h295.12V91.3h-54.23v62.57zm23.35 67.23H139.32v187.6h233.36V221.1z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+              </tr>
+
+              <!-- rank #7 -->
+              <tr class="rank" data-rank="7">
+                <td data-square="a7" data-file="a" data-rank="7" class="square dark">
+                  <svg fill="#000000" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        d="M105.1 224H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h16v5.49c0 44-4.14 86.6-24 122.51h176c-19.89-35.91-24-78.51-24-122.51V288h16a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-25.1c29.39-18.38 49.1-50.78 49.1-88a104 104 0 0 0-208 0c0 37.22 19.71 69.62 49.1 88zM304 448H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="b7" data-file="b" data-rank="7" class="square light">
+                  <svg fill="#000000" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        d="M105.1 224H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h16v5.49c0 44-4.14 86.6-24 122.51h176c-19.89-35.91-24-78.51-24-122.51V288h16a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-25.1c29.39-18.38 49.1-50.78 49.1-88a104 104 0 0 0-208 0c0 37.22 19.71 69.62 49.1 88zM304 448H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="c7" data-file="c" data-rank="7" class="square dark">
+                  <svg fill="#000000" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        d="M105.1 224H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h16v5.49c0 44-4.14 86.6-24 122.51h176c-19.89-35.91-24-78.51-24-122.51V288h16a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-25.1c29.39-18.38 49.1-50.78 49.1-88a104 104 0 0 0-208 0c0 37.22 19.71 69.62 49.1 88zM304 448H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="d7" data-file="d" data-rank="7" class="square light">
+                  <svg fill="#000000" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        d="M105.1 224H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h16v5.49c0 44-4.14 86.6-24 122.51h176c-19.89-35.91-24-78.51-24-122.51V288h16a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-25.1c29.39-18.38 49.1-50.78 49.1-88a104 104 0 0 0-208 0c0 37.22 19.71 69.62 49.1 88zM304 448H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="e7" data-file="e" data-rank="7" class="square dark">
+                  <svg fill="#000000" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        d="M105.1 224H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h16v5.49c0 44-4.14 86.6-24 122.51h176c-19.89-35.91-24-78.51-24-122.51V288h16a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-25.1c29.39-18.38 49.1-50.78 49.1-88a104 104 0 0 0-208 0c0 37.22 19.71 69.62 49.1 88zM304 448H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="f7" data-file="f" data-rank="7" class="square light">
+                  <svg fill="#000000" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        d="M105.1 224H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h16v5.49c0 44-4.14 86.6-24 122.51h176c-19.89-35.91-24-78.51-24-122.51V288h16a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-25.1c29.39-18.38 49.1-50.78 49.1-88a104 104 0 0 0-208 0c0 37.22 19.71 69.62 49.1 88zM304 448H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="g7" data-file="g" data-rank="7" class="square dark">
+                  <svg fill="#000000" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        d="M105.1 224H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h16v5.49c0 44-4.14 86.6-24 122.51h176c-19.89-35.91-24-78.51-24-122.51V288h16a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-25.1c29.39-18.38 49.1-50.78 49.1-88a104 104 0 0 0-208 0c0 37.22 19.71 69.62 49.1 88zM304 448H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="h7" data-file="h" data-rank="7" class="square light">
+                  <svg fill="#000000" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        d="M105.1 224H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h16v5.49c0 44-4.14 86.6-24 122.51h176c-19.89-35.91-24-78.51-24-122.51V288h16a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-25.1c29.39-18.38 49.1-50.78 49.1-88a104 104 0 0 0-208 0c0 37.22 19.71 69.62 49.1 88zM304 448H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+              </tr>
+
+              <!-- rank #6 -->
+              <tr class="rank" data-rank="6">
+                <td data-square="a6" data-file="a" data-rank="6" class="square light"></td>
+                <td data-square="b6" data-file="b" data-rank="6" class="square dark"></td>
+                <td data-square="c6" data-file="c" data-rank="6" class="square light"></td>
+                <td data-square="d6" data-file="d" data-rank="6" class="square dark"></td>
+                <td data-square="e6" data-file="e" data-rank="6" class="square light"></td>
+                <td data-square="f6" data-file="f" data-rank="6" class="square dark"></td>
+                <td data-square="g6" data-file="g" data-rank="6" class="square light"></td>
+                <td data-square="h6" data-file="h" data-rank="6" class="square dark"></td>
+              </tr>
+
+              <!-- rank #5 -->
+              <tr class="rank" data-rank="5">
+                <td data-square="a5" data-file="a" data-rank="5" class="square dark"></td>
+                <td data-square="b5" data-file="b" data-rank="5" class="square light"></td>
+                <td data-square="c5" data-file="c" data-rank="5" class="square dark"></td>
+                <td data-square="d5" data-file="d" data-rank="5" class="square light"></td>
+                <td data-square="e5" data-file="e" data-rank="5" class="square dark"></td>
+                <td data-square="f5" data-file="f" data-rank="5" class="square light"></td>
+                <td data-square="g5" data-file="g" data-rank="5" class="square dark"></td>
+                <td data-square="h5" data-file="h" data-rank="5" class="square light"></td>
+              </tr>
+
+              <!-- rank #4 -->
+              <tr class="rank" data-rank="4">
+                <td data-square="a4" data-file="a" data-rank="4" class="square light"></td>
+                <td data-square="b4" data-file="b" data-rank="4" class="square dark"></td>
+                <td data-square="c4" data-file="c" data-rank="4" class="square light"></td>
+                <td data-square="d4" data-file="d" data-rank="4" class="square dark"></td>
+                <td data-square="e4" data-file="e" data-rank="4" class="square light"></td>
+                <td data-square="f4" data-file="f" data-rank="4" class="square dark"></td>
+                <td data-square="g4" data-file="g" data-rank="4" class="square light"></td>
+                <td data-square="h4" data-file="h" data-rank="4" class="square dark"></td>
+              </tr>
+
+              <!-- rank #3 -->
+              <tr class="rank" data-rank="3">
+                <td data-square="a3" data-file="a" data-rank="3" class="square dark"></td>
+                <td data-square="b3" data-file="b" data-rank="3" class="square light"></td>
+                <td data-square="c3" data-file="c" data-rank="3" class="square dark"></td>
+                <td data-square="d3" data-file="d" data-rank="3" class="square light"></td>
+                <td data-square="e3" data-file="e" data-rank="3" class="square dark"></td>
+                <td data-square="f3" data-file="f" data-rank="3" class="square light"></td>
+                <td data-square="g3" data-file="g" data-rank="3" class="square dark"></td>
+                <td data-square="h3" data-file="h" data-rank="3" class="square light"></td>
+              </tr>
+
+              <!-- rank #2 -->
+              <tr class="rank" data-rank="2">
+                <td data-square="a2" data-file="a" data-rank="2" class="square light">
+                  <svg fill="#fff" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        stroke="black"
+                        stroke-width="20"
+                        d="M105.1 224H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h16v5.49c0 44-4.14 86.6-24 122.51h176c-19.89-35.91-24-78.51-24-122.51V288h16a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-25.1c29.39-18.38 49.1-50.78 49.1-88a104 104 0 0 0-208 0c0 37.22 19.71 69.62 49.1 88zM304 448H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="b2" data-file="b" data-rank="2" class="square dark">
+                  <svg fill="#fff" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        stroke="black"
+                        stroke-width="20"
+                        d="M105.1 224H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h16v5.49c0 44-4.14 86.6-24 122.51h176c-19.89-35.91-24-78.51-24-122.51V288h16a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-25.1c29.39-18.38 49.1-50.78 49.1-88a104 104 0 0 0-208 0c0 37.22 19.71 69.62 49.1 88zM304 448H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="c2" data-file="c" data-rank="2" class="square light">
+                  <svg fill="#fff" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        stroke="black"
+                        stroke-width="20"
+                        d="M105.1 224H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h16v5.49c0 44-4.14 86.6-24 122.51h176c-19.89-35.91-24-78.51-24-122.51V288h16a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-25.1c29.39-18.38 49.1-50.78 49.1-88a104 104 0 0 0-208 0c0 37.22 19.71 69.62 49.1 88zM304 448H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="d2" data-file="d" data-rank="2" class="square dark">
+                  <svg fill="#fff" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        stroke="black"
+                        stroke-width="20"
+                        d="M105.1 224H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h16v5.49c0 44-4.14 86.6-24 122.51h176c-19.89-35.91-24-78.51-24-122.51V288h16a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-25.1c29.39-18.38 49.1-50.78 49.1-88a104 104 0 0 0-208 0c0 37.22 19.71 69.62 49.1 88zM304 448H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="e2" data-file="e" data-rank="2" class="square light">
+                  <svg fill="#fff" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        stroke="black"
+                        stroke-width="20"
+                        d="M105.1 224H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h16v5.49c0 44-4.14 86.6-24 122.51h176c-19.89-35.91-24-78.51-24-122.51V288h16a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-25.1c29.39-18.38 49.1-50.78 49.1-88a104 104 0 0 0-208 0c0 37.22 19.71 69.62 49.1 88zM304 448H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="f2" data-file="f" data-rank="2" class="square dark">
+                  <svg fill="#fff" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        stroke="black"
+                        stroke-width="20"
+                        d="M105.1 224H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h16v5.49c0 44-4.14 86.6-24 122.51h176c-19.89-35.91-24-78.51-24-122.51V288h16a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-25.1c29.39-18.38 49.1-50.78 49.1-88a104 104 0 0 0-208 0c0 37.22 19.71 69.62 49.1 88zM304 448H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="g2" data-file="g" data-rank="2" class="square light">
+                  <svg fill="#fff" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        stroke="black"
+                        stroke-width="20"
+                        d="M105.1 224H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h16v5.49c0 44-4.14 86.6-24 122.51h176c-19.89-35.91-24-78.51-24-122.51V288h16a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-25.1c29.39-18.38 49.1-50.78 49.1-88a104 104 0 0 0-208 0c0 37.22 19.71 69.62 49.1 88zM304 448H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="h2" data-file="h" data-rank="2" class="square dark">
+                  <svg fill="#fff" viewBox="-96 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        stroke="black"
+                        stroke-width="20"
+                        d="M105.1 224H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h16v5.49c0 44-4.14 86.6-24 122.51h176c-19.89-35.91-24-78.51-24-122.51V288h16a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16h-25.1c29.39-18.38 49.1-50.78 49.1-88a104 104 0 0 0-208 0c0 37.22 19.71 69.62 49.1 88zM304 448H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h288a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+              </tr>
+
+              <!-- rank #1 -->
+              <tr class="rank" data-rank="1">
+                <td data-square="a1" data-file="a" data-rank="1" class="square dark">
+                  <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#fff">
+                    <g>
+                      <path
+                        stroke="black"
+                        stroke-width="20"
+                        fill="#fff"
+                        d="M406 484.7H106v-60h300v60zm-56.67-330.83h-50.05V91.3h-82.39v62.57h-54.22V91.3h-54.23v113.67h295.12V91.3h-54.23v62.57zm23.35 67.23H139.32v187.6h233.36V221.1z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="b1" data-file="b" data-rank="1" class="square light">
+                  <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <g>
+                      <g>
+                        <path
+                          stroke="black"
+                          stroke-width="1.5"
+                          d="M7.2,16l1.1-0.2c1.6-0.3,3.3-0.5,5-0.7c-2.4,2.3-3.9,5.3-4.7,7.9h14.7c0.4-1.5,1.1-3,2.3-4.1l0.2-0.2 c0.2-0.2,0.3-0.4,0.3-0.6C26.6,13,24.2,8,19.8,5.3c-0.8-1.4-2-2.4-3.6-2.9l-0.9-0.3C15,2,14.7,2,14.4,2.2C14.2,2.4,14,2.7,14,3v2.4 l-1.4,0.7C12.2,6.3,12,6.6,12,7v0.5l-4.7,3.1C6.5,11.1,6,12.1,6,13.1V15c0,0.3,0.1,0.6,0.4,0.8C6.6,16,6.9,16,7.2,16z"
+                        ></path>
+                        <path stroke="black" stroke-width="1.5" d="M6.8,25C6.3,25.5,6,26.2,6,27v2c0,0.6,0.4,1,1,1h18c0.6,0,1-0.4,1-1v-2c0-0.8-0.3-1.5-0.8-2H6.8z"></path>
+                      </g>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="c1" data-file="c" data-rank="1" class="square dark">
+                  <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 226.417 226.417" data-fen-piece="B">
+                    <g>
+                      <g>
+                        <path
+                          stroke="black"
+                          stroke-width="8"
+                          fill="#fff"
+                          d="M175.827,200.452v25.966H50.59v-25.966H175.827z M158.438,166.801h-13.748v-55.218h13.748V85.615h-16.893 c5.627-6.366,9.066-14.709,9.066-23.871C150.611,41.807,114.506,0,114.506,0S78.415,41.807,78.415,61.744 c0,9.171,3.443,17.517,9.073,23.871H67.973v25.969h13.746v55.218H67.973v25.973h90.464V166.801L158.438,166.801z"
+                        ></path>
+                      </g>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="d1" data-file="d" data-rank="1" class="square light">
+                  <svg fill="#fff" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        stroke="black"
+                        stroke-width="20"
+                        d="M256 112a56 56 0 1 0-56-56 56 56 0 0 0 56 56zm176 336H80a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h352a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm72.87-263.84l-28.51-15.92c-7.44-5-16.91-2.46-22.29 4.68a47.59 47.59 0 0 1-47.23 18.23C383.7 186.86 368 164.93 368 141.4a13.4 13.4 0 0 0-13.4-13.4h-38.77c-6 0-11.61 4-12.86 9.91a48 48 0 0 1-93.94 0c-1.25-5.92-6.82-9.91-12.86-9.91H157.4a13.4 13.4 0 0 0-13.4 13.4c0 25.69-19 48.75-44.67 50.49a47.5 47.5 0 0 1-41.54-19.15c-5.28-7.09-14.73-9.45-22.09-4.54l-28.57 16a16 16 0 0 0-5.44 20.47L104.24 416h303.52l102.55-211.37a16 16 0 0 0-5.44-20.47z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="e1" data-file="e" data-rank="1" class="square dark">
+                  <svg fill="#fff" viewBox="-32 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                    <g>
+                      <path
+                        stroke="black"
+                        stroke-width="20"
+                        d="M400 448H48a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h352a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zm16-288H256v-48h40a8 8 0 0 0 8-8V56a8 8 0 0 0-8-8h-40V8a8 8 0 0 0-8-8h-48a8 8 0 0 0-8 8v40h-40a8 8 0 0 0-8 8v48a8 8 0 0 0 8 8h40v48H32a32 32 0 0 0-30.52 41.54L74.56 416h298.88l73.08-214.46A32 32 0 0 0 416 160z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="f1" data-file="f" data-rank="1" class="square light">
+                  <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 226.417 226.417">
+                    <g>
+                      <g>
+                        <path
+                          stroke="black"
+                          stroke-width="8"
+                          fill="#fff"
+                          d="M175.827,200.452v25.966H50.59v-25.966H175.827z M158.438,166.801h-13.748v-55.218h13.748V85.615h-16.893 c5.627-6.366,9.066-14.709,9.066-23.871C150.611,41.807,114.506,0,114.506,0S78.415,41.807,78.415,61.744 c0,9.171,3.443,17.517,9.073,23.871H67.973v25.969h13.746v55.218H67.973v25.973h90.464V166.801L158.438,166.801z"
+                        ></path>
+                      </g>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="g1" data-file="g" data-rank="1" class="square dark">
+                  <svg fill="#fff" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <g>
+                      <g>
+                        <path
+                          stroke="black"
+                          stroke-width="1.5"
+                          d="M7.2,16l1.1-0.2c1.6-0.3,3.3-0.5,5-0.7c-2.4,2.3-3.9,5.3-4.7,7.9h14.7c0.4-1.5,1.1-3,2.3-4.1l0.2-0.2 c0.2-0.2,0.3-0.4,0.3-0.6C26.6,13,24.2,8,19.8,5.3c-0.8-1.4-2-2.4-3.6-2.9l-0.9-0.3C15,2,14.7,2,14.4,2.2C14.2,2.4,14,2.7,14,3v2.4 l-1.4,0.7C12.2,6.3,12,6.6,12,7v0.5l-4.7,3.1C6.5,11.1,6,12.1,6,13.1V15c0,0.3,0.1,0.6,0.4,0.8C6.6,16,6.9,16,7.2,16z"
+                        ></path>
+                        <path stroke="black" stroke-width="1.5" d="M6.8,25C6.3,25.5,6,26.2,6,27v2c0,0.6,0.4,1,1,1h18c0.6,0,1-0.4,1-1v-2c0-0.8-0.3-1.5-0.8-2H6.8z"></path>
+                      </g>
+                    </g>
+                  </svg>
+                </td>
+                <td data-square="h1" data-file="h" data-rank="1" class="square light">
+                  <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="#fff">
+                    <g>
+                      <path
+                        stroke="black"
+                        stroke-width="20"
+                        fill="#fff"
+                        d="M406 484.7H106v-60h300v60zm-56.67-330.83h-50.05V91.3h-82.39v62.57h-54.22V91.3h-54.23v113.67h295.12V91.3h-54.23v62.57zm23.35 67.23H139.32v187.6h233.36V221.1z"
+                      ></path>
+                    </g>
+                  </svg>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <button class="flip-board-button" aria-label="flip board">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+              <g>
+                <g id="media-player" stroke="none" stroke-width="10" fill="none" fill-rule="evenodd">
+                  <g id="loop" fill="#000000">
+                    <path
+                      d="M6.8762659,15.1237341 C7.93014755,16.8486822 9.83062143,18 12,18 C14.6124377,18 16.8349158,16.3303847 17.6585886,14 L19.747965,14 C18.8598794,17.4504544 15.7276789,20 12,20 C9.28005374,20 6.87714422,18.6426044 5.43172915,16.5682708 L3,19 L3,13 L9,13 L6.8762659,15.1237341 Z M17.1245693,8.87543068 C16.0703077,7.15094618 14.1695981,6 12,6 C9.3868762,6 7.16381436,7.66961525 6.33992521,10 L4.25,10 C5.13831884,6.54954557 8.27134208,4 12,4 C14.7202162,4 17.123416,5.35695218 18.5692874,7.43071264 L21,5 L21,11 L15,11 L17.1245693,8.87543068 Z"
+                      id="Shape"
+                    ></path>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </button>
+
+          <p class="prompt"></p>
+        </div>
+        <button class="start-stop-button" aria-label="start"><span class="start-stop-text">start</span> <span class="countdown-sec"></span></button>
+      </section>
+
+      <aside id="score" class="hidden">
+        <p class="score-heading">score (<span class="score-heading-game-type"></span>)</p>
+        <section class="score-correct">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#519872">
+            <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
+          </svg>
+          <span class="correct-count">8</span>
+        </section>
+        <section class="score-wrong">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#CF3C3A">
+            <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
+          </svg>
+          <span class="wrong-count">2</span>
+        </section>
+        <button class="score-close-button" aria-label="close">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
+          </svg>
+        </button>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="footer-inner-container">
+        <section class="footer-copyright">
+          <svg viewBox="0 0 356 384" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M177 18V107.5M135.5 53.5L218.5 53.5M63.5 288L34 366H329.5L298.5 288M63.5 288H298.5M63.5 288C63.5 288 53 226 18 149C96 110 260 109.5 338 149C307.5 228.5 298.5 288 298.5 288"
+              stroke="rgb(20,20,20)"
+              stroke-width="30"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <h1><a href="https://www.chesscoordinates.com" aria-label="chesscoordinates.com">ChessCoordinates.com</a></h1>
+          <p>&copy; 2024 - Martijn van den Kerkhof</p>
+        </section>
+        <div>
+          <section class="footer-sitemap">
+            <h1>sitemap</h1>
+            <div class="sitemap-ul-container">
+              <ul>
+                <li><a href="/" aria-label="home">home</a></li>
+                <li><a href="/files" aria-label="files">files</a></li>
+                <li><a href="/ranks" aria-label="ranks">ranks</a></li>
+                <li><a href="/squares" aria-label="squares">squares</a></li>
+                <li><a href="/colours" aria-label="colours">colours</a></li>
+                <!-- <li><a href="/moves" aria-label="moves">moves</a></li> -->
+                <li><a href="/memory" aria-label="memory">memory</a></li>
+              </ul>
+            </div>
+          </section>
+          <section class="footer-contact">
+            <h1>contact</h1>
+            <ul>
+              <li><a href="https://github.com/mpvdk/chesscoordinates" target="_blank" aria-label="github">github</a></li>
+              <li class="emailbtn">mail</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </footer>
+    <div id="toast" class="toast-hidden"></div>
+  </body>
+  <script src="assets/js/common/EmailCopy.js"></script>
+</html>

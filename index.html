@@ -5,11 +5,8 @@
     <link rel="stylesheet" href="assets/css/index.css" />
     <link rel="canonical" href="https://www.chesscoordinates.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
-    <meta
-      name="description"
-      content="Improve your chess skills with ChessCoordinates.com – a web app for mastering algebraic notation and position memorization. Training modes include file and rank naming, square identification, color recognition, and memory challenges."
-    />
-    <title>Chess coordinate and memory practice</title>
+    <meta name="description" content="Improve your chess skills with ChessCoordinates.com – an app for mastering algebraic notation and position memorization." />
+    <title>ChessCoordinates.com</title>
   </head>
 
   <body>
@@ -35,14 +32,55 @@
       <span class="divider"></span>
       <h2>Helping you get better at chess</h2>
       <nav>
-        <a href="/practice?mode=squares" class="link-coordinates">Practice coordinates</a>
-        <a href="/practice?mode=positions" class="link-memory">Train your memory</a>
+        <a href="/squares" class="link-coordinates">Practice coordinates</a>
+        <a href="/memory" class="link-memory">Train your memory</a>
       </nav>
-      <div class="link-mail" id="emailbtn">
+      <div class="link-mail" class="emailbtn">
         <span>contact</span>
-        <div id="toast" class="toast-hidden">test</div>
       </div>
     </main>
+
+    <footer>
+      <div class="footer-inner-container">
+        <section class="footer-copyright">
+          <svg viewBox="0 0 356 384" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M177 18V107.5M135.5 53.5L218.5 53.5M63.5 288L34 366H329.5L298.5 288M63.5 288H298.5M63.5 288C63.5 288 53 226 18 149C96 110 260 109.5 338 149C307.5 228.5 298.5 288 298.5 288"
+              stroke="rgb(20,20,20)"
+              stroke-width="30"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <h1><a href="https://www.chesscoordinates.com">ChessCoordinates.com</a></h1>
+          <p>&copy; 2024 - Martijn van den Kerkhof</p>
+        </section>
+        <div>
+          <section class="footer-sitemap">
+            <h1>sitemap</h1>
+            <div class="sitemap-ul-container">
+              <ul>
+                <li><a href="/">home</a></li>
+                <li><a href="/files">files</a></li>
+                <li><a href="/ranks">ranks</a></li>
+                <li><a href="/squares">squares</a></li>
+                <li><a href="/colours">colours</a></li>
+                <!-- <li><a href="/moves">moves</a></li> -->
+                <li><a href="/memory">memory</a></li>
+              </ul>
+            </div>
+          </section>
+          <section class="footer-contact">
+            <h1>contact</h1>
+            <ul>
+              <li><a href="https://github.com/mpvdk/chesscoordinates" target="_blank">github</a></li>
+              <li class="emailbtn">mail</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </footer>
+    <div id="toast" class="toast-hidden"></div>
   </body>
-  <script src="assets/js/EmailCopy.js"></script>
+  <script src="assets/js/common/EmailCopy.js"></script>
 </html>

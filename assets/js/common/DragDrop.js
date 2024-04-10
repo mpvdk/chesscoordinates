@@ -1,4 +1,4 @@
-import { fenToSVGMap } from './Utils.js';
+import { fenToSVGMap } from '../common/Utils.js';
 
 export class DragDrop {
   constructor() {
@@ -23,7 +23,7 @@ export class DragDrop {
   };
 
   initListenersForSquares = () => {
-    document.querySelectorAll('#positions-game .board .square').forEach((square) => {
+    document.querySelectorAll('#memory-game .board .square').forEach((square) => {
       square.addEventListener('dragover', this.onSquareDragOver);
       square.addEventListener('dragenter', this.onSquareDragEnter);
       square.addEventListener('dragleave', this.onSquareDragLeave);

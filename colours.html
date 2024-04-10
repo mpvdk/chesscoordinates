@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script type="module">
+      import { ColoursGame } from '/assets/js/Games/ColoursGame.js';
+      new ColoursGame();
+    </script>
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.png" />
+    <link rel="stylesheet" href="assets/css/common.css" />
+    <link rel="stylesheet" href="assets/css/colours.css" />
+    <link rel="canonical" href="https://www.chesscoordinates.com/colours" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <meta name="description" content="Improve your chess skills with ChessCoordinates.com – an app for mastering algebraic notation and position memorization." />
+    <title>ChessCoordinates.com | Colours practice</title>
+  </head>
+
+  <body>
+    <header>
+      <a href="https://chesscoordinates.com" class="title">ChessCoordinates<span class="dotcom">.com</span></a>
+      <div class="nav-buttons-container">
+        <a href="https://github.com/mpvdk/chesscoordinates" target="_blank">
+          <img width="30px" height="30px" src="assets/images/github-mark.png" alt="github logo" />
+        </a>
+      </div>
+    </header>
+    <main>
+      <section class="nav-wrapper">
+        <p>practice mode</p>
+        <nav>
+          <a id="ranks-button" data-game-type="ranks" aria-label="ranks" href="/ranks">ranks</a>
+          <a id="files-button" data-game-type="files" aria-label="files" href="/files">files</a>
+          <a id="squares-button" data-game-type="squares" aria-label="squares" href="/squares">squares</a>
+          <!-- <a id="moves-button" data-game-type="moves" aria-label="moves" href="/moves">moves</a> -->
+          <a id="colours-button" data-game-type="colours" aria-label="colours" href="/colours" class="active">colours</a>
+          <a id="memory-button" data-game-type="memory" aria-label="memory" href="/memory">memory</a>
+        </nav>
+      </section>
+
+      <section id="colours-game" class="game-section">
+        <div class="answers">
+          <div class="colours-game-light colours-game-answer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="colours-game-svg hidden colours-game-light-checkmark" viewBox="0 0 24 24" fill="#519872">
+              <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="colours-game-svg hidden colours-game-light-cross" viewBox="0 0 24 24" fill="#CF3C3A">
+              <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
+            </svg>
+          </div>
+          <span class="colours-game-prompt">...</span>
+          <div class="colours-game-dark colours-game-answer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="colours-game-svg hidden colours-game-dark-checkmark" viewBox="0 0 24 24" fill="#519872">
+              <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="colours-game-svg hidden colours-game-dark-cross" viewBox="0 0 24 24" fill="#CF3C3A">
+              <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
+            </svg>
+          </div>
+        </div>
+        <button class="start-stop-button" aria-label="start"><span class="start-stop-text">start</span> <span class="countdown-sec"></span></button>
+      </section>
+
+      <aside id="score" class="hidden">
+        <p class="score-heading">score (colours)</p>
+        <section class="score-correct">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#519872">
+            <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
+          </svg>
+          <span class="correct-count">8</span>
+        </section>
+        <section class="score-wrong">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#CF3C3A">
+            <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
+          </svg>
+          <span class="wrong-count">2</span>
+        </section>
+        <button class="score-close-button" aria-label="close">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
+          </svg>
+        </button>
+      </aside>
+    </main>
+
+    <footer>
+      <div class="footer-inner-container">
+        <section class="footer-copyright">
+          <svg viewBox="0 0 356 384" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M177 18V107.5M135.5 53.5L218.5 53.5M63.5 288L34 366H329.5L298.5 288M63.5 288H298.5M63.5 288C63.5 288 53 226 18 149C96 110 260 109.5 338 149C307.5 228.5 298.5 288 298.5 288"
+              stroke="rgb(20,20,20)"
+              stroke-width="30"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <h1><a href="https://www.chesscoordinates.com" aria-label="chesscoordinates.com">ChessCoordinates.com</a></h1>
+          <p>&copy; 2024 - Martijn van den Kerkhof</p>
+        </section>
+        <div>
+          <section class="footer-sitemap">
+            <h1>sitemap</h1>
+            <div class="sitemap-ul-container">
+              <ul>
+                <li><a href="/" aria-label="home">home</a></li>
+                <li><a href="/files" aria-label="files">files</a></li>
+                <li><a href="/ranks" aria-label="ranks">ranks</a></li>
+                <li><a href="/squares" aria-label="squares">squares</a></li>
+                <li><a href="/colours" aria-label="colours">colours</a></li>
+                <!-- <li><a href="/moves" aria-label="moves">moves</a></li> -->
+                <li><a href="/memory" aria-label="memory">memory</a></li>
+              </ul>
+            </div>
+          </section>
+          <section class="footer-contact">
+            <h1>contact</h1>
+            <ul>
+              <li><a href="https://github.com/mpvdk/chesscoordinates" target="_blank" aria-label="github">github</a></li>
+              <li class="emailbtn">mail</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </footer>
+    <div id="toast" class="toast-hidden"></div>
+  </body>
+  <script src="assets/js/common/EmailCopy.js"></script>
+</html>

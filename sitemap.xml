@@ -6,7 +6,27 @@
         <priority>1.0</priority>
     </url>
     <url>
-        <loc>https://www.chesscoordinates.com/practice</loc>
+        <loc>https://www.chesscoordinates.com/ranks</loc>
+        <changefreq>daily</changefreq>
+    </url>
+        <url>
+        <loc>https://www.chesscoordinates.com/files</loc>
+        <changefreq>daily</changefreq>
+    </url>
+        <url>
+        <loc>https://www.chesscoordinates.com/squares</loc>
+        <changefreq>daily</changefreq>
+    </url>
+        <url>
+        <loc>https://www.chesscoordinates.com/moves</loc>
+        <changefreq>daily</changefreq>
+    </url>
+        <url>
+        <loc>https://www.chesscoordinates.com/colours</loc>
+        <changefreq>daily</changefreq>
+    </url>
+        <url>
+        <loc>https://www.chesscoordinates.com/memory</loc>
         <changefreq>daily</changefreq>
     </url>
     <url>

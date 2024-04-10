@@ -318,7 +318,7 @@ main {
   }
 }
 
-#memory-game {
+#moves-game {
   .pieces-container {
     display: flex;
     flex-direction: column;
@@ -416,7 +416,7 @@ main {
     }
   }
 
-  .memory-game-finished-buttons-container {
+  .moves-game-finished-buttons-container {
     max-width: 80vw;
     width: 80vw;
     display: flex;
@@ -600,7 +600,7 @@ main {
       }
 
       &#ranks-files-squares-game,
-      &#memory-game {
+      &#moves-game {
         .start-stop-button,
         .start-button {
           /* font-size: 2.2rem; */
@@ -637,11 +637,11 @@ main {
       }
     }
 
-    #memory-game {
+    #moves-game {
       position: relative;
 
       .check-position-button,
-      .new-memory-game-button {
+      .new-moves-game-button {
         /* font-size: 2.2rem; */
         position: absolute;
         bottom: 0px;
@@ -650,7 +650,7 @@ main {
         width: 360px;
       }
 
-      .memory-game-finished-buttons-container {
+      .moves-game-finished-buttons-container {
         max-width: 360px;
         width: 360px;
         margin: 0px 0px;

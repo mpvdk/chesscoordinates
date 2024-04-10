@@ -51,7 +51,6 @@ main {
   position: relative;
   width: 100vw;
   height: 100vw;
-  /* check */
   max-width: 600px;
   max-height: 600px;
 
@@ -212,112 +211,6 @@ main {
   }
 }
 
-#ranks-files-squares-game {
-  .board {
-    svg {
-      pointer-events: none;
-    }
-  }
-
-  .prompt {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -55%);
-    font-size: 6rem;
-    pointer-events: none;
-    cursor: none;
-
-    &.wrong {
-      animation-name: wrong;
-      animation-duration: 0.3s;
-    }
-  }
-}
-
-#colours-game {
-  width: 100vw;
-  max-width: 600px;
-  display: flex;
-  flex-direction: column;
-
-  .answers {
-    width: 100%;
-    height: 100vw;
-    max-width: 600px;
-    max-height: 600px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    position: relative;
-    padding: 0px 5px;
-  }
-
-  .colours-game-answer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    cursor: pointer;
-    width: 100%;
-    height: 50%;
-    position: relative;
-  }
-
-  .colours-game-svg {
-    height: 60%;
-    fill: black;
-    opacity: 0.2;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .colours-game-light {
-    width: 100%;
-    background-color: rgb(227, 193, 111);
-    border-radius: 10px;
-  }
-
-  .colours-game-dark {
-    width: 100%;
-    background-color: rgb(184, 139, 74);
-    border-radius: 10px;
-  }
-
-  .colours-game-prompt {
-    pointer-events: none;
-    cursor: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: black;
-    z-index: 1;
-    background-color: rgba(255, 255, 255, 1);
-    padding: 0px 5px;
-    width: 6rem;
-    text-align: center;
-    border-radius: 10px;
-    font-size: 3rem;
-  }
-
-  button {
-    font-size: 2rem;
-    padding: 5px;
-    width: 80vw;
-    max-width: 600px;
-    border-radius: 5px;
-    background-color: rgb(184, 139, 74);
-    background-color: #519872;
-    color: white;
-    border: none;
-    margin-top: 40px;
-    cursor: pointer;
-  }
-}
-
 #memory-game {
   .pieces-container {
     display: flex;
@@ -444,86 +337,6 @@ main {
   }
 }
 
-#score {
-  position: fixed;
-  left: 50%;
-  top: 30%;
-  transform: translateX(-50%);
-  width: 80vw;
-  max-width: 300px;
-  z-index: 10;
-  border-radius: 20px;
-  font-size: 3rem;
-  background-color: rgba(255, 255, 255, 0.95);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  padding: 20px 0px;
-
-  .score-heading {
-    font-size: 1.8rem;
-    text-wrap: nowrap;
-    margin-bottom: 10px;
-  }
-
-  section {
-    display: flex;
-    flex-flow: row;
-    align-items: center;
-    margin-bottom: 0px;
-
-    svg {
-      margin-right: 20px;
-      width: 50px;
-      height: 50px;
-    }
-  }
-
-  .score-correct {
-    color: #519872;
-  }
-  .score-wrong {
-    color: #cf3c3a;
-  }
-
-  .score-close-button {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    padding: 10px;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    border-radius: 15px;
-
-    svg {
-      width: 25px;
-      height: 25px;
-      fill: rgb(126, 126, 126);
-    }
-  }
-}
-
-@keyframes wrong {
-  0% {
-    transform: translate(-50%, -55%) scale(1);
-    color: black;
-  }
-  50% {
-    transform: translate(-50%, -55%) scale(1.4);
-    color: red;
-  }
-  75% {
-    transform: translate(-50%, -55%) scale(1.2);
-    color: red;
-  }
-  100% {
-    transform: translate(-50%, -55%) scale(1);
-    color: black;
-  }
-}
-
 @media (min-width: 765px) {
   .nav-wrapper {
     nav {
@@ -599,11 +412,8 @@ main {
         }
       }
 
-      &#ranks-files-squares-game,
       &#memory-game {
-        .start-stop-button,
         .start-button {
-          /* font-size: 2.2rem; */
           position: absolute;
           bottom: 0px;
           left: -440px;
@@ -617,23 +427,6 @@ main {
           left: -440px;
           width: 360px;
         }
-      }
-    }
-
-    #colours-game {
-      padding: 0px;
-
-      .colours-game-prompt {
-        width: 140px;
-        font-size: 5rem;
-      }
-
-      button {
-        position: absolute;
-        bottom: 0px;
-        left: -440px;
-        margin: 0px;
-        width: 360px;
       }
     }
 
