@@ -36,6 +36,26 @@ main {
       transition: all 50ms ease-in-out;
     }
   }
+  .new-retry-buttons-container {
+    display: flex;
+    flex-flow: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 95%;
+    gap: 10px;
+    margin: 20px 0px 0px;
+    .retry-game-button {
+      display: inline-block;
+      width: 33%;
+
+      margin: 0px;
+    }
+    .new-memory-game-button {
+      display: inline-block;
+      width: 66%;
+      margin: 0px;
+    }
+  }
 }
 
 #memory-game {
@@ -137,26 +157,28 @@ main {
   }
 
   .memory-game-finished-buttons-container {
-    max-width: 80vw;
-    width: 80vw;
+    width: 95%;
     display: flex;
     flex-flow: row;
     align-items: center;
+    gap: 10px;
     justify-content: space-between;
-    margin: -20px 0px;
+    margin: 0px 0px;
 
     button {
-      max-width: 40%;
+      width: 50%;
       font-size: 1.2rem;
       background-color: transparent;
-      color: black;
+      color: rgb(129, 129, 129);
       /* border-radius: 0px; */
       cursor: pointer;
       border: 2px solid #519872;
+      margin-top: 20px;
 
       &.active {
         text-decoration: underline;
         text-decoration-color: #519872;
+        color: #519872;
         text-decoration-thickness: 2px;
         background-color: #5198721f;
       }
@@ -205,8 +227,15 @@ main {
   #memory-game {
     position: relative;
 
-    .check-position-button,
-    .new-memory-game-button {
+    .new-retry-buttons-container {
+      position: absolute;
+      bottom: 0px;
+      left: -440px;
+      margin: 0px;
+      width: 360px;
+    }
+
+    .check-position-button {
       /* font-size: 2.2rem; */
       position: absolute;
       bottom: 0px;
@@ -224,7 +253,7 @@ main {
       bottom: 80px;
 
       button {
-        max-width: 45%;
+        /* max-width: 45%; */
         font-size: 1.4rem;
         color: black;
         cursor: pointer;

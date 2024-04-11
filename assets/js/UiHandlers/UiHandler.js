@@ -11,7 +11,10 @@ export default class UiHandler {
 
   modeSelectorClicked = () => {
     this.els.modeNavigation.classList.add('active');
+    const score = document.querySelector('#score');
+    if (score) score.classList.add('hidden');
   };
+
   closeNavigation = () => {
     this.els.modeNavigation.classList.remove('active');
   };

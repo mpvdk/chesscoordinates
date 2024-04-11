@@ -98,6 +98,10 @@
           border: 5px solid rgba(255, 255, 255, 0.8);
         }
 
+        &.dragover {
+          border: 5px solid yellow;
+        }
+
         svg {
           width: 85%;
           height: 85%;

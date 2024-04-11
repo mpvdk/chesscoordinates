@@ -46,6 +46,14 @@ export class MemoryGame {
     this.uiHandler.resetGame();
   };
 
+  restartGameWithSameFen = () => {
+    this.state.active = false;
+    clearInterval(this.intervalId);
+    this.dragDrop.removeAllListeners();
+    this.uiHandler.resetGame();
+    this.startGame();
+  };
+
   difficultyChanged = () => {
     const checkBoxEls = document.querySelectorAll('.difficulty-selection-container input');
     checkBoxEls.forEach((el) => {

@@ -17,7 +17,8 @@ export class MemoryUiHandler extends UiHandler {
     this.els.switchPositionButtons = document.querySelector('.memory-game-finished-buttons-container');
     this.els.showPromptPositionButton = document.querySelector('.show-prompt-position-button');
     this.els.showUserInputPositionButton = document.querySelector('.show-user-input-position-button');
-    this.els.newmemoryGameButton = document.querySelector('.new-memory-game-button');
+    this.els.newGameButton = document.querySelector('.new-memory-game-button');
+    this.els.retryButton = document.querySelector('.retry-game-button');
     this.els.flipBoardButton = document.querySelector('#flip-board-button');
     this.els.piecesContainer = document.querySelector('.pieces-container');
     this.els.difficultySelectionInputs = document.querySelectorAll('.difficulty-selection-container input');
@@ -31,7 +32,8 @@ export class MemoryUiHandler extends UiHandler {
     this.els.showPromptPositionButton.addEventListener('click', this.fillBoardWithPromptPosition);
     this.els.showUserInputPositionButton.addEventListener('click', this.fillBoardWithUserInputPosition);
     this.els.flipBoardButton.addEventListener('click', this.flipBoard);
-    this.els.newmemoryGameButton.addEventListener('click', game.resetGame);
+    this.els.newGameButton.addEventListener('click', game.resetGame);
+    this.els.retryButton.addEventListener('click', game.restartGameWithSameFen);
     this.els.difficultySelectionInputs.forEach((el) => el.addEventListener('click', this.difficultyChanged));
   }
 
@@ -98,7 +100,8 @@ export class MemoryUiHandler extends UiHandler {
   finishGame = (promptSquareToPieceMap, userInputSquareToPieceMap) => {
     this.els.piecesContainer.classList.add('hidden');
     this.els.checkPositionButton.classList.add('hidden');
-    this.els.newmemoryGameButton.classList.remove('hidden');
+    this.els.newGameButton.classList.remove('hidden');
+    this.els.retryButton.classList.remove('hidden');
     this.els.switchPositionButtons.classList.remove('hidden');
 
     const squares = document.querySelectorAll('.board .square');
@@ -117,8 +120,8 @@ export class MemoryUiHandler extends UiHandler {
     squares.forEach((square) => {
       square.classList.remove('position-highlight-wrong');
     });
-    this.els.newmemoryGameButton.classList.add('hidden');
-    this.els.newmemoryGameButton.classList.add('hidden');
+    this.els.newGameButton.classList.add('hidden');
+    this.els.retryButton.classList.add('hidden');
     this.els.switchPositionButtons.classList.add('hidden');
     this.els.startButton.classList.remove('hidden');
     this.els.flipBoardButton.classList.remove('hidden');
