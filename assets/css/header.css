@@ -32,7 +32,7 @@ header {
   }
 }
 
-@media (min-width: 1060px) {
+@media (min-width: 765px) {
   header {
     padding: 20px 30px;
   }

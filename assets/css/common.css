@@ -89,15 +89,6 @@ input[type='checkbox'] {
   }
 }
 
-@media (min-width: 765px) {
-  header {
-    padding: 10px 15px;
-    div {
-      gap: 30px;
-    }
-  }
-}
-
 @media (min-width: 1060px) {
   .mobile-only {
     display: none !important;
