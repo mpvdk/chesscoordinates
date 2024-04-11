@@ -110,7 +110,7 @@ main {
     .difficulty-warning {
       position: absolute;
       left: 50%;
-      top: 0px;
+      top: 70px;
       transform: translate(-50%, -30px);
       text-align: center;
       width: 100%;
@@ -229,6 +229,9 @@ main {
         bottom: 70px;
         left: -440px;
         width: 360px;
+        .difficulty-warning {
+          top: 0px;
+        }
       }
     }
   }
