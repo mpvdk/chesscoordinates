@@ -31,8 +31,10 @@
       width: 100%;
 
       .square {
-        width: 100%;
-        aspect-ratio: 1/1;
+        width: calc(100vw / 8);
+        height: calc(100vw / 8);
+        max-width: calc(600px / 8);
+        max-height: calc(600px / 8);
         position: relative;
         display: flex;
         align-items: center;
