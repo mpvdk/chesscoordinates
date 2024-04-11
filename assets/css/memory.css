@@ -138,7 +138,9 @@ main {
       &::before {
         font-size: 1rem;
         position: absolute;
-        opacity: 0.6;
+        opacity: 0.8;
+        color: white;
+        z-index: 1;
       }
     }
   }
@@ -148,8 +150,8 @@ main {
     &.show-hint {
       &::before {
         content: 'a1';
-        bottom: -3px;
-        left: 0px;
+        bottom: -8px;
+        left: -4px;
       }
     }
   }
@@ -159,8 +161,8 @@ main {
     &.show-hint {
       &::before {
         content: 'h8';
-        top: -3px;
-        right: 0px;
+        top: -8px;
+        right: -5px;
       }
     }
   }
