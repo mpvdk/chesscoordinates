@@ -24,11 +24,11 @@ export class RanksGame {
     if (this.state.userInput == this.state.prompt) {
       this.state.score.correctCount++;
       this.uiHandler.resetStyles();
-      this.uiHandler.flashRank(this.state.userInput.rank, true);
+      this.uiHandler.flashRank(this.state.userInput, true);
       this.updatePrompt();
     } else {
       this.state.score.wrongCount++;
-      this.uiHandler.flashRank(this.state.userInput.rank, false);
+      this.uiHandler.flashRank(this.state.userInput, false);
       this.uiHandler.answerIsWrong();
     }
   };
