@@ -2,20 +2,28 @@
 @import url('footer.css');
 
 @font-face {
-  font-family: 'OpenSans Bold';
-  src: url('../fonts/OpenSans-Bold.woff2') format('woff2');
-}
-@font-face {
   font-family: 'OpenSans';
   src: url('../fonts/OpenSans-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-display: swap;
 }
-/* @font-face {
-  font-family: 'Source Code Pro Bold';
-  src: url('../fonts/SourceCodePro-Bold.woff2') format('woff2');
-} */
+@font-face {
+  font-family: 'OpenSans Bold';
+  src: url('../fonts/OpenSans-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-display: swap;
+}
 @font-face {
   font-family: 'Source Code Pro';
   src: url('../fonts/SourceCodePro-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Source Code Pro';
+  src: url('../fonts/SourceCodePro-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-display: swap;
 }
 
 * {
@@ -25,7 +33,8 @@
 }
 
 h1 {
-  font-family: 'OpenSans Bold', sans-serif;
+  font-family: 'OpenSans', sans-serif;
+  font-weight: bold;
 }
 
 html {

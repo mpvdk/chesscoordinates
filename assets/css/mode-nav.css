@@ -31,7 +31,8 @@
         span {
           color: #519872;
           margin-left: 5px;
-          font-family: 'OpenSans Bold';
+          font-family: 'OpenSans';
+          font-weight: bold;
         }
       }
     }
