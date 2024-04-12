@@ -33,7 +33,6 @@ export class FilesUiHandler extends UiHandler {
   };
 
   showScore = (correctCount, wrongCount) => {
-    console.log('show score');
     this.els.scoreCorrectCount.textContent = correctCount;
     this.els.scoreWrongCount.textContent = wrongCount;
     this.els.score.classList.remove('hidden');

@@ -3,49 +3,42 @@ import { fenToSVGMap } from '../common/Utils.js';
 export class DragDrop {
   constructor() {
     this.draggingPieceFenNotation = '';
-    this.sourceSquare = '';
-    this.validateCallback = null;
-    this.commitCallback = null;
-    this.removeSourceWhenPieceOnBoardIsMoved = false;
+    this.sourceSquare = null;
+    this.validateOnSquareDropCb = null;
+    this.squareDropCommitCb = null;
   }
 
   initListenersForPieces = () => {
     document.querySelectorAll('.draggable-piece').forEach((piece) => {
       piece.addEventListener('dragstart', this.onPieceDragStart);
-      piece.addEventListener('dragend', this.onPieceDragEnd);
     });
   };
 
   onPieceDragStart = (e) => {
     this.draggingPieceFenNotation = e.target.dataset.fenPiece;
-    this.sourceSquare = e.target.parentElement.dataset.square;
-  };
-
-  onPieceDragEnd = (e) => {
-    if (e.target.classList.contains('piece-on-board')) {
-      e.target.remove();
+    if (e.target.parentElement.nodeName == 'TD') {
+      this.sourceSquare = e.target.parentElement.dataset.square;
+    } else {
+      this.sourceSquare = null;
     }
   };
 
-  initListenersForSquares = (validateCallback = null, commitCallback = null, removeSource = false) => {
+  initListenersForSquares = (validateOnSquareDropCb = null, squareDropCommitCb = null) => {
+    this.validateOnSquareDropCb = validateOnSquareDropCb;
+    this.squareDropCommitCb = squareDropCommitCb;
     document.querySelectorAll('.board .square').forEach((square) => {
       square.addEventListener('dragover', this.onSquareDragOver);
       square.addEventListener('dragenter', this.onSquareDragEnter);
       square.addEventListener('dragleave', this.onSquareDragLeave);
       square.addEventListener('drop', this.onSquareDrop);
     });
-    this.validateCallback = validateCallback;
-    this.commitCallback = commitCallback;
-    this.removeSourceWhenPieceOnBoardIsMoved = removeSource;
   };
 
   onSquareDragOver = (e) => {
     e.preventDefault();
     let target = e.target;
-    if (e.target.nodeName !== 'TD') {
-      while (target.nodeName !== 'TD') {
-        target = target.parentNode;
-      }
+    while (target.nodeName !== 'TD') {
+      target = target.parentNode;
     }
     target.classList.add('dragover');
   };
@@ -84,8 +77,8 @@ export class DragDrop {
 
     target.classList.remove('dragover');
 
-    if (this.validateCallback) {
-      validMove = this.validateCallback(from, to, piece);
+    if (this.validateOnSquareDropCb) {
+      validMove = this.validateOnSquareDropCb(from, to, piece);
     }
 
     if (validMove) {
@@ -101,14 +94,14 @@ export class DragDrop {
       target.innerHTML = '';
       target.appendChild(div);
 
-      if (this.removeSourceWhenPieceOnBoardIsMoved) {
-        document.querySelector(`td[data-square="${this.sourceSquare}"] div`).remove();
+      if (from) {
+        document.querySelector(`td[data-square="${from}"] div`).remove();
       }
 
       // init listeners
       this.initListenersForPieces();
 
-      if (this.commitCallback) this.commitCallback(from, to, piece);
+      if (this.squareDropCommitCb) this.squareDropCommitCb(from, to, piece);
     }
   };
 

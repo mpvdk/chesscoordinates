@@ -62,7 +62,7 @@ export class MovesGame {
     this.state.score.correctCount = 0;
     this.state.score.wrongCount = 0;
     this.dragDrop.initListenersForPieces();
-    this.dragDrop.initListenersForSquares(this.validateAnswer, this.answerGiven, true);
+    this.dragDrop.initListenersForSquares(this.validateAnswer, this.answerGiven);
     this.uiHandler.updatePrompt(this.state.prompt.moves[this.state.prompt.currentIndex]);
     this.uiHandler.startGame();
     this.startCountDown();
