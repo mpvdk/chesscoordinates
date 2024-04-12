@@ -9,7 +9,6 @@ export class SquaresUiHandler extends UiHandler {
     // ========
     this.els.score = document.querySelector('#score');
     this.els.scoreCloseButton = document.querySelector('#score button');
-    this.els.scoreGameType = document.querySelector('#score .score-heading-game-type');
     this.els.scoreCorrectCount = document.querySelector('#score .correct-count');
     this.els.scoreWrongCount = document.querySelector('#score .wrong-count');
 
@@ -35,7 +34,6 @@ export class SquaresUiHandler extends UiHandler {
   showScore = (correctCount, wrongCount, gameType) => {
     this.els.scoreCorrectCount.textContent = correctCount;
     this.els.scoreWrongCount.textContent = wrongCount;
-    this.els.scoreGameType.textContent = gameType;
     this.els.score.classList.remove('hidden');
   };
 
@@ -64,7 +62,6 @@ export class SquaresUiHandler extends UiHandler {
   showScore = () => {
     this.els.scoreCorrectCount.textContent = this.game.state.score.correctCount;
     this.els.scoreWrongCount.textContent = this.game.state.score.wrongCount;
-    this.els.scoreGameType.textContent = this.game.state.gameType;
     this.els.score.classList.remove('hidden');
   };
 
