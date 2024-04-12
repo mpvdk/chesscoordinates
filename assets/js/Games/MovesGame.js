@@ -26,7 +26,9 @@ export class MovesGame {
     this.uiHandler = new MovesUiHandler(this);
     this.dragDrop = new DragDrop();
     this.intervalId = null;
-    this.initPrompt();
+    setTimeout(() => {
+      this.initPrompt(); // move to task queue for performance improvement
+    }, 0);
   }
 
   initPrompt = () => {
