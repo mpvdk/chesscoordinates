@@ -30,7 +30,7 @@ Find an issue with the app or have any suggestions? Your input is welcome. Open 
 
 # To-do:
 
-- Apply minimisation - I have parcel configured but it's causing some issues on Cloudflare pages. The site is very small as is so it's not a big deal really
+- ~~Apply minimisation - I have parcel configured but it's causing some issues on Cloudflare pages. The site is very small as is so it's not a big deal really~~
 - Add more fen-notation positions and think of a better way to serve them on demand (current setup adds bytes for every position added of course)
 - Same for pgn games
 - Improve SEO
