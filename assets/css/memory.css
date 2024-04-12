@@ -105,6 +105,31 @@ main {
       flex-flow: row;
       align-items: center;
       gap: 10px;
+
+      input[type='checkbox'] {
+        display: none;
+      }
+      label::before {
+        content: '';
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background-color: var(--colors-background);
+        border: 2px solid var(--colors-orange);
+        border-radius: 5px;
+        vertical-align: middle;
+        margin-right: 8px;
+        position: relative;
+      }
+      input[type='checkbox']:checked + label::before {
+        content: '';
+        height: 25px;
+        width: 25px;
+        background-size: 25px 25px;
+        background-image: url('../images/check.svg');
+        background-repeat: no-repeat;
+        background-color: var(--colors-orange);
+      }
     }
 
     .difficulty-warning {

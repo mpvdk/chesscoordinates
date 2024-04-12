@@ -31,6 +31,7 @@
   --colors-black: rgba(0, 0, 0, 1);
   --colors-yellow: rgba(251, 255, 215, 1);
   --colors-red: rgba(207, 60, 58, 1);
+  --colors-orange: rgb(255, 131, 48);
 
   --colors-primary: rgba(81, 152, 114, 1);
   --colors-primary-hover: color-mix(in srgb, var(--colors-primary) 25%, transparent);
