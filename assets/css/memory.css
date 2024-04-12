@@ -64,6 +64,7 @@ main {
     align-items: center;
     margin-top: 30px;
     margin-bottom: -10px;
+    background-color: color-mix(in srgb, var(--colors-background) 80%, var(--colors-white));
 
     .row {
       display: flex;
