@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "parcel build index.html practice.html 404.html"
+    "build": "parcel build *.html"
   },
   "devDependencies": {
     "parcel": "^2.12.0"
