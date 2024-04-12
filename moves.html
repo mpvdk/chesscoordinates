@@ -177,28 +177,27 @@
           <span class="prompt"></span>
         </div>
         <button class="start-stop-button" aria-label="start"><span class="start-stop-text">start</span> <span class="countdown-sec"></span></button>
+        <aside id="score" class="hidden">
+          <p class="score-heading">score:</p>
+          <section class="score-correct">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#519872">
+              <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
+            </svg>
+            <span class="correct-count">8</span>
+          </section>
+          <section class="score-wrong">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#CF3C3A">
+              <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
+            </svg>
+            <span class="wrong-count">2</span>
+          </section>
+          <button class="score-close-button" aria-label="close">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+              <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
+            </svg>
+          </button>
+        </aside>
       </section>
-
-      <aside id="score" class="hidden">
-        <p class="score-heading">score</p>
-        <section class="score-correct">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#519872">
-            <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
-          </svg>
-          <span class="correct-count">8</span>
-        </section>
-        <section class="score-wrong">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#CF3C3A">
-            <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
-          </svg>
-          <span class="wrong-count">2</span>
-        </section>
-        <button class="score-close-button" aria-label="close">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-            <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
-          </svg>
-        </button>
-      </aside>
     </main>
 
     <footer>

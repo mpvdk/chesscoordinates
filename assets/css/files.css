@@ -1,5 +1,6 @@
 @import url('mode-nav.css');
 @import url('board.css');
+@import url('score.css');
 
 main {
   display: flex;
@@ -58,67 +59,6 @@ main {
     &.wrong {
       animation-name: wrong;
       animation-duration: 0.3s;
-    }
-  }
-}
-
-#score {
-  position: fixed;
-  left: 50%;
-  top: 30%;
-  transform: translateX(-50%);
-  width: 80vw;
-  max-width: 300px;
-  z-index: 10;
-  border-radius: 20px;
-  font-size: 3rem;
-  background-color: var(--colors-white);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: color-mix(in srgb, var(--colors-black) 20%, transparent) 0px 5px 5px;
-  padding: 20px 0px;
-
-  .score-heading {
-    font-size: 1.8rem;
-    text-wrap: nowrap;
-    margin-bottom: 10px;
-  }
-
-  section {
-    display: flex;
-    flex-flow: row;
-    align-items: center;
-    margin-bottom: 0px;
-
-    svg {
-      margin-right: 20px;
-      width: 50px;
-      height: 50px;
-    }
-  }
-
-  .score-correct {
-    color: var(--colors-primary);
-  }
-  .score-wrong {
-    color: var(--colors-red);
-  }
-
-  .score-close-button {
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    padding: 10px;
-    background-color: transparent;
-    border: none;
-    outline: none;
-    border-radius: 15px;
-
-    svg {
-      width: 25px;
-      height: 25px;
-      fill: color-mix(in srgb, var(--colors-black) 40%, transparent);
     }
   }
 }
