@@ -33,6 +33,8 @@ export class MovesUiHandler extends UiHandler {
 
   updatePrompt = (move) => {
     this.els.prompt.textContent = move;
+    this.els.prompt.classList.add('appear');
+    setTimeout(() => this.els.prompt.classList.remove('appear'), 200);
   };
 
   setCountdown = (secs) => {

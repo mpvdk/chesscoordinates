@@ -38,19 +38,25 @@ main {
   .prompt {
     position: absolute;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -55%);
-    font-size: 9rem;
+    bottom: -40px;
+    transform: translateX(-50%);
+    font-size: 2rem;
     font-family: 'OpenSans';
     font-weight: bold;
     pointer-events: none;
     cursor: none;
-    color: white;
-    opacity: 0.75;
+    color: var(--colors-black);
+    opacity: 1;
+    text-align: center;
 
     &.wrong {
-      animation-name: wrong;
+      animation-name: wrong-mobile;
       animation-duration: 0.3s;
+    }
+
+    &.appear {
+      animation-name: appear;
+      animation-duration: 0.2s;
     }
   }
 
@@ -150,24 +156,6 @@ main {
   }
 }
 
-@keyframes wrong {
-  0% {
-    transform: translate(-50%, -55%) rotate(0deg);
-  }
-  25% {
-    transform: translate(-50%, -55%) rotate(10deg);
-  }
-  50% {
-    transform: translate(-50%, -55%) rotate(0deg);
-  }
-  75% {
-    transform: translate(-50%, -55%) rotate(-10deg);
-  }
-  100% {
-    transform: translate(-50%, -55%) rotate(0deg);
-  }
-}
-
 @media (min-width: 1060px) {
   body {
     display: flex;
@@ -188,14 +176,12 @@ main {
   .game-section {
     position: relative;
 
-    &#moves-game {
-      .start-stop-button {
-        position: absolute;
-        bottom: 0px;
-        left: -440px;
-        margin: 0px;
-        width: 360px;
-      }
+    .start-stop-button {
+      position: absolute;
+      bottom: 0px;
+      left: -440px;
+      margin: 0px;
+      width: 360px;
     }
 
     .check-position-button,
@@ -216,5 +202,85 @@ main {
         }
       }
     }
+
+    .prompt {
+      font-size: 5rem;
+      bottom: 80px;
+      left: -460px;
+      transform: translateX(0px);
+      width: 400px;
+
+      &.wrong {
+        animation-name: wrong-desktop;
+        animation-duration: 0.3s;
+      }
+    }
+  }
+}
+
+@keyframes wrong-mobile {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+    color: var(--colors-red);
+  }
+  25% {
+    transform: translateX(-50%) rotate(10deg);
+    color: var(--colors-red);
+  }
+  50% {
+    transform: translateX(-50%) rotate(0deg);
+    color: var(--colors-red);
+  }
+  75% {
+    transform: translateX(-50%) rotate(-10deg);
+    color: var(--colors-red);
+  }
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+    color: var(--colors-red);
+  }
+}
+@keyframes wrong-desktop {
+  0% {
+    transform: translateX(0px) rotate(0deg);
+    color: var(--colors-red);
+  }
+  25% {
+    transform: translateX(0px) rotate(10deg);
+    color: var(--colors-red);
+  }
+  50% {
+    transform: translateX(0px) rotate(0deg);
+    color: var(--colors-red);
+  }
+  75% {
+    transform: translateX(0px) rotate(-10deg);
+    color: var(--colors-red);
+  }
+  100% {
+    transform: translateX(0px) rotate(0deg);
+    color: var(--colors-red);
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+    scale: 2;
+  }
+  25% {
+    opacity: 0.25;
+    scale: 1.75;
+  }
+  50% {
+    opacity: 0.5;
+    scale: 1.5;
+  }
+  75% {
+    opacity: 0.75;
+    scale: 1.25;
+  }
+  100% {
+    opacity: 1;
   }
 }
