@@ -1,6 +1,6 @@
 footer {
   width: 100vw;
-  border-top: 1px solid rgb(216, 216, 216);
+  border-top: 1px solid color-mix(in srgb, var(--colors-black) 20%, transparent);
   margin-top: 100px;
   display: flex;
   flex-flow: column;

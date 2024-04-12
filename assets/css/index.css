@@ -25,14 +25,6 @@ main {
     }
   }
 
-  .divider {
-    display: inline-block;
-    width: 200px;
-    height: 1px;
-    background-color: rgb(150, 150, 150);
-    margin: 10px 0px;
-  }
-
   h2 {
     font-size: 1.3rem;
     font-weight: normal;
@@ -79,10 +71,9 @@ main {
       width: 100%;
       padding: 12px 10px;
       border-radius: 5px;
-      background-color: rgb(184, 139, 74);
-      background-color: #519872;
+      background-color: var(--colors-primary);
       color: white;
-      border: 2px solid #519872;
+      border: 2px solid var(--colors-primary);
       cursor: pointer;
       text-decoration: none;
       display: flex;
@@ -90,9 +81,9 @@ main {
       justify-content: center;
 
       &:hover {
-        background-color: #5198723d;
-        border: 2px solid #519872;
-        color: #519872;
+        background-color: var(--colors-primary-hover);
+        border: 2px solid var(--colors-primary);
+        color: var(--colors-primary);
         text-decoration: underline;
         transition: all 50ms ease-in-out;
       }

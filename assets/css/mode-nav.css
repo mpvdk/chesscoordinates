@@ -15,7 +15,7 @@
       gap: 10px;
       font-size: 1rem;
       svg {
-        fill: #519872;
+        fill: var(--colors-primary);
       }
 
       .mobile-nav-heading-button {
@@ -29,10 +29,9 @@
         flex-direction: row;
         align-items: center;
         span {
-          color: #447e57;
+          color: var(--colors-primary-high-contrast);
           margin-left: 5px;
           font-family: 'OpenSans';
-          font-weight: bold;
         }
       }
     }
@@ -68,15 +67,13 @@
       background-color: white;
       cursor: pointer;
       border-radius: 5px;
-      color: rgb(80, 80, 80);
+      color: color-mix(in srgb, var(--colors-black) 80%, var(--colors-white));
       outline: none;
       text-decoration: none;
       transform: translateY(-40px);
       &.active {
-        background-color: #5198721f;
-        background-color: #519872;
-        color: #519872;
-        color: #fff;
+        background-color: var(--colors-primary);
+        color: var(--colors-white);
       }
     }
 
@@ -163,14 +160,12 @@
         transform: translate(0px);
 
         &.active {
-          background-color: #5198721f;
-          /* background-color: #519872; */
-          color: #519872;
-          /* color: #fff; */
+          background-color: var(--colors-primary-hover);
+          color: var(--colors-primary);
         }
 
         &:hover {
-          color: #519872;
+          color: var(--colors-primary);
           &::before {
             content: '\2023';
             position: absolute;
@@ -178,7 +173,7 @@
             left: -25px;
             top: 50%;
             transform: translateY(-50%);
-            color: #51987256;
+            color: color-mix(in srgb, var(--colors-primary) 40%, transparent);
           }
         }
       }

@@ -53,8 +53,7 @@ main {
       height: 75px;
       padding: 0px 10px;
       border-radius: 5px;
-      background-color: rgb(184, 139, 74);
-      background-color: #519872;
+      background-color: var(--colors-primary);
       color: white;
       border: none;
       cursor: pointer;
@@ -64,9 +63,9 @@ main {
       justify-content: center;
 
       &:hover {
-        background-color: #5198723d;
-        border: 2px solid #519872;
-        color: #519872;
+        background-color: var(--colors-primary-hover);
+        border: 2px solid var(--colors-primary);
+        color: var(--colors-primary);
         transition: all 50ms ease-in-out;
       }
     }

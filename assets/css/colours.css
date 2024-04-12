@@ -19,20 +19,17 @@ main {
     width: 90vw;
     max-width: 600px;
     border-radius: 5px;
-    background-color: rgb(184, 139, 74);
-    background-color: #519872;
+    background-color: var(--colors-primary);
     color: white;
     border: none;
     margin-top: 40px;
     cursor: pointer;
     transition: all 50ms ease-in-out;
-    border: 2px solid #519872;
-    user-select: none;
+    border: 2px solid var(--colors-primary);
 
     &:hover {
-      background-color: #5198723d;
-      border: 2px solid #519872;
-      color: #519872;
+      background-color: var(--colors-primary-hover);
+      color: var(--colors-primary);
       transition: all 50ms ease-in-out;
     }
   }
@@ -79,13 +76,13 @@ main {
 
   .colours-game-light {
     width: 100%;
-    background-color: rgb(227, 193, 111);
+    background-color: var(--colors-chess-board-light);
     border-radius: 10px;
   }
 
   .colours-game-dark {
     width: 100%;
-    background-color: rgb(184, 139, 74);
+    background-color: var(--colors-chess-board-dark);
     border-radius: 10px;
   }
 
@@ -98,27 +95,13 @@ main {
     transform: translate(-50%, -50%);
     color: black;
     z-index: 1;
-    background-color: rgba(255, 255, 255, 1);
+    background-color: var(--colors-white);
     padding: 0px 5px;
     width: 6rem;
     text-align: center;
     border-radius: 10px;
     font-size: 3rem;
     user-select: none;
-  }
-
-  button {
-    font-size: 2rem;
-    padding: 5px;
-    width: 80vw;
-    max-width: 600px;
-    border-radius: 5px;
-    background-color: rgb(184, 139, 74);
-    background-color: #519872;
-    color: white;
-    border: none;
-    margin-top: 40px;
-    cursor: pointer;
   }
 }
 
@@ -132,11 +115,11 @@ main {
   z-index: 10;
   border-radius: 20px;
   font-size: 3rem;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: var(--colors-white);
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: color-mix(in srgb, var(--colors-black) 20%, transparent) 0px 5px 15px;
   padding: 20px 0px;
 
   .score-heading {
@@ -159,10 +142,10 @@ main {
   }
 
   .score-correct {
-    color: #519872;
+    color: var(--colors-primary);
   }
   .score-wrong {
-    color: #cf3c3a;
+    color: var(--colors-red);
   }
 
   .score-close-button {
@@ -179,7 +162,7 @@ main {
     svg {
       width: 25px;
       height: 25px;
-      fill: rgb(126, 126, 126);
+      fill: color-mix(in srgb, var(--colors-black) 40%, transparent);
     }
   }
 }
