@@ -1,6 +1,6 @@
 footer {
   width: 100vw;
-  border-top: 1px solid color-mix(in srgb, var(--colors-black) 20%, transparent);
+  border-top: 1px solid color-mix(in srgb, var(--colors-text-color) 30%, transparent);
   margin-top: 100px;
   display: flex;
   flex-flow: column;
@@ -57,10 +57,10 @@ footer {
       svg {
         width: 30px;
         margin-bottom: 10px;
+        stroke: var(--colors-text-color);
       }
 
       a {
-        color: black;
         text-decoration: none;
         &:hover {
           text-decoration: underline;

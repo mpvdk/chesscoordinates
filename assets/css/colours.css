@@ -94,9 +94,8 @@ main {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: black;
     z-index: 1;
-    background-color: var(--colors-white);
+    background-color: var(--colors-background);
     padding: 0px 5px;
     width: 6rem;
     text-align: center;

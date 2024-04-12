@@ -264,9 +264,7 @@ main {
       bottom: 80px;
 
       button {
-        /* max-width: 45%; */
         font-size: 1.4rem;
-        color: black;
         cursor: pointer;
         border: 2px solid var(--colors-primary);
 

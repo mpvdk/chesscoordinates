@@ -46,7 +46,7 @@ main {
     font-weight: bold;
     pointer-events: none;
     cursor: none;
-    color: var(--colors-black);
+    color: var(--colors-text-color);
     opacity: 1;
     text-align: center;
 
@@ -146,7 +146,7 @@ main {
     .prompt {
       font-size: 5rem;
       bottom: 80px;
-      left: -460px;
+      left: -440px;
       transform: translateX(0px);
       width: 360px;
 

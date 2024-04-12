@@ -39,13 +39,13 @@
   }
 
   nav {
+    background-color: var(--colors-background);
     width: 100vw;
     height: 100vh;
     position: fixed;
     left: 0px;
     top: 0px;
     z-index: 5;
-    background-color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -64,10 +64,9 @@
       font-size: 1.6rem;
       padding: 5px 15px;
       border: none;
-      background-color: white;
       cursor: pointer;
       border-radius: 5px;
-      color: color-mix(in srgb, var(--colors-black) 80%, var(--colors-white));
+      color: color-mix(in srgb, var(--colors-text-color) 80%, var(--colors-white));
       outline: none;
       text-decoration: none;
       transform: translateY(-40px);
@@ -86,6 +85,7 @@
       svg {
         width: 50px;
         opacity: 0.4;
+        fill: var(--colors-text-color);
       }
     }
   }

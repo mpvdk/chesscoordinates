@@ -8,7 +8,7 @@
   z-index: 10;
   border-radius: 20px;
   font-size: 3rem;
-  background-color: var(--colors-white);
+  background-color: var(--colors-background);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,9 +36,15 @@
 
   .score-correct {
     color: var(--colors-primary);
+    svg {
+      fill: var(--colors-primary);
+    }
   }
   .score-wrong {
     color: var(--colors-red);
+    svg {
+      fill: var(--colors-red);
+    }
   }
 
   .score-close-button {
@@ -59,7 +65,7 @@
     svg {
       width: 25px;
       height: 25px;
-      fill: color-mix(in srgb, var(--colors-black) 40%, transparent);
+      fill: color-mix(in srgb, var(--colors-text-color) 40%, transparent);
     }
   }
 }

@@ -1,6 +1,6 @@
 header {
   width: 100vw;
-  padding: 5px 15px;
+  padding: 10px 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -8,7 +8,6 @@ header {
 
   .title {
     text-decoration: none;
-    color: black;
     font-size: 1.3rem;
     font-family: 'Source Code Pro', monospace;
 
@@ -18,22 +17,108 @@ header {
     }
   }
 
-  .header-github-container {
-    margin-bottom: -5px;
+  .header-theme-and-github-container {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    gap: 15px;
 
-    a {
-      text-decoration: none;
-      cursor: pointer;
+    .theme-selector-container {
+      border: 1px solid var(--colors-text-color);
+      border-radius: 100px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background-color: var(--colors-background);
+      height: 35px;
+      width: 60px;
+
+      .theme-selector-svg-container {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border-radius: 100px;
+        left: 2px;
+
+        svg {
+          position: absolute;
+          left: 3px;
+          top: 3px;
+          width: 24px;
+          fill: var(--colors-text-color);
+        }
+      }
     }
 
-    img {
-      width: 30px;
+    .header-github-container {
+      margin-bottom: -3px;
+
+      a {
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      svg {
+        width: 35px;
+        path {
+          fill: var(--colors-text-color);
+        }
+      }
     }
   }
 }
 
 @media (min-width: 765px) {
   header {
-    padding: 20px 30px;
+    padding: 30px 40px;
+
+    .title {
+      font-size: 1.5rem;
+    }
+    .header-theme-and-github-container {
+      gap: 35px;
+      .header-github-container {
+        svg {
+          width: 40px;
+        }
+      }
+    }
+  }
+}
+
+[data-theme='dark'] {
+  header {
+    .header-theme-and-github-container {
+      .theme-selector-container {
+        .theme-selector-svg-container {
+          transform: translateX(25px);
+          .theme-sun {
+            display: none;
+          }
+          .theme-moon {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+[data-theme='light'] {
+  header {
+    .header-theme-and-github-container {
+      .theme-selector-container {
+        .theme-selector-svg-container {
+          transform: translateX(0px);
+          .theme-sun {
+            display: block;
+          }
+          .theme-moon {
+            display: none;
+          }
+        }
+      }
+    }
   }
 }

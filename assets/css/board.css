@@ -46,12 +46,16 @@
 
         &.light {
           background-color: var(--colors-chess-board-light);
+          /* background-color: color-mix(in srgb, var(--colors-chess-board-light) 60%, transparent); */
           border: 5px solid var(--colors-chess-board-light);
+          /* border: 5px solid transparent; */
         }
 
         &.dark {
           background-color: var(--colors-chess-board-dark);
+          /* background-color: color-mix(in srgb, var(--colors-chess-board-dark) 60%, transparent); */
           border: 5px solid var(--colors-chess-board-dark);
+          /* border: 5px solid transparent; */
         }
 
         &.highlight {

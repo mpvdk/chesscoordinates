@@ -31,18 +31,62 @@
   --colors-black: rgba(0, 0, 0, 1);
   --colors-yellow: rgba(251, 255, 215, 1);
   --colors-red: rgba(207, 60, 58, 1);
+
   --colors-primary: rgba(81, 152, 114, 1);
-  --colors-primary-hover: rgba(81, 152, 114, 0.25);
+  --colors-primary-hover: color-mix(in srgb, var(--colors-primary) 25%, transparent);
   --colors-primary-high-contrast: rgba(70, 129, 90, 1);
   --colors-chess-board-light: rgba(227, 193, 111, 1);
   --colors-chess-board-dark: rgba(184, 139, 74, 1);
   --colors-highlight-wrong: rgba(207, 60, 58, 0.4);
+
+  --colors-background: var(--colors-white);
+
+  --colors-text-color: var(--colors-black);
+
+  @media (prefers-color-scheme: dark) {
+    --colors-yellow: #fabc2a;
+    --colors-red: rgb(173, 3, 0);
+    --colors-primary-high-contrast: var(--colors-primary);
+    --colors-chess-board-light: color-mix(in srgb, rgba(227, 193, 111, 1) 80%, var(--colors-black));
+    --colors-chess-board-dark: color-mix(in srgb, rgba(184, 139, 74, 1) 80%, var(--colors-black));
+    --colors-background: rgba(35, 35, 35, 1);
+    --colors-text-color: var(--colors-white);
+  }
+}
+
+[data-theme='dark'] {
+  --colors-yellow: #fabc2a;
+  --colors-red: rgb(173, 3, 0);
+  --colors-primary-high-contrast: var(--colors-primary);
+  --colors-chess-board-light: color-mix(in srgb, rgba(227, 193, 111, 1) 80%, var(--colors-black));
+  --colors-chess-board-dark: color-mix(in srgb, rgba(184, 139, 74, 1) 80%, var(--colors-black));
+  --colors-background: rgba(35, 35, 35, 1);
+  --colors-text-color: var(--colors-white);
+}
+
+[data-theme='light'] {
+  --colors-white: rgba(255, 255, 255, 1);
+  --colors-black: rgba(0, 0, 0, 1);
+  --colors-yellow: rgba(251, 255, 215, 1);
+  --colors-red: rgba(207, 60, 58, 1);
+
+  --colors-primary: rgba(81, 152, 114, 1);
+  --colors-primary-hover: color-mix(in srgb, var(--colors-primary) 25%, transparent);
+  --colors-primary-high-contrast: rgba(70, 129, 90, 1);
+  --colors-chess-board-light: rgba(227, 193, 111, 1);
+  --colors-chess-board-dark: rgba(184, 139, 74, 1);
+  --colors-highlight-wrong: rgba(207, 60, 58, 0.4);
+
+  --colors-background: var(--colors-white);
+
+  --colors-text-color: var(--colors-black);
 }
 
 * {
   margin: 0px;
   box-sizing: border-box;
   font-family: 'OpenSans', sans-serif;
+  /* color: white; */
 }
 
 h1 {
@@ -52,6 +96,16 @@ h1 {
 
 html {
   font-size: 16px;
+}
+
+body {
+  background-color: var(--colors-background);
+  overflow-x: hidden;
+  color: var(--colors-text-color);
+}
+
+a {
+  color: var(--colors-text-color);
 }
 
 .hidden {
