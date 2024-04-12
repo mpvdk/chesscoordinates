@@ -183,6 +183,7 @@ main {
       cursor: pointer;
       border: 2px solid var(--colors-primary);
       margin-top: 20px;
+      color: var(--colors-text-color);
 
       &.active {
         text-decoration: underline;
