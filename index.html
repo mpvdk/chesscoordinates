@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script type="module">
+      import { MovesGame } from '/assets/js/Games/MovesGame.js';
+      new MovesGame();
+    </script>
+    <script src="assets/js/common/DragDropTouch.js?v08"></script>
+    <link rel="stylesheet" href="assets/css/common.css?v08" />
+    <link rel="stylesheet" href="assets/css/moves.css?v08" />
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.png" />
-    <link rel="stylesheet" href="assets/css/index.css?v08" />
-    <link rel="canonical" href="https://www.chesscoordinates.com" />
+    <link rel="canonical" href="https://www.chesscoordinates.com/moves" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
-    <meta name="description" content="Improve your chess skills with ChessCoordinates.com – an app for mastering algebraic notation and position memorization." />
+    <meta name="description" content="ChessCoordinates.com – improve your memory, concentration, and master algebraic notation" />
     <title>ChessCoordinates.com</title>
   </head>
 
@@ -19,27 +25,180 @@
       </div>
     </header>
     <main>
-      <svg viewBox="0 0 356 384" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M177 18V107.5M135.5 53.5L218.5 53.5M63.5 288L34 366H329.5L298.5 288M63.5 288H298.5M63.5 288C63.5 288 53 226 18 149C96 110 260 109.5 338 149C307.5 228.5 298.5 288 298.5 288"
-          stroke="rgb(20,20,20)"
-          stroke-width="30"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        />
-      </svg>
-      <h1 class="test-font">ChessCoordinates<span class="dotcom">.com</span></h1>
-      <span class="divider"></span>
-      <h2>Helping you get better at chess</h2>
-      <p class="nav-heading">What do you want to practice?</p>
-      <nav>
-        <a href="/files" class="link-files">files</a>
-        <a href="/ranks" class="link-ranks">ranks</a>
-        <a href="/squares" class="link-squares">squares</a>
-        <a href="/moves" class="link-moves">moves</a>
-        <a href="/colours" class="link-colours">colours</a>
-        <a href="/memory" class="link-memory">memory</a>
-      </nav>
+      <section class="nav-wrapper">
+        <div class="nav-wrapper-heading">
+          <div class="mobile-only mobile-nav-heading">
+            <div class="mobile-nav-heading-current-mode">current mode: <span>moves</span></div>
+            <div class="mobile-nav-heading-button">
+              <svg viewBox="0 0 120 80" width="30">
+                <rect rx="8" width="120" height="15"></rect>
+                <rect rx="8" y="30" width="120" height="15"></rect>
+                <rect rx="8" y="60" width="120" height="15"></rect>
+              </svg>
+              <span>change mode</span>
+            </div>
+          </div>
+          <p class="desktop-only">practice mode</p>
+        </div>
+        <nav>
+          <a id="ranks-button" data-game-type="ranks" aria-label="ranks" href="/ranks">ranks</a>
+          <a id="files-button" data-game-type="files" aria-label="files" href="/files">files</a>
+          <a id="squares-button" data-game-type="squares" aria-label="squares" href="/squares">squares</a>
+          <a id="moves-button" data-game-type="moves" aria-label="moves" href="/moves" class="active">moves</a>
+          <a id="colours-button" data-game-type="colours" aria-label="colours" href="/colours">colours</a>
+          <a id="memory-button" data-game-type="memory" aria-label="memory" href="/memory">memory</a>
+          <span class="mobile-nav-close-button mobile-only">
+            <svg fill="#xxx" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92.132 92.132">
+              <path
+                d="M2.141,89.13c1.425,1.429,3.299,2.142,5.167,2.142c1.869,0,3.742-0.713,5.167-2.142l33.591-33.592L79.657,89.13 c1.426,1.429,3.299,2.142,5.167,2.142c1.867,0,3.74-0.713,5.167-2.142c2.854-2.854,2.854-7.48,0-10.334L56.398,45.205 l31.869-31.869c2.855-2.853,2.855-7.481,0-10.334c-2.853-2.855-7.479-2.855-10.334,0L46.065,34.87L14.198,3.001 c-2.854-2.855-7.481-2.855-10.333,0c-2.855,2.853-2.855,7.481,0,10.334l31.868,31.869L2.143,78.795 C-0.714,81.648-0.714,86.274,2.141,89.13z"
+              ></path>
+            </svg>
+          </span>
+        </nav>
+      </section>
+
+      <section id="moves-game" class="game-section">
+        <div class="board-wrapper">
+          <table class="board">
+            <tbody>
+              <!-- rank #8 -->
+              <tr class="rank" data-rank="8">
+                <td data-square="a8" data-file="a" data-rank="8" class="square light"></td>
+                <td data-square="b8" data-file="b" data-rank="8" class="square dark"></td>
+                <td data-square="c8" data-file="c" data-rank="8" class="square light"></td>
+                <td data-square="d8" data-file="d" data-rank="8" class="square dark"></td>
+                <td data-square="e8" data-file="e" data-rank="8" class="square light"></td>
+                <td data-square="f8" data-file="f" data-rank="8" class="square dark"></td>
+                <td data-square="g8" data-file="g" data-rank="8" class="square light"></td>
+                <td data-square="h8" data-file="h" data-rank="8" class="square dark show-hint"></td>
+              </tr>
+
+              <!-- rank #7 -->
+              <tr class="rank" data-rank="7">
+                <td data-square="a7" data-file="a" data-rank="7" class="square dark"></td>
+                <td data-square="b7" data-file="b" data-rank="7" class="square light"></td>
+                <td data-square="c7" data-file="c" data-rank="7" class="square dark"></td>
+                <td data-square="d7" data-file="d" data-rank="7" class="square light"></td>
+                <td data-square="e7" data-file="e" data-rank="7" class="square dark"></td>
+                <td data-square="f7" data-file="f" data-rank="7" class="square light"></td>
+                <td data-square="g7" data-file="g" data-rank="7" class="square dark"></td>
+                <td data-square="h7" data-file="h" data-rank="7" class="square light"></td>
+              </tr>
+
+              <!-- rank #6 -->
+              <tr class="rank" data-rank="6">
+                <td data-square="a6" data-file="a" data-rank="6" class="square light"></td>
+                <td data-square="b6" data-file="b" data-rank="6" class="square dark"></td>
+                <td data-square="c6" data-file="c" data-rank="6" class="square light"></td>
+                <td data-square="d6" data-file="d" data-rank="6" class="square dark"></td>
+                <td data-square="e6" data-file="e" data-rank="6" class="square light"></td>
+                <td data-square="f6" data-file="f" data-rank="6" class="square dark"></td>
+                <td data-square="g6" data-file="g" data-rank="6" class="square light"></td>
+                <td data-square="h6" data-file="h" data-rank="6" class="square dark"></td>
+              </tr>
+
+              <!-- rank #5 -->
+              <tr class="rank" data-rank="5">
+                <td data-square="a5" data-file="a" data-rank="5" class="square dark"></td>
+                <td data-square="b5" data-file="b" data-rank="5" class="square light"></td>
+                <td data-square="c5" data-file="c" data-rank="5" class="square dark"></td>
+                <td data-square="d5" data-file="d" data-rank="5" class="square light"></td>
+                <td data-square="e5" data-file="e" data-rank="5" class="square dark"></td>
+                <td data-square="f5" data-file="f" data-rank="5" class="square light"></td>
+                <td data-square="g5" data-file="g" data-rank="5" class="square dark"></td>
+                <td data-square="h5" data-file="h" data-rank="5" class="square light"></td>
+              </tr>
+
+              <!-- rank #4 -->
+              <tr class="rank" data-rank="4">
+                <td data-square="a4" data-file="a" data-rank="4" class="square light"></td>
+                <td data-square="b4" data-file="b" data-rank="4" class="square dark"></td>
+                <td data-square="c4" data-file="c" data-rank="4" class="square light"></td>
+                <td data-square="d4" data-file="d" data-rank="4" class="square dark"></td>
+                <td data-square="e4" data-file="e" data-rank="4" class="square light"></td>
+                <td data-square="f4" data-file="f" data-rank="4" class="square dark"></td>
+                <td data-square="g4" data-file="g" data-rank="4" class="square light"></td>
+                <td data-square="h4" data-file="h" data-rank="4" class="square dark"></td>
+              </tr>
+
+              <!-- rank #3 -->
+              <tr class="rank" data-rank="3">
+                <td data-square="a3" data-file="a" data-rank="3" class="square dark"></td>
+                <td data-square="b3" data-file="b" data-rank="3" class="square light"></td>
+                <td data-square="c3" data-file="c" data-rank="3" class="square dark"></td>
+                <td data-square="d3" data-file="d" data-rank="3" class="square light"></td>
+                <td data-square="e3" data-file="e" data-rank="3" class="square dark"></td>
+                <td data-square="f3" data-file="f" data-rank="3" class="square light"></td>
+                <td data-square="g3" data-file="g" data-rank="3" class="square dark"></td>
+                <td data-square="h3" data-file="h" data-rank="3" class="square light"></td>
+              </tr>
+
+              <!-- rank #2 -->
+              <tr class="rank" data-rank="2">
+                <td data-square="a2" data-file="a" data-rank="2" class="square light"></td>
+                <td data-square="b2" data-file="b" data-rank="2" class="square dark"></td>
+                <td data-square="c2" data-file="c" data-rank="2" class="square light"></td>
+                <td data-square="d2" data-file="d" data-rank="2" class="square dark"></td>
+                <td data-square="e2" data-file="e" data-rank="2" class="square light"></td>
+                <td data-square="f2" data-file="f" data-rank="2" class="square dark"></td>
+                <td data-square="g2" data-file="g" data-rank="2" class="square light"></td>
+                <td data-square="h2" data-file="h" data-rank="2" class="square dark"></td>
+              </tr>
+
+              <!-- rank #1 -->
+              <tr class="rank" data-rank="1">
+                <td data-square="a1" data-file="a" data-rank="1" class="square dark show-hint"></td>
+                <td data-square="b1" data-file="b" data-rank="1" class="square light"></td>
+                <td data-square="c1" data-file="c" data-rank="1" class="square dark"></td>
+                <td data-square="d1" data-file="d" data-rank="1" class="square light"></td>
+                <td data-square="e1" data-file="e" data-rank="1" class="square dark"></td>
+                <td data-square="f1" data-file="f" data-rank="1" class="square light"></td>
+                <td data-square="g1" data-file="g" data-rank="1" class="square dark"></td>
+                <td data-square="h1" data-file="h" data-rank="1" class="square light"></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <button id="flip-board-button" aria-label="flip board">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+              <g>
+                <g id="media-player" stroke="none" stroke-width="10" fill="none" fill-rule="evenodd">
+                  <g id="loop" fill="#000000">
+                    <path
+                      d="M6.8762659,15.1237341 C7.93014755,16.8486822 9.83062143,18 12,18 C14.6124377,18 16.8349158,16.3303847 17.6585886,14 L19.747965,14 C18.8598794,17.4504544 15.7276789,20 12,20 C9.28005374,20 6.87714422,18.6426044 5.43172915,16.5682708 L3,19 L3,13 L9,13 L6.8762659,15.1237341 Z M17.1245693,8.87543068 C16.0703077,7.15094618 14.1695981,6 12,6 C9.3868762,6 7.16381436,7.66961525 6.33992521,10 L4.25,10 C5.13831884,6.54954557 8.27134208,4 12,4 C14.7202162,4 17.123416,5.35695218 18.5692874,7.43071264 L21,5 L21,11 L15,11 L17.1245693,8.87543068 Z"
+                      id="Shape"
+                    ></path>
+                  </g>
+                </g>
+              </g>
+            </svg>
+          </button>
+
+          <span class="prompt"></span>
+        </div>
+        <button class="start-stop-button" aria-label="start"><span class="start-stop-text">start</span> <span class="countdown-sec"></span></button>
+      </section>
+
+      <aside id="score" class="hidden">
+        <p class="score-heading">score</p>
+        <section class="score-correct">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#519872">
+            <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
+          </svg>
+          <span class="correct-count">8</span>
+        </section>
+        <section class="score-wrong">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#CF3C3A">
+            <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
+          </svg>
+          <span class="wrong-count">2</span>
+        </section>
+        <button class="score-close-button" aria-label="close">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M23 20.168l-8.185-8.187 8.185-8.174-2.832-2.807-8.182 8.179-8.176-8.179-2.81 2.81 8.186 8.196-8.186 8.184 2.81 2.81 8.203-8.192 8.18 8.192z" />
+          </svg>
+        </button>
+      </aside>
     </main>
 
     <footer>
@@ -54,7 +213,7 @@
               stroke-linejoin="round"
             />
           </svg>
-          <h1><a href="https://www.chesscoordinates.com">ChessCoordinates.com</a></h1>
+          <h1><a href="https://www.chesscoordinates.com" aria-label="chesscoordinates.com">ChessCoordinates.com</a></h1>
           <p>&copy; 2024 - Martijn van den Kerkhof</p>
         </section>
         <div>
@@ -62,20 +221,20 @@
             <h1>sitemap</h1>
             <div class="sitemap-ul-container">
               <ul>
-                <li><a href="/">home</a></li>
-                <li><a href="/files">files</a></li>
-                <li><a href="/ranks">ranks</a></li>
-                <li><a href="/squares">squares</a></li>
-                <li><a href="/colours">colours</a></li>
-                <li><a href="/moves">moves</a></li>
-                <li><a href="/memory">memory</a></li>
+                <li><a href="/" aria-label="home">home</a></li>
+                <li><a href="/files" aria-label="files">files</a></li>
+                <li><a href="/ranks" aria-label="ranks">ranks</a></li>
+                <li><a href="/squares" aria-label="squares">squares</a></li>
+                <li><a href="/colours" aria-label="colours">colours</a></li>
+                <li><a href="/moves" aria-label="moves">moves</a></li>
+                <li><a href="/memory" aria-label="memory">memory</a></li>
               </ul>
             </div>
           </section>
           <section class="footer-contact">
             <h1>contact</h1>
             <ul>
-              <li><a href="https://github.com/mpvdk/chesscoordinates" target="_blank">github</a></li>
+              <li><a href="https://github.com/mpvdk/chesscoordinates" target="_blank" aria-label="github">github</a></li>
               <li class="emailbtn">mail</li>
             </ul>
           </section>
