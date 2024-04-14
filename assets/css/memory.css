@@ -13,6 +13,7 @@ main {
   display: flex;
   flex-flow: column;
   align-items: center;
+  max-width: 100%;
 
   button {
     font-size: 2rem;
@@ -45,13 +46,11 @@ main {
     margin: 20px 0px 0px;
     .retry-game-button {
       display: inline-block;
-      width: 33%;
-
+      max-width: 33%;
       margin: 0px;
     }
     .new-memory-game-button {
       display: inline-block;
-      width: 66%;
       margin: 0px;
     }
   }
@@ -219,6 +218,16 @@ main {
       }
     }
   }
+
+  .memory-game-finished-perfect-container {
+    width: 95%;
+    margin: 20px 0px 0px;
+    text-align: center;
+
+    p {
+      font-size: 2rem;
+    }
+  }
 }
 
 @media (min-width: 1060px) {
@@ -306,6 +315,15 @@ main {
           background-color: var(--colors-primary-hover);
         }
       }
+    }
+
+    .memory-game-finished-perfect-container {
+      max-width: 360px;
+      width: 360px;
+      margin: 0px 0px;
+      position: absolute;
+      left: -440px;
+      bottom: 80px;
     }
 
     .square[data-square='a1'],

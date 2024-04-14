@@ -15,6 +15,7 @@ export class MemoryUiHandler extends UiHandler {
     this.els.startButton = document.querySelector('.start-button');
     this.els.checkPositionButton = document.querySelector('.check-position-button');
     this.els.switchPositionButtons = document.querySelector('.memory-game-finished-buttons-container');
+    this.els.perfectGameMessage = document.querySelector('.memory-game-finished-perfect-container');
     this.els.showPromptPositionButton = document.querySelector('.show-prompt-position-button');
     this.els.showUserInputPositionButton = document.querySelector('.show-user-input-position-button');
     this.els.newGameButton = document.querySelector('.new-memory-game-button');
@@ -98,18 +99,25 @@ export class MemoryUiHandler extends UiHandler {
   };
 
   finishGame = (promptSquareToPieceMap, userInputSquareToPieceMap) => {
-    this.els.piecesContainer.classList.add('hidden');
-    this.els.checkPositionButton.classList.add('hidden');
-    this.els.newGameButton.classList.remove('hidden');
-    this.els.retryButton.classList.remove('hidden');
-    this.els.switchPositionButtons.classList.remove('hidden');
+    let answerIsPerfect = true;
 
     const squares = document.querySelectorAll('.board .square');
     squares.forEach((square) => {
       if (!(promptSquareToPieceMap[square.dataset.square] === userInputSquareToPieceMap[square.dataset.square])) {
+        if (answerIsPerfect) answerIsPerfect = false;
         square.classList.add('position-highlight-wrong');
       }
     });
+
+    this.els.piecesContainer.classList.add('hidden');
+    this.els.checkPositionButton.classList.add('hidden');
+    this.els.newGameButton.classList.remove('hidden');
+    if (answerIsPerfect) {
+      this.els.perfectGameMessage.classList.remove('hidden');
+    } else {
+      this.els.switchPositionButtons.classList.remove('hidden');
+      this.els.retryButton.classList.remove('hidden');
+    }
 
     this.els.showPromptPositionButton.classList.remove('active');
     this.els.showUserInputPositionButton.classList.add('active');
@@ -123,6 +131,7 @@ export class MemoryUiHandler extends UiHandler {
     this.els.newGameButton.classList.add('hidden');
     this.els.retryButton.classList.add('hidden');
     this.els.switchPositionButtons.classList.add('hidden');
+    this.els.perfectGameMessage.classList.add('hidden');
     this.els.startButton.classList.remove('hidden');
     this.els.flipBoardButton.classList.remove('hidden');
     this.els.container.classList.remove('active');
