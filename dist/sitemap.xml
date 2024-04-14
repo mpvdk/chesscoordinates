@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://www.chesscoordinates.com/</loc>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+    </url>
+    <url>
+        <loc>https://www.chesscoordinates.com/ranks</loc>
+        <changefreq>daily</changefreq>
+    </url>
+        <url>
+        <loc>https://www.chesscoordinates.com/files</loc>
+        <changefreq>daily</changefreq>
+    </url>
+        <url>
+        <loc>https://www.chesscoordinates.com/squares</loc>
+        <changefreq>daily</changefreq>
+    </url>
+        <url>
+        <loc>https://www.chesscoordinates.com/moves</loc>
+        <changefreq>daily</changefreq>
+    </url>
+        <url>
+        <loc>https://www.chesscoordinates.com/colours</loc>
+        <changefreq>daily</changefreq>
+    </url>
+        <url>
+        <loc>https://www.chesscoordinates.com/memory</loc>
+        <changefreq>daily</changefreq>
+    </url>
+    <url>
+        <loc>https://www.chesscoordinates.com/404</loc>
+        <changefreq>daily</changefreq>
+    </url>
+</urlset>
+
