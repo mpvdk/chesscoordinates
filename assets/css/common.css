@@ -48,8 +48,6 @@
     --colors-yellow: #fabc2a;
     --colors-red: rgb(173, 3, 0);
     --colors-primary-high-contrast: var(--colors-primary);
-    --colors-chess-board-light: color-mix(in srgb, rgba(227, 193, 111, 1) 80%, var(--colors-black));
-    --colors-chess-board-dark: color-mix(in srgb, rgba(184, 139, 74, 1) 80%, var(--colors-black));
     --colors-background: rgba(35, 35, 35, 1);
     --colors-text-color: var(--colors-white);
   }
@@ -59,8 +57,6 @@
   --colors-yellow: #fabc2a;
   --colors-red: rgb(173, 3, 0);
   --colors-primary-high-contrast: var(--colors-primary);
-  --colors-chess-board-light: color-mix(in srgb, rgba(227, 193, 111, 1) 80%, var(--colors-black));
-  --colors-chess-board-dark: color-mix(in srgb, rgba(184, 139, 74, 1) 80%, var(--colors-black));
   --colors-background: rgba(35, 35, 35, 1);
   --colors-text-color: var(--colors-white);
 }
