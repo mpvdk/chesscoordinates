@@ -72,7 +72,7 @@
       text-decoration: none;
       transform: translateY(-40px);
       &.active {
-        color: var(--colors-text-color);
+        color: var(--colors-background);
         background-color: var(--colors-primary-hover);
       }
     }
