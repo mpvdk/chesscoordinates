@@ -17,21 +17,19 @@ main {
 
   button {
     font-size: 2rem;
-    padding: 5px;
+    padding: 5px 5px;
     width: 90vw;
     max-width: 600px;
     border-radius: 5px;
     background-color: var(--colors-primary);
     color: white;
     border: none;
-    margin-top: 40px;
+    margin-top: 30px;
     cursor: pointer;
     transition: all 50ms ease-in-out;
-    border: 2px solid var(--colors-primary);
 
     &:hover {
       background-color: var(--colors-primary-hover);
-      color: var(--colors-primary);
       transition: all 50ms ease-in-out;
     }
   }

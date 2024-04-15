@@ -1,6 +1,5 @@
 import { MovesUiHandler } from '../UiHandlers/MovesUiHandler.js';
 import { DragDrop } from '../common/DragDrop.js';
-import { fenArray, squareToFenMapFromFen, squareToFenMapFromUi, mapToFen } from '../common/Utils.js';
 import games from '../../Nakamura.js';
 import { Chess } from '../common/chess.js';
 

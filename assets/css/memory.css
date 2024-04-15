@@ -17,25 +17,23 @@ main {
 
   button {
     font-size: 2rem;
-    padding: 5px;
+    padding: 5px 5px;
     width: 90vw;
     max-width: 600px;
     border-radius: 5px;
     background-color: var(--colors-primary);
     color: white;
     border: none;
-    margin-top: 40px;
+    margin-top: 30px;
     cursor: pointer;
     transition: all 50ms ease-in-out;
-    border: 2px solid var(--colors-primary);
 
     &:hover {
       background-color: var(--colors-primary-hover);
-      border: 2px solid var(--colors-primary);
-      color: var(--colors-primary);
       transition: all 50ms ease-in-out;
     }
   }
+
   .new-retry-buttons-container {
     display: flex;
     flex-flow: row;
@@ -114,7 +112,7 @@ main {
         width: 25px;
         height: 25px;
         background-color: var(--colors-background);
-        border: 2px solid var(--colors-orange);
+        border: 2px solid #a0a0a0;
         border-radius: 5px;
         vertical-align: middle;
         margin-right: 8px;
@@ -127,7 +125,7 @@ main {
         background-size: 25px 25px;
         background-image: url('../images/check.svg');
         background-repeat: no-repeat;
-        background-color: var(--colors-orange);
+        background-color: #a0a0a0;
       }
     }
 
@@ -211,8 +209,7 @@ main {
 
       &.active {
         text-decoration: underline;
-        text-decoration-color: var(--colors-primary);
-        color: var(--colors-primary);
+        text-decoration-color: var(--colors-text-color);
         text-decoration-thickness: 2px;
         background-color: var(--colors-primary-hover);
       }
@@ -261,7 +258,7 @@ main {
 
       .difficulty-selection-container {
         position: absolute;
-        bottom: 70px;
+        bottom: 80px;
         left: -440px;
         width: 360px;
         .difficulty-warning {

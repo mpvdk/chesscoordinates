@@ -33,8 +33,9 @@
   --colors-red: rgba(207, 60, 58, 1);
   --colors-orange: rgb(255, 131, 48);
 
-  --colors-primary: rgba(81, 152, 114, 1);
-  --colors-primary-hover: color-mix(in srgb, var(--colors-primary) 25%, transparent);
+  /* --colors-primary: rgba(81, 152, 114, 1); */
+  --colors-primary: rgb(66, 155, 113);
+  --colors-primary-hover: color-mix(in srgb, var(--colors-primary) 75%, transparent);
   --colors-primary-high-contrast: rgba(70, 129, 90, 1);
   --colors-chess-board-light: rgba(227, 193, 111, 1);
   --colors-chess-board-dark: rgba(184, 139, 74, 1);
@@ -49,6 +50,7 @@
     --colors-red: rgb(173, 3, 0);
     --colors-primary-high-contrast: var(--colors-primary);
     --colors-background: rgba(35, 35, 35, 1);
+    --colors-background: rgb(20, 20, 20);
     --colors-text-color: var(--colors-white);
   }
 }
@@ -58,6 +60,7 @@
   --colors-red: rgb(173, 3, 0);
   --colors-primary-high-contrast: var(--colors-primary);
   --colors-background: rgba(35, 35, 35, 1);
+  --colors-background: rgb(20, 20, 20);
   --colors-text-color: var(--colors-white);
 }
 
@@ -66,9 +69,11 @@
   --colors-black: rgba(0, 0, 0, 1);
   --colors-yellow: rgba(251, 255, 215, 1);
   --colors-red: rgba(207, 60, 58, 1);
+  --colors-orange: rgb(255, 131, 48);
 
-  --colors-primary: rgba(81, 152, 114, 1);
-  --colors-primary-hover: color-mix(in srgb, var(--colors-primary) 25%, transparent);
+  /* --colors-primary: rgba(81, 152, 114, 1); */
+  --colors-primary: rgb(66, 155, 113);
+  --colors-primary-hover: color-mix(in srgb, var(--colors-primary) 75%, transparent);
   --colors-primary-high-contrast: rgba(70, 129, 90, 1);
   --colors-chess-board-light: rgba(227, 193, 111, 1);
   --colors-chess-board-dark: rgba(184, 139, 74, 1);
@@ -83,7 +88,6 @@
   margin: 0px;
   box-sizing: border-box;
   font-family: 'OpenSans', sans-serif;
-  /* color: white; */
 }
 
 h1 {
@@ -148,12 +152,12 @@ input[type='checkbox'] {
   bottom: 60px;
   padding: 10px 20px;
   opacity: 1;
-  background-color: var(--colors-yellow);
-  border: 1px solid color-mix(in srgb, var(--colors-yellow) 20%, var(--colors-black));
-  color: color-mix(in srgb, var(--colors-yellow) 20%, var(--colors-black));
+  background-color: var(--colors-chess-board-light);
+  color: var(--colors-white);
   border-radius: 10px;
   transition: all 200ms ease-in-out;
   text-align: center;
+  font-size: 1.3rem;
 
   &.toast-hidden {
     transform: translate(-50%, 40px);

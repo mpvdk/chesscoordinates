@@ -7,14 +7,14 @@ export class MemoryGame {
     // game state
     this.state = {
       active: false,
+      countdownSeconds: 30,
+      userInput: '', // fen
+      prompt: '', // fen
       difficulty: {
         easy: true,
         medium: true,
         hard: true,
       },
-      countdownSeconds: 30,
-      userInput: '', // fen
-      prompt: '', // fen
       allowedFens: [],
     };
 
