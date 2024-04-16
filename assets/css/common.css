@@ -50,7 +50,7 @@
     --colors-red: rgb(173, 3, 0);
     --colors-primary-high-contrast: var(--colors-primary);
     --colors-background: rgba(35, 35, 35, 1);
-    --colors-background: rgb(20, 20, 20);
+    --colors-background: rgb(30,30,30);
     --colors-text-color: var(--colors-white);
   }
 }
@@ -60,7 +60,7 @@
   --colors-red: rgb(173, 3, 0);
   --colors-primary-high-contrast: var(--colors-primary);
   --colors-background: rgba(35, 35, 35, 1);
-  --colors-background: rgb(20, 20, 20);
+  --colors-background: rgb(30, 30, 30);
   --colors-text-color: var(--colors-white);
 }
 
