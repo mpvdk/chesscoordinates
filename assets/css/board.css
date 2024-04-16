@@ -47,7 +47,7 @@
             left: 50%;
             top: 50%;
             transform: translate(-50%, -55%);
-            font-size: 4rem;
+            font-size: 2.5rem;
             color: var(--colors-primary);
           }
         }
@@ -160,6 +160,22 @@
     svg {
       width: 130px;
       opacity: 0.2;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .board-wrapper {
+    .board {
+      .rank {
+        .square {
+          &.legal-target {
+            &::after {
+              font-size: 3rem;
+            }
+          }
+        }
+      }
     }
   }
 }

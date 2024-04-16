@@ -24,7 +24,7 @@ main {
     background-color: var(--colors-primary);
     color: white;
     border: none;
-    margin-top: 30px;
+    margin-top: 40px;
     cursor: pointer;
     transition: all 50ms ease-in-out;
 
