@@ -6,14 +6,29 @@ header {
   justify-content: space-between;
   text-align: center;
 
-  .title {
-    text-decoration: none;
-    font-size: 1.3rem;
-    font-family: 'Source Code Pro', monospace;
+  .logo-and-title-container {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
 
-    .dotcom {
-      font-size: 0.5em;
+    svg {
+      width: 30px;
+      stroke: var(--colors-text-color);
+      stroke-width: 20px;
+      margin-bottom: 5.5px;
+      display: none;
+    }
+
+    .title {
+      text-decoration: none;
+      font-size: 1.3rem;
       font-family: 'Source Code Pro', monospace;
+
+      .dotcom {
+        font-size: 0.5em;
+        font-family: 'Source Code Pro', monospace;
+        display: none;
+      }
     }
   }
 
@@ -63,6 +78,21 @@ header {
         width: 35px;
         path {
           fill: var(--colors-text-color);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 500px) {
+  header {
+    .logo-and-title-container {
+      svg {
+        display: block;
+      }
+      .title {
+        .dotcom {
+          display: inline-block;
         }
       }
     }

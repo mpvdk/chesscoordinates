@@ -50,7 +50,7 @@
     --colors-red: rgb(173, 3, 0);
     --colors-primary-high-contrast: var(--colors-primary);
     --colors-background: rgba(35, 35, 35, 1);
-    --colors-background: rgb(30,30,30);
+    --colors-background: rgb(30, 30, 30);
     --colors-text-color: var(--colors-white);
   }
 }
@@ -154,6 +154,7 @@ input[type='checkbox'] {
   opacity: 1;
   background-color: var(--colors-chess-board-light);
   color: var(--colors-white);
+  font-weight: bold;
   border-radius: 10px;
   transition: all 200ms ease-in-out;
   text-align: center;
@@ -172,5 +173,8 @@ input[type='checkbox'] {
   }
   .desktop-only {
     display: block;
+  }
+  #toast {
+    font-size: 1.5rem;
   }
 }
