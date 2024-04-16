@@ -22,13 +22,7 @@ export class MovesUiHandler extends UiHandler {
     this.els.startStopButton = document.querySelector('.start-stop-button');
     this.els.startStopText = document.querySelector('.start-stop-text');
     this.els.flipBoardButton = document.querySelector('#flip-board-button');
-
-    setTimeout(() => {
-      const squares = document.querySelectorAll('td.square');
-      squares.forEach((p) => {
-        p.addEventListener('click', this.handleSquareClick);
-      });
-    }, 100);
+    this.els.squares = document.querySelectorAll('td.square');
 
     // =========
     // listeners
@@ -40,36 +34,52 @@ export class MovesUiHandler extends UiHandler {
     this.els.moveablePieces;
   }
 
+  initListenersForTapToMoveFunctionality = () => {
+    this.els.squares.forEach((p) => {
+      p.addEventListener('click', this.handleSquareClick);
+    });
+  };
+
   handleSquareClick = (e) => {
     const squareEl = e.currentTarget;
     const squareString = squareEl.dataset.square;
     const clickedSquareIsATarget = squareEl.classList.contains('legal-target');
 
-    document.querySelectorAll('.square').forEach((s) => {
+    this.els.squares.forEach((s) => {
       s.classList.remove('legal-target');
       s.classList.remove('selected-for-move-by-tap');
     });
 
     if (clickedSquareIsATarget) {
+      // move piece to this square
       const from = this.savedPiece.parentElement.dataset.square;
       const to = squareString;
-      const validMove = this.game.validateAnswer(from, to);
-      if (validMove) {
+      const legalMove = this.game.validateAnswer(from, to);
+      if (legalMove) {
         this.game.answerGiven(from, to);
         squareEl.innerHTML = '';
         squareEl.appendChild(this.savedPiece);
       }
     } else {
+      // check if clicked square has a piece on it
       const pieceEl = squareEl.querySelector('.draggable-piece');
       if (pieceEl) {
-        this.savedPiece = pieceEl;
+        // there is a piece
+        this.savedPiece = pieceEl; // save it so it can be moved on second click
         let legalMoves = this.game.state.currentBoard.moves({ square: squareString });
         if (legalMoves.length > 0) {
-          legalMoves = legalMoves.map((m) => m.substring(m.length - 2));
+          // highlight legal moves it can make
+          legalMoves = legalMoves.map((m) => {
+            // goal here is to get only the target square in algebraic notation
+            m = m.replace('+', ''); // remove check character
+            m.replace('#', ''); // remove mate character
+            return m.substring(m.length - 2); // get last 2 chars (which will be algebraic notation square)
+          });
           legalMoves.forEach((m) => {
             const s = document.querySelector(`.square[data-square="${m}"]`);
             if (s) s.classList.add('legal-target');
           });
+          // and highlight the source square itself
           squareEl.classList.add('selected-for-move-by-tap');
         }
       }

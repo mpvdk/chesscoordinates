@@ -53,7 +53,7 @@
         }
 
         &.selected-for-move-by-tap {
-          border: 5px solid color-mix(in srgb, var(--colors-white) 80%, transparent) !important;
+          border: 5px solid var(--colors-primary) !important;
         }
 
         &.wrong-position {

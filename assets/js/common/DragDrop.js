@@ -64,7 +64,7 @@ export class DragDrop {
   };
 
   onSquareDrop = (e) => {
-    let validMove = true;
+    let legalMove = true;
     const from = this.sourceSquare;
     const piece = this.draggingPieceFenNotation;
     let target = e.target;
@@ -78,10 +78,10 @@ export class DragDrop {
     target.classList.remove('dragover');
 
     if (this.validateOnSquareDropCb) {
-      validMove = this.validateOnSquareDropCb(from, to);
+      legalMove = this.validateOnSquareDropCb(from, to);
     }
 
-    if (validMove) {
+    if (legalMove) {
       // create element from string
       let div = document.createElement('div');
       div.innerHTML = fenToSVGMap[this.draggingPieceFenNotation];

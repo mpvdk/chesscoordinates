@@ -51,6 +51,7 @@ export class MovesGame {
 
     this.state.currentBoard = chess;
     this.uiHandler.fillBoardFromFen(this.state.currentBoard.fen());
+    this.uiHandler.initListenersForTapToMoveFunctionality();
 
     const history = chess.history({ verbose: true });
     const lastMove = history[history.length - 1];
