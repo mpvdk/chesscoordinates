@@ -78,7 +78,7 @@ export class DragDrop {
     target.classList.remove('dragover');
 
     if (this.validateOnSquareDropCb) {
-      validMove = this.validateOnSquareDropCb(from, to, piece);
+      validMove = this.validateOnSquareDropCb(from, to);
     }
 
     if (validMove) {

@@ -99,7 +99,7 @@ export class MovesGame {
     }
   };
 
-  answerGiven = (from, to, piece) => {
+  answerGiven = (from, to) => {
     this.state.currentBoard.move({ from: from, to: to });
     if (this.state.prompt.currentIndex >= this.state.prompt.moves.length) {
       this.initPrompt();

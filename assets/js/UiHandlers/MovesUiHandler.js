@@ -23,13 +23,58 @@ export class MovesUiHandler extends UiHandler {
     this.els.startStopText = document.querySelector('.start-stop-text');
     this.els.flipBoardButton = document.querySelector('#flip-board-button');
 
+    setTimeout(() => {
+      const squares = document.querySelectorAll('td.square');
+      squares.forEach((p) => {
+        p.addEventListener('click', this.handleSquareClick);
+      });
+    }, 100);
+
     // =========
     // listeners
     // =========
     this.els.scoreCloseButton.addEventListener('click', this.hideScore);
     this.els.startStopButton.addEventListener('click', this.startStopButtonPressed);
     this.els.flipBoardButton.addEventListener('click', this.flipBoard);
+
+    this.els.moveablePieces;
   }
+
+  handleSquareClick = (e) => {
+    const squareEl = e.currentTarget;
+    const squareString = squareEl.dataset.square;
+    const clickedSquareIsATarget = squareEl.classList.contains('legal-target');
+
+    document.querySelectorAll('.square').forEach((s) => {
+      s.classList.remove('legal-target');
+      s.classList.remove('selected-for-move-by-tap');
+    });
+
+    if (clickedSquareIsATarget) {
+      const from = this.savedPiece.parentElement.dataset.square;
+      const to = squareString;
+      const validMove = this.game.validateAnswer(from, to);
+      if (validMove) {
+        this.game.answerGiven(from, to);
+        squareEl.innerHTML = '';
+        squareEl.appendChild(this.savedPiece);
+      }
+    } else {
+      const pieceEl = squareEl.querySelector('.draggable-piece');
+      if (pieceEl) {
+        this.savedPiece = pieceEl;
+        let legalMoves = this.game.state.currentBoard.moves({ square: squareString });
+        if (legalMoves.length > 0) {
+          legalMoves = legalMoves.map((m) => m.substring(m.length - 2));
+          legalMoves.forEach((m) => {
+            const s = document.querySelector(`.square[data-square="${m}"]`);
+            if (s) s.classList.add('legal-target');
+          });
+          squareEl.classList.add('selected-for-move-by-tap');
+        }
+      }
+    }
+  };
 
   updatePrompt = (move) => {
     this.els.prompt.textContent = move;
