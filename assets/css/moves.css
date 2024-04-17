@@ -58,6 +58,7 @@ main {
       animation-duration: 0.2s;
     }
   }
+}
 
 @media (min-width: 1060px) {
   body {
