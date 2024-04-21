@@ -1,19 +1,10 @@
 import { FilesUiHandler } from '../UiHandlers/FilesUiHandler.js';
 import { files } from '../common/Utils.js';
+import { Game } from './Game.js';
 
-export class FilesGame {
+export class FilesGame extends Game {
   constructor() {
-    // game state
-    this.state = {
-      active: false,
-      countdownSeconds: 30,
-      userInput: '',
-      prompt: '',
-      score: {
-        wrongCount: 0,
-        correctCount: 0,
-      },
-    };
+    super();
 
     this.uiHandler = new FilesUiHandler(this);
     this.intervalId = null;
@@ -44,7 +35,9 @@ export class FilesGame {
     this.state.score.wrongCount = 0;
     this.state.score.correctCount = 0;
     this.updatePrompt();
-    this.startCountDown();
+    if (this.state.useTimer) {
+      this.startCountDown();
+    }
     this.uiHandler.startGame();
   };
 

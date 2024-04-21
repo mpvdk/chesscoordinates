@@ -1,27 +1,28 @@
+@import url('mode-nav.css');
 @import url('header.css');
 @import url('footer.css');
 
 @font-face {
   font-family: 'OpenSans';
-  src: url('../fonts/OpenSans-Regular.woff2') format('woff2');
+  src: url('../../fonts/OpenSans-Regular.woff2') format('woff2');
   font-weight: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'OpenSans Bold';
-  src: url('../fonts/OpenSans-Bold.woff2') format('woff2');
+  src: url('../../fonts/OpenSans-Bold.woff2') format('woff2');
   font-weight: bold;
   font-display: swap;
 }
 @font-face {
   font-family: 'Source Code Pro';
-  src: url('../fonts/SourceCodePro-Regular.woff2') format('woff2');
+  src: url('../../fonts/SourceCodePro-Regular.woff2') format('woff2');
   font-weight: normal;
   font-display: swap;
 }
 @font-face {
   font-family: 'Source Code Pro';
-  src: url('../fonts/SourceCodePro-Bold.woff2') format('woff2');
+  src: url('../../fonts/SourceCodePro-Bold.woff2') format('woff2');
   font-weight: bold;
   font-display: swap;
 }
@@ -33,7 +34,6 @@
   --colors-red: rgba(207, 60, 58, 1);
   --colors-orange: rgb(255, 131, 48);
 
-  /* --colors-primary: rgba(81, 152, 114, 1); */
   --colors-primary: rgb(66, 155, 113);
   --colors-primary-hover: color-mix(in srgb, var(--colors-primary) 75%, transparent);
   --colors-primary-high-contrast: rgba(70, 129, 90, 1);
@@ -167,6 +167,13 @@ input[type='checkbox'] {
   }
 }
 
+.timer-switch-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
 @media (min-width: 1060px) {
   .mobile-only {
     display: none !important;
@@ -176,5 +183,10 @@ input[type='checkbox'] {
   }
   #toast {
     font-size: 1.5rem;
+  }
+  .timer-switch-container {
+    position: absolute;
+    left: -440px;
+    bottom: 70px;
   }
 }

@@ -73,22 +73,28 @@
 @media (min-width: 1060px) {
   #score {
     position: absolute;
-    left: -260px;
+    left: -261px;
     top: auto;
-    bottom: 80px;
+    bottom: 110px;
     background-color: transparent;
     height: auto;
     width: 360px;
     max-width: 360px;
     padding: 0px 10px;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    gap: 0px;
     box-shadow: none;
     pointer-events: none;
     transform: transalteX(0px);
 
+    border: 2px solid rgb(190, 190, 190);
+    border-radius: 8px;
+
     section {
       svg {
+        width: 35px;
+        height: 35px;
         margin-right: 10px;
       }
     }

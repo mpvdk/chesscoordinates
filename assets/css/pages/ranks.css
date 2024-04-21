@@ -1,6 +1,6 @@
-@import url('mode-nav.css');
-@import url('board.css');
-@import url('score.css');
+@import url('../shared/common.css');
+@import url('../shared/score.css');
+@import url('../shared/board.css');
 
 main {
   display: flex;

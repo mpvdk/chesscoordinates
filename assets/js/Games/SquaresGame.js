@@ -1,19 +1,10 @@
 import { SquaresUiHandler } from '../UiHandlers/SquaresUiHandler.js';
 import { files, ranks } from '../common/Utils.js';
+import { Game } from './Game.js';
 
-export class SquaresGame {
+export class SquaresGame extends Game {
   constructor() {
-    // game state
-    this.state = {
-      active: false,
-      countdownSeconds: 30,
-      userInput: '',
-      prompt: '',
-      score: {
-        wrongCount: 0,
-        correctCount: 0,
-      },
-    };
+    super();
 
     this.uiHandler = new SquaresUiHandler(this);
     this.intervalId = null;
@@ -43,7 +34,9 @@ export class SquaresGame {
     this.state.score.wrongCount = 0;
     this.state.score.correctCount = 0;
     this.updatePrompt();
-    this.startCountDown();
+    if (this.state.useTimer) {
+      this.startCountDown();
+    }
     this.uiHandler.startGame();
   };
 

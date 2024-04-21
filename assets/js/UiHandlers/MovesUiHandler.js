@@ -9,12 +9,10 @@ export class MovesUiHandler extends UiHandler {
     // ========
     // elements
     // ========
-    // universal
     this.els.score = document.querySelector('#score');
     this.els.scoreCloseButton = document.querySelector('#score button');
     this.els.scoreCorrectCount = document.querySelector('#score .correct-count');
     this.els.scoreWrongCount = document.querySelector('#score .wrong-count');
-
     this.els.container = document.querySelector('#moves-game');
     this.els.board = document.querySelector('.board');
     this.els.prompt = document.querySelector('.prompt');
@@ -23,6 +21,7 @@ export class MovesUiHandler extends UiHandler {
     this.els.startStopText = document.querySelector('.start-stop-text');
     this.els.flipBoardButton = document.querySelector('#flip-board-button');
     this.els.squares = document.querySelectorAll('td.square');
+    this.els.timerSwitchContainer = document.querySelector('.timer-switch-container');
 
     // =========
     // listeners
@@ -150,6 +149,7 @@ export class MovesUiHandler extends UiHandler {
     this.els.startStopText.textContent = 'stop';
     this.els.prompt.classList.remove('hidden');
     this.els.flipBoardButton.classList.add('hidden');
+    this.els.timerSwitchContainer.classList.add('hidden');
   };
 
   resetGame = () => {
@@ -157,6 +157,7 @@ export class MovesUiHandler extends UiHandler {
     this.els.prompt.classList.add('hidden');
     this.els.startStopText.textContent = 'start';
     this.els.flipBoardButton.classList.remove('hidden');
+    this.els.timerSwitchContainer.classList.remove('hidden');
     this.showScore();
   };
 

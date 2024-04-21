@@ -6,8 +6,7 @@
       new MovesGame();
     </script>
     <script src="assets/js/common/DragDropTouch.js"></script>
-    <link rel="stylesheet" href="assets/css/common.css" />
-    <link rel="stylesheet" href="assets/css/moves.css" />
+    <link rel="stylesheet" href="assets/css/pages/moves.css" />
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.png" />
     <link rel="canonical" href="https://www.chesscoordinates.com/moves" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
@@ -219,9 +218,12 @@
           <span class="prompt"></span>
         </div>
         <button class="start-stop-button" aria-label="start"><span class="start-stop-text">start</span> <span class="countdown-sec"></span></button>
+        <div class="timer-switch-container">
+          <input type="checkbox" id="use-timer" title="use-timer" checked />
+          <label for="use-timer">30-second limit</label>
+        </div>
 
         <aside id="score" class="hidden">
-          <p class="score-heading">score:</p>
           <section class="score-correct">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
               <path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />

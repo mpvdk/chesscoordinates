@@ -1,22 +1,19 @@
 import { MemoryUiHandler } from '../UiHandlers/MemoryUiHandler.js';
 import { DragDrop } from '../common/DragDrop.js';
 import { fenArray, squareToFenMapFromFen, squareToFenMapFromUi, mapToFen, countPiecesInFen } from '../common/Utils.js';
+import { Game } from './Game.js';
 
-export class MemoryGame {
+export class MemoryGame extends Game {
   constructor() {
+    super();
+
     // game state
-    this.state = {
-      active: false,
-      countdownSeconds: 30,
-      userInput: '', // fen
-      prompt: '', // fen
-      difficulty: {
-        easy: true,
-        medium: true,
-        hard: true,
-      },
-      allowedFens: [],
+    this.state.difficulty = {
+      easy: true,
+      medium: true,
+      hard: true,
     };
+    this.state.allowedFens = [];
 
     this.uiHandler = new MemoryUiHandler(this);
     this.dragDrop = new DragDrop();

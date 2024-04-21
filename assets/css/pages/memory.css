@@ -1,5 +1,5 @@
-@import url('mode-nav.css');
-@import url('board.css');
+@import url('../shared/common.css');
+@import url('../shared/board.css');
 
 main {
   display: flex;
@@ -123,7 +123,7 @@ main {
         height: 25px;
         width: 25px;
         background-size: 25px 25px;
-        background-image: url('../images/check.svg');
+        background-image: url('../../images/check.svg');
         background-repeat: no-repeat;
         background-color: #a0a0a0;
       }

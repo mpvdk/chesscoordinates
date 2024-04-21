@@ -12,7 +12,6 @@ export class ColoursUiHandler extends UiHandler {
     this.els.scoreCloseButton = document.querySelector('#score button');
     this.els.scoreCorrectCount = document.querySelector('#score .correct-count');
     this.els.scoreWrongCount = document.querySelector('#score .wrong-count');
-
     this.els.startStopButton = document.querySelector('.start-stop-button');
     this.els.startStopText = document.querySelector('.start-stop-text');
     this.els.prompt = document.querySelector('.colours-game-prompt');
@@ -23,6 +22,7 @@ export class ColoursUiHandler extends UiHandler {
     this.els.lighCross = document.querySelector('.colours-game-light-cross');
     this.els.darkCheckmark = document.querySelector('.colours-game-dark-checkmark');
     this.els.darkCross = document.querySelector('.colours-game-dark-cross');
+    this.els.timerSwitchContainer = document.querySelector('.timer-switch-container');
 
     // =========
     // listeners
@@ -59,6 +59,7 @@ export class ColoursUiHandler extends UiHandler {
     this.els.lightAnswer.removeEventListener('click', this.game.handleAnswer);
     this.els.darkAnswer.removeEventListener('click', this.game.handleAnswer);
     this.els.prompt.textContent = '...';
+    this.els.timerSwitchContainer.classList.remove('hidden');
     this.showScore();
   };
 
@@ -78,6 +79,7 @@ export class ColoursUiHandler extends UiHandler {
     this.els.startStopText.textContent = 'stop';
     this.els.lightAnswer.addEventListener('click', this.game.handleAnswer);
     this.els.darkAnswer.addEventListener('click', this.game.handleAnswer);
+    this.els.timerSwitchContainer.classList.add('hidden');
   };
 
   showWrongAnswerGiven = (answerGiven) => {

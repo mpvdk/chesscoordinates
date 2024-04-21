@@ -1,19 +1,10 @@
 import { ColoursUiHandler } from '../UiHandlers/ColoursUiHandler.js';
 import { squaresColoursMap, files, ranks } from '../common/Utils.js';
+import { Game } from './Game.js';
 
-export class ColoursGame {
+export class ColoursGame extends Game {
   constructor() {
-    // game state
-    this.state = {
-      active: false,
-      countdownSeconds: 30,
-      userInput: '',
-      prompt: '',
-      score: {
-        wrongCount: 0,
-        correctCount: 0,
-      },
-    };
+    super();
 
     this.uiHandler = new ColoursUiHandler(this);
     this.intervalId = null;
@@ -42,7 +33,9 @@ export class ColoursGame {
     this.state.score.wrongCount = 0;
     this.state.score.correctCount = 0;
     this.updatePrompt();
-    this.startCountDown();
+    if (this.state.useTimer) {
+      this.startCountDown();
+    }
     this.uiHandler.startGame();
   };
 

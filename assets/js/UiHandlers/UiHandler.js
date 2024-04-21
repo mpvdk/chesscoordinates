@@ -9,7 +9,6 @@ export default class UiHandler {
     this.els.navWrapperHeading.addEventListener('click', this.modeSelectorClicked);
     this.els.modeNavigationCloseButton.addEventListener('click', this.closeNavigation);
     this.els.themeToggle.addEventListener('click', this.toggleTheme);
-
     this.setTheme();
   }
 
@@ -42,7 +41,6 @@ export default class UiHandler {
   };
 
   toggleTheme = (e) => {
-    console.log('toggle');
     const theme = window.localStorage.getItem('theme');
     if (theme) {
       if (theme === 'dark') {

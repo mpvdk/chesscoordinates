@@ -2,29 +2,24 @@ import { MovesUiHandler } from '../UiHandlers/MovesUiHandler.js';
 import { DragDrop } from '../common/DragDrop.js';
 import games from '../../Nakamura.js';
 import { Chess } from '../common/chess.js';
+import { Game } from './Game.js';
 
-export class MovesGame {
+export class MovesGame extends Game {
   constructor() {
+    super();
+
     // game state
-    this.state = {
-      active: false,
-      countdownSeconds: 30,
-      userInput: '',
-      prompt: {
-        moves: [],
-        currentIndex: 0,
-      },
-      score: {
-        wrongCount: 0,
-        correctCount: 0,
-      },
-      firstGameFinished: false,
-      currentBoard: null,
+    this.state.prompt = {
+      moves: [],
+      currentIndex: 0,
     };
+    this.state.firstGameFinished = false;
+    this.state.currentBoard = null;
 
     this.uiHandler = new MovesUiHandler(this);
     this.dragDrop = new DragDrop();
     this.intervalId = null;
+
     setTimeout(() => {
       this.initPrompt(); // move to task queue for performance improvement
     }, 0);
@@ -66,8 +61,10 @@ export class MovesGame {
     this.dragDrop.initListenersForPieces();
     this.dragDrop.initListenersForSquares(this.validateAnswer, this.answerGiven);
     this.uiHandler.updatePrompt(this.state.prompt.moves[this.state.prompt.currentIndex]);
+    if (this.state.useTimer) {
+      this.startCountDown();
+    }
     this.uiHandler.startGame();
-    this.startCountDown();
   };
 
   resetGame = () => {

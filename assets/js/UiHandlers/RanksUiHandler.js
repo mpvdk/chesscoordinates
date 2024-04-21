@@ -13,13 +13,13 @@ export class RanksUiHandler extends UiHandler {
     this.els.scoreCloseButton = document.querySelector('#score button');
     this.els.scoreCorrectCount = document.querySelector('#score .correct-count');
     this.els.scoreWrongCount = document.querySelector('#score .wrong-count');
-
     this.els.board = document.querySelector('.board');
     this.els.prompt = document.querySelector('.prompt');
     this.els.countDown = document.querySelector('.countdown-sec');
     this.els.startStopButton = document.querySelector('.start-stop-button');
     this.els.startStopText = document.querySelector('.start-stop-text');
     this.els.flipBoardButton = document.querySelector('#flip-board-button');
+    this.els.timerSwitchContainer = document.querySelector('.timer-switch-container');
 
     // =========
     // listeners
@@ -54,7 +54,7 @@ export class RanksUiHandler extends UiHandler {
     this.els.startStopText.textContent = 'start';
     this.els.flipBoardButton.classList.remove('hidden');
     this.els.board.removeEventListener('click', this.game.handleAnswer);
-
+    this.els.timerSwitchContainer.classList.remove('hidden');
     this.showScore();
   };
 
@@ -79,6 +79,7 @@ export class RanksUiHandler extends UiHandler {
     this.els.prompt.classList.remove('hidden');
     this.els.flipBoardButton.classList.add('hidden');
     this.els.board.addEventListener('click', this.game.handleAnswer);
+    this.els.timerSwitchContainer.classList.add('hidden');
   };
 
   answerIsWrong = () => {
