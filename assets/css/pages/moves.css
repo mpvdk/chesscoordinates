@@ -58,40 +58,6 @@ main {
       animation-duration: 0.2s;
     }
   }
-
-  .square[data-square='a1'],
-  .square[data-square='h8'] {
-    position: relative;
-    &.show-hint {
-      &::before {
-        font-size: 1rem;
-        position: absolute;
-        opacity: 0.6;
-      }
-    }
-  }
-
-  .square[data-square='a1'] {
-    position: relative;
-    &.show-hint {
-      &::before {
-        content: 'a1';
-        bottom: -3px;
-        left: 0px;
-      }
-    }
-  }
-
-  .square[data-square='h8'] {
-    position: relative;
-    &.show-hint {
-      &::before {
-        content: 'h8';
-        top: -3px;
-        right: 0px;
-      }
-    }
-  }
 }
 
 @media (min-width: 1060px) {
