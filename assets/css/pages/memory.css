@@ -309,7 +309,10 @@ main {
         width: 360px;
       }
 
-      .difficulty-selection-container {
+      .settings {
+        .settings-heading {
+          display: none;
+        }
         position: absolute;
         bottom: 80px;
         left: -440px;
@@ -356,13 +359,14 @@ main {
 
         &.active {
           text-decoration: underline;
-          text-decoration-color: var(--colors-primary);
+          text-decoration-color: var(--colors-white);
           text-decoration-thickness: 2px;
           background-color: var(--colors-primary-hover);
         }
 
         &:hover {
           background-color: var(--colors-primary-hover);
+          color: white;
         }
       }
     }
