@@ -566,21 +566,6 @@
         <!-- buttons -->
         <button class="start-button" aria-label="start">start</button>
         <button class="check-position-button hidden" aria-label="done">done</button>
-        <div class="difficulty-selection-container">
-          <div class="difficulty-input-container">
-            <input type="checkbox" id="difficulty-easy" name="easy" value="easy" checked />
-            <label for="difficulty-easy">&lt; 11 pcs</label>
-          </div>
-          <div class="difficulty-input-container">
-            <input type="checkbox" id="difficulty-medium" name="medium" value="medium" checked />
-            <label for="difficulty-medium">11-20 pcs</label>
-          </div>
-          <div class="difficulty-input-container">
-            <input type="checkbox" id="difficulty-hard" name="hard" value="hard" checked />
-            <label for="difficulty-hard">&gt; 20 pcs</label>
-          </div>
-          <span class="difficulty-warning toast-hidden">Must have at least one difficulty selected</span>
-        </div>
         <div class="memory-game-finished-buttons-container hidden">
           <button class="show-prompt-position-button" aria-label="show original">original</button>
           <button class="show-user-input-position-button active" aria-label="show my answer">my answer</button>
@@ -593,6 +578,32 @@
           <button class="new-memory-game-button hidden" aria-label="new position">new position</button>
         </div>
 
+        <!-- settings -->
+        <div class="settings">
+          <p class="settings-heading">settings</p>
+          <div class="difficulty-selection-container">
+            <div class="difficulty-input-container">
+              <input type="checkbox" id="difficulty-easy" name="easy" value="easy" checked />
+              <label for="difficulty-easy">&lt; 11 pcs</label>
+            </div>
+            <div class="difficulty-input-container">
+              <input type="checkbox" id="difficulty-medium" name="medium" value="medium" checked />
+              <label for="difficulty-medium">11-20 pcs</label>
+            </div>
+            <div class="difficulty-input-container">
+              <input type="checkbox" id="difficulty-hard" name="hard" value="hard" checked />
+              <label for="difficulty-hard">&gt; 20 pcs</label>
+            </div>
+            <span class="difficulty-warning toast-hidden">Must have at least one difficulty selected</span>
+          </div>
+          <div class="custom-fen-container">
+            <p class="invalid-custom-fen-warning hidden">invalid or incomplete fen</p>
+            <input type="text" class="custom-fen-input hidden" placeholder="Enter FEN" />
+            <button class="custom-fen-button" aria-label="custom fen">Use a custom FEN</button>
+          </div>
+        </div>
+
+        <!-- score -->
         <aside id="score" class="hidden">
           <section class="score-correct">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -615,6 +626,7 @@
       </section>
     </main>
 
+    <!-- footer -->
     <footer>
       <div class="footer-inner-container">
         <section class="footer-copyright">
@@ -626,7 +638,9 @@
               stroke-linejoin="round"
             />
           </svg>
-          <h1><a href="https://www.chesscoordinates.com" aria-label="chesscoordinates.com">ChessCoordinates.com</a></h1>
+          <h1>
+            <a href="https://www.chesscoordinates.com" aria-label="chesscoordinates.com">ChessCoordinates.com</a>
+          </h1>
           <p>&copy; 2024 - Martijn van den Kerkhof</p>
         </section>
         <div>
@@ -647,7 +661,9 @@
           <section class="footer-contact">
             <h1>contact</h1>
             <ul>
-              <li><a href="https://github.com/mpvdk/chesscoordinates" target="_blank" aria-label="github">github</a></li>
+              <li>
+                <a href="https://github.com/mpvdk/chesscoordinates" target="_blank" aria-label="github">github</a>
+              </li>
               <li class="emailbtn">mail</li>
             </ul>
           </section>

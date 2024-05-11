@@ -22,8 +22,13 @@ export class MemoryUiHandler extends UiHandler {
     this.els.retryButton = document.querySelector('.retry-game-button');
     this.els.flipBoardButton = document.querySelector('#flip-board-button');
     this.els.piecesContainer = document.querySelector('.pieces-container');
+    this.els.difficultySelectionContainer = document.querySelector('.difficulty-selection-container');
     this.els.difficultySelectionInputs = document.querySelectorAll('.difficulty-selection-container input');
     this.els.difficultyWarning = document.querySelector('.difficulty-warning');
+    this.els.customFenContainer = document.querySelector('.custom-fen-container');
+    this.els.customFenWarning = document.querySelector('.invalid-custom-fen-warning');
+    this.els.customFenButton = document.querySelector('.custom-fen-button');
+    this.els.customFenInput = document.querySelector('.custom-fen-input');
 
     // =========
     // listeners
@@ -36,7 +41,34 @@ export class MemoryUiHandler extends UiHandler {
     this.els.newGameButton.addEventListener('click', game.resetGame);
     this.els.retryButton.addEventListener('click', game.restartGameWithSameFen);
     this.els.difficultySelectionInputs.forEach((el) => el.addEventListener('click', this.difficultyChanged));
+    this.els.customFenButton.addEventListener('click', this.customFenButtonPressed);
+    this.els.customFenInput.addEventListener('input', this.customFenInputChanged);
   }
+
+  customFenButtonPressed = () => {
+    this.els.customFenInput.classList.toggle('hidden');
+    this.els.difficultySelectionContainer.classList.toggle('hidden');
+    this.els.customFenWarning.classList.add('hidden');
+    this.els.customFenButton.innerHTML = this.els.customFenInput.classList.contains('hidden') ? 'Use a custom FEN' : 'Use auto-generated FENs';
+  };
+
+  customFenInputChanged = () => {
+    const fen = this.els.customFenInput.value;
+    this.game.setCustomFen(fen);
+  };
+
+  showInvalidFenWarning = () => {
+    console.log('hi');
+    if (this.els.customFenWarning.classList.contains('hidden')) {
+      this.els.customFenWarning.classList.remove('hidden');
+    }
+  };
+
+  hideInvalidFenWarning = () => {
+    if (!this.els.customFenWarning.classList.contains('hidden')) {
+      this.els.customFenWarning.classList.add('hidden');
+    }
+  };
 
   difficultyChanged = (e) => {
     const checkedCount = document.querySelectorAll('.difficulty-selection-container input:checked').length;

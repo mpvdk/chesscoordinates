@@ -45,6 +45,8 @@
 
   --colors-text-color: var(--colors-black);
 
+  --colors-button-secondary: rgb(175, 175, 175);
+
   @media (prefers-color-scheme: dark) {
     --colors-yellow: #fabc2a;
     --colors-red: rgb(173, 3, 0);

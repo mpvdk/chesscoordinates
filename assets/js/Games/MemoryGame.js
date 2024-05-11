@@ -2,6 +2,7 @@ import { MemoryUiHandler } from '../UiHandlers/MemoryUiHandler.js';
 import { DragDrop } from '../common/DragDrop.js';
 import { fenArray, squareToFenMapFromFen, squareToFenMapFromUi, mapToFen, countPiecesInFen } from '../common/Utils.js';
 import { Game } from './Game.js';
+import { validateFen } from '../common/chess.js';
 
 export class MemoryGame extends Game {
   constructor() {
@@ -74,5 +75,15 @@ export class MemoryGame extends Game {
     });
     this.state.prompt = this.state.allowedFens[Math.floor(Math.random() * this.state.allowedFens.length)];
     if (this.state.prompt) this.uiHandler.fillBoardFromFen(this.state.prompt);
+  };
+
+  setCustomFen = (fen) => {
+    if (validateFen(fen).ok) {
+      this.uiHandler.hideInvalidFenWarning();
+      this.state.prompt = fen;
+      this.uiHandler.fillBoardFromFen(fen);
+    } else {
+      this.uiHandler.showInvalidFenWarning();
+    }
   };
 }
