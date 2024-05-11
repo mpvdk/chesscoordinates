@@ -6,6 +6,7 @@ export class DragDrop {
     this.sourceSquare = null;
     this.validateOnSquareDropCb = null;
     this.squareDropCommitCb = null;
+    this.isCastleMoveCb = null;
   }
 
   initListenersForPieces = () => {
@@ -23,9 +24,10 @@ export class DragDrop {
     }
   };
 
-  initListenersForSquares = (validateOnSquareDropCb = null, squareDropCommitCb = null) => {
+  initListenersForSquares = (validateOnSquareDropCb, squareDropCommitCb, isCastleMoveCb) => {
     this.validateOnSquareDropCb = validateOnSquareDropCb;
     this.squareDropCommitCb = squareDropCommitCb;
+    this.isCastleMoveCb = isCastleMoveCb;
     document.querySelectorAll('.board .square').forEach((square) => {
       square.addEventListener('dragover', this.onSquareDragOver);
       square.addEventListener('dragenter', this.onSquareDragEnter);
@@ -64,7 +66,7 @@ export class DragDrop {
   };
 
   onSquareDrop = (e) => {
-    let legalMove = true;
+    let moveIsCorrectAnswer = true;
     const from = this.sourceSquare;
     const piece = this.draggingPieceFenNotation;
     let target = e.target;
@@ -78,15 +80,15 @@ export class DragDrop {
     target.classList.remove('dragover');
 
     if (this.validateOnSquareDropCb) {
-      legalMove = this.validateOnSquareDropCb(from, to);
+      moveIsCorrectAnswer = this.validateOnSquareDropCb(from, to);
     }
 
-    if (legalMove) {
+    if (moveIsCorrectAnswer) {
       // create element from string
       let div = document.createElement('div');
       div.innerHTML = fenToSVGMap[this.draggingPieceFenNotation];
       div = div.querySelector('div');
-      // and add a class
+      // and add class(es) and attribute(s)
       div.classList.add('draggable-piece');
       div.classList.add('piece-on-board');
       div.draggable = true;
@@ -96,6 +98,35 @@ export class DragDrop {
 
       if (from) {
         document.querySelector(`td[data-square="${from}"] div`).remove();
+      }
+
+      if (this.isCastleMoveCb()) {
+        console.log('castle move');
+        // This is a castle - we need to move the rook as well
+        let rookFrom;
+        let rookTo;
+        if (to[0] === 'g') {
+          rookFrom = 'h' + to[1];
+          rookTo = 'f' + to[1];
+        } else {
+          rookFrom = 'a' + to[1];
+          rookTo = 'd' + to[1];
+        }
+        // create element from string
+        let rookDiv = document.createElement('div');
+        rookDiv.innerHTML = fenToSVGMap[to[1] == 1 ? 'R' : 'r'];
+        rookDiv = rookDiv.querySelector('div');
+        // and add class(es) and attribute(s)
+        rookDiv.classList.add('draggable-piece');
+        rookDiv.classList.add('piece-on-board');
+        rookDiv.draggable = true;
+        // and insert into the board square
+        document.querySelector(`td[data-square="${rookTo}"]`).innerHTML = '';
+        document.querySelector(`td[data-square="${rookTo}"]`).appendChild(rookDiv);
+        // and lastly remove the rook from the original square
+        document.querySelector(`td[data-square="${rookFrom}"] div`).remove();
+      } else {
+        console.log('not castle move');
       }
 
       // init listeners

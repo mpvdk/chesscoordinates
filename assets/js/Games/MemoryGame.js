@@ -25,7 +25,7 @@ export class MemoryGame extends Game {
   startGame = () => {
     this.state.active = true;
     this.dragDrop.initListenersForPieces();
-    this.dragDrop.initListenersForSquares(null, null);
+    this.dragDrop.initListenersForSquares(null, null, null);
     this.uiHandler.startGame();
   };
 

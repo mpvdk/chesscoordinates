@@ -53,9 +53,9 @@ export class MovesUiHandler extends UiHandler {
       // move piece to this square
       const from = this.savedPiece.parentElement.dataset.square;
       const to = squareString;
-      const legalMove = this.game.validateAnswer(from, to);
-      if (legalMove) {
-        this.game.answerGiven(from, to);
+      const moveIsCorrectAnswer = this.game.validateAnswer(from, to);
+      if (moveIsCorrectAnswer) {
+        this.game.commitAnswer(from, to);
         squareEl.innerHTML = '';
         squareEl.appendChild(this.savedPiece);
       }

@@ -59,7 +59,7 @@ export class MovesGame extends Game {
     this.state.score.correctCount = 0;
     this.state.score.wrongCount = 0;
     this.dragDrop.initListenersForPieces();
-    this.dragDrop.initListenersForSquares(this.validateAnswer, this.answerGiven);
+    this.dragDrop.initListenersForSquares(this.validateAnswer, this.commitAnswer, this.isCastleMove);
     this.uiHandler.updatePrompt(this.state.prompt.moves[this.state.prompt.currentIndex]);
     if (this.state.useTimer) {
       this.startCountDown();
@@ -97,7 +97,7 @@ export class MovesGame extends Game {
     }
   };
 
-  answerGiven = (from, to) => {
+  commitAnswer = (from, to) => {
     this.state.currentBoard.move({ from: from, to: to });
     if (this.state.prompt.currentIndex >= this.state.prompt.moves.length) {
       this.initPrompt();
@@ -106,6 +106,11 @@ export class MovesGame extends Game {
     }
     this.uiHandler.updatePrompt(this.state.prompt.moves[this.state.prompt.currentIndex]);
     this.uiHandler.highlightLastMove(from, to);
+  };
+
+  isCastleMove = () => {
+    const promptMove = this.state.prompt.moves[this.state.prompt.currentIndex];
+    return promptMove === 'O-O' || promptMove === 'O-O-O';
   };
 
   promptToLAN = () => {
