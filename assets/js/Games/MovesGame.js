@@ -28,7 +28,10 @@ export class MovesGame extends Game {
   initPrompt = () => {
     const chess = new Chess();
     const game = games[Math.floor(Math.random() * games.length)];
-    const randomCutoff = Math.floor(Math.random() * game.length);
+    // -2 to make sure we don't start at end of game and have no moves to make
+    // the commitAnswer function will handle the case where we are at the end
+    // of the game, but practice hasn't finsihed yet (a new game will be started)
+    const randomCutoff = Math.floor(Math.random() * game.length - 2);
 
     const movesToMakeOnBoard = game
       .slice(0, randomCutoff)
