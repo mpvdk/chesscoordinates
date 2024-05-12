@@ -55,9 +55,28 @@ export class MovesUiHandler extends UiHandler {
       const to = squareString;
       const moveIsCorrectAnswer = this.game.validateAnswer(from, to);
       if (moveIsCorrectAnswer) {
-        this.game.commitAnswer(from, to);
         squareEl.innerHTML = '';
         squareEl.appendChild(this.savedPiece);
+        // if move was a castle, also move the rook
+        if (this.game.isCastleMove()) {
+          const move = this.game.getCurrentPrompt();
+          const colourToMove = this.game.state.currentBoard.turn();
+          let rookFrom = '';
+          let rookTo = '';
+          if (move === 'O-O') {
+            rookFrom = colourToMove === 'w' ? 'h1' : 'h8';
+            rookTo = colourToMove === 'w' ? 'f1' : 'f8';
+          } else {
+            rookFrom = colourToMove === 'w' ? 'a1' : 'a8';
+            rookTo = colourToMove === 'w' ? 'd1' : 'd8';
+          }
+          const rookEl = document.querySelector(`.square[data-square="${rookFrom}"] .draggable-piece`);
+          const targetSquareEl = document.querySelector(`.square[data-square="${rookTo}"]`);
+          targetSquareEl.innerHTML = '';
+          targetSquareEl.appendChild(rookEl);
+        }
+
+        this.game.commitAnswer(from, to);
       }
     } else {
       // check if clicked square has a piece on it
@@ -69,6 +88,12 @@ export class MovesUiHandler extends UiHandler {
         if (legalMoves.length > 0) {
           // highlight legal moves it can make
           legalMoves = legalMoves.map((m) => {
+            // check for castle move (O-O or O-O-O)
+            const colourToMove = this.game.state.currentBoard.turn();
+            if (m === 'O-O' && colourToMove === 'w') return 'g1';
+            if (m === 'O-O' && colourToMove === 'b') return 'g8';
+            if (m === 'O-O-O' && colourToMove === 'w') return 'c1';
+            if (m === 'O-O-O' && colourToMove === 'b') return 'c8';
             // goal here is to get only the target square in algebraic notation
             m = m.replace('+', ''); // remove check character
             m.replace('#', ''); // remove mate character

@@ -116,6 +116,10 @@ export class MovesGame extends Game {
     return promptMove === 'O-O' || promptMove === 'O-O-O';
   };
 
+  getCurrentPrompt = () => {
+    return this.state.prompt.moves[this.state.prompt.currentIndex];
+  };
+
   promptToLAN = () => {
     const game = new Chess();
     game.loadPgn(this.state.currentBoard.pgn());
