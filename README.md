@@ -32,3 +32,4 @@ Find an issue with the app or have any suggestions? Your input is welcome. Open 
 
 - Add more fen-notation positions and think of a better way to serve them on demand (current setup adds bytes for every position added of course)
 - Same for pgn games
+- Add themes
