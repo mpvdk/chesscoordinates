@@ -26,7 +26,8 @@ export class FilesGame extends Game {
   };
 
   updatePrompt = () => {
-    this.state.prompt = files[Math.floor(Math.random() * 8)];
+    const oldPrompt = this.state.prompt;
+    while (oldPrompt == this.state.prompt) this.state.prompt = files[Math.floor(Math.random() * 8)];
     this.uiHandler.updatePrompt(this.state.prompt);
   };
 
