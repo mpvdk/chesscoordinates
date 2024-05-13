@@ -58,7 +58,6 @@ export class MemoryUiHandler extends UiHandler {
   };
 
   showInvalidFenWarning = () => {
-    console.log('hi');
     if (this.els.customFenWarning.classList.contains('hidden')) {
       this.els.customFenWarning.classList.remove('hidden');
     }

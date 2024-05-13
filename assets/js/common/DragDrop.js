@@ -66,6 +66,10 @@ export class DragDrop {
   };
 
   onSquareDrop = (e) => {
+    // todo: this is a bit of a mess, needs refactoring
+    // this is called when a move is made in the 'moves' game mode,
+    // but also when the user drops a piece on the board in the 'memory' game mode
+    // should probably split this into two separate functions
     let moveIsCorrectAnswer = true;
     const from = this.sourceSquare;
     const piece = this.draggingPieceFenNotation;
@@ -100,8 +104,7 @@ export class DragDrop {
         document.querySelector(`td[data-square="${from}"] div`).remove();
       }
 
-      if (this.isCastleMoveCb()) {
-        console.log('castle move');
+      if (this.isCastleMoveCb && this.isCastleMoveCb()) {
         // This is a castle - we need to move the rook as well
         let rookFrom;
         let rookTo;
@@ -125,8 +128,6 @@ export class DragDrop {
         document.querySelector(`td[data-square="${rookTo}"]`).appendChild(rookDiv);
         // and lastly remove the rook from the original square
         document.querySelector(`td[data-square="${rookFrom}"] div`).remove();
-      } else {
-        console.log('not castle move');
       }
 
       // init listeners
