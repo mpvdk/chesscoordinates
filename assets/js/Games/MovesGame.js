@@ -116,6 +116,15 @@ export class MovesGame extends Game {
     return promptMove === 'O-O' || promptMove === 'O-O-O';
   };
 
+  isEnPassantMove = () => {
+    const promptMove = this.state.prompt.moves[this.state.prompt.currentIndex];
+    const moves = this.state.currentBoard.moves({ verbose: true });
+    const move = moves.find((m) => {
+      return m.san === promptMove;
+    });
+    return moves.flags.contains('e');
+  };
+
   getCurrentPrompt = () => {
     return this.state.prompt.moves[this.state.prompt.currentIndex];
   };

@@ -50,15 +50,15 @@ export class MovesUiHandler extends UiHandler {
     });
 
     if (clickedSquareIsATarget) {
-      // move piece to this square
       const from = this.savedPiece.parentElement.dataset.square;
       const to = squareString;
+
       const moveIsCorrectAnswer = this.game.validateAnswer(from, to);
+
       if (moveIsCorrectAnswer) {
-        squareEl.innerHTML = '';
-        squareEl.appendChild(this.savedPiece);
-        // if move was a castle, also move the rook
+        // check if move was castle
         if (this.game.isCastleMove()) {
+          // move the rook
           const move = this.game.getCurrentPrompt();
           const colourToMove = this.game.state.currentBoard.turn();
           let rookFrom = '';
@@ -75,6 +75,19 @@ export class MovesUiHandler extends UiHandler {
           targetSquareEl.innerHTML = '';
           targetSquareEl.appendChild(rookEl);
         }
+        // check if move was en passant
+        if (this.game.isEnPassantMove()) {
+          // remove the captured pawn
+          const fileOfPawnToCapture = to[0];
+          const rankOfPawnToCapture = this.game.state.currentBoard.turn() === 'w' ? '5' : '4';
+          const squareOfPawnToCapture = fileOfPawnToCapture + rankOfPawnToCapture;
+          const squareEl = document.querySelector(`.square[data-square="${squareOfPawnToCapture}"]`);
+          squareEl.innerHTML = '';
+        }
+
+        // actually move the original piece
+        squareEl.innerHTML = '';
+        squareEl.appendChild(this.savedPiece);
 
         this.game.commitAnswer(from, to);
       }
