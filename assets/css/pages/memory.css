@@ -99,6 +99,7 @@ main {
       'difficulty difficulty'
       'custom-fen custom-fen';
     grid-template-columns: 1fr 1fr;
+    justify-items: center;
 
     .settings-heading {
       font-size: 1.5rem;
@@ -173,6 +174,8 @@ main {
     .custom-fen-container {
       grid-area: custom-fen;
       position: relative;
+      width: 100%;
+      text-align: center;
 
       .invalid-custom-fen-warning {
         position: absolute;
@@ -201,6 +204,7 @@ main {
         margin-bottom: -2px;
         border: 2px solid var(--colors-button-secondary);
         border-radius: 5px;
+        max-width: 600px;
       }
     }
   }
