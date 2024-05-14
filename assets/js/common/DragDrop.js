@@ -13,6 +13,63 @@ export class DragDrop {
     document.querySelectorAll('.draggable-piece').forEach((piece) => {
       piece.addEventListener('dragstart', this.onPieceDragStart);
     });
+    document.querySelectorAll('.piece-on-board').forEach((piece) => {
+      piece.addEventListener('click', this.prepareToMovePieceOnBoard);
+    });
+  };
+
+  prepareToMovePieceOnBoard = (e) => {
+    e.stopPropagation();
+    const pieceEl = e.target;
+
+    const movePiece = (e) => {
+      e.stopPropagation();
+
+      const targetSquare = e.target;
+      if (targetSquare.classList.contains('legal-target')) {
+        // move  pieceEl to targetSquare
+        targetSquare.appendChild(pieceEl); // appendChild both removes and adds the element
+      }
+
+      cleanup();
+    };
+
+    const cancelMove = () => {
+      console.log('cancelled');
+      cleanup();
+    };
+
+    const removePiece = (e) => {
+      e.stopPropagation();
+
+      pieceEl.remove();
+
+      cleanup();
+    };
+
+    const cleanup = () => {
+      pieceEl.classList.remove('selected-to-move');
+      pieceEl.removeEventListener('click', removePiece);
+      // add markers on all empty squares and add event listeners
+      document.querySelectorAll('.board .square').forEach((square) => {
+        square.classList.remove('legal-target');
+        square.removeEventListener('click', movePiece);
+      });
+      // remove cancel move listener
+      document.removeEventListener('click', cancelMove);
+    };
+
+    // overlay marker over piece
+    pieceEl.classList.add('selected-to-move');
+    pieceEl.addEventListener('click', removePiece);
+    // add markers on all empty squares and add event listeners
+    document.querySelectorAll('.board .square').forEach((square) => {
+      if (square.innerHTML === '') {
+        square.classList.add('legal-target');
+        square.addEventListener('click', movePiece);
+      }
+    });
+    document.addEventListener('click', cancelMove);
   };
 
   onPieceDragStart = (e) => {

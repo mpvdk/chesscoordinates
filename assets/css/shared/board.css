@@ -52,6 +52,15 @@
           }
         }
 
+        .selected-to-move {
+          background-color: var(--colors-red);
+        }
+
+        &:has(.selected-to-move) {
+          background-color: var(--colors-red) !important;
+          border: 5px solid var(--colors-red) !important;
+        }
+
         &.selected-for-move-by-tap {
           border: 5px solid var(--colors-primary) !important;
         }
