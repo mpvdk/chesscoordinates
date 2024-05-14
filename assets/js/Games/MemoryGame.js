@@ -17,15 +17,19 @@ export class MemoryGame extends Game {
     this.state.allowedFens = [];
 
     this.uiHandler = new MemoryUiHandler(this);
-    this.dragDrop = new DragDrop();
+    this.dragDrop = new DragDrop(this.onDragStart);
     this.intervalId = null;
     this.updateAllowedFens();
   }
 
+  onDragStart = (e) => {
+    this.uiHandler.cancelMove();
+  };
+
   startGame = () => {
     this.state.active = true;
     this.dragDrop.initListenersForPieces();
-    this.dragDrop.initListenersForSquares(null, null, null);
+    this.dragDrop.initListenersForSquares(null, this.piecesOnBoardChanged, null);
     this.uiHandler.startGame();
   };
 
@@ -85,5 +89,12 @@ export class MemoryGame extends Game {
     } else {
       this.uiHandler.showInvalidFenWarning();
     }
+  };
+
+  piecesOnBoardChanged = () => {
+    this.dragDrop.initListenersForPieces();
+    this.dragDrop.initListenersForSquares(null, this.piecesOnBoardChanged, null);
+    this.uiHandler.initListenersForPiecesContainer();
+    this.uiHandler.initListenersForPiecesOnBoard();
   };
 }

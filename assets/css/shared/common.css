@@ -117,22 +117,21 @@ a {
 
 .flipped {
   rotate: 180deg !important;
-  svg {
+
+  .square {
     rotate: 180deg !important;
   }
   .square[data-square='a1'] {
     &.show-hint {
       &::before {
-        rotate: 180deg;
-        transform: translateY(-10%) !important;
+        transform: translateY(270%) translateX(300%) !important;
       }
     }
   }
   .square[data-square='h8'] {
     &.show-hint {
       &::before {
-        rotate: 180deg;
-        transform: translateY(-5%) !important;
+        transform: translateY(270%) translateX(-300%) !important;
       }
     }
   }

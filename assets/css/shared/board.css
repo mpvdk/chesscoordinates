@@ -180,7 +180,7 @@
         .square {
           &.legal-target {
             &::after {
-              font-size: 3rem;
+              font-size: 2rem;
             }
           }
         }

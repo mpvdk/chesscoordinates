@@ -5,6 +5,8 @@ export class MemoryUiHandler extends UiHandler {
   constructor(game) {
     super();
     this.game = game;
+    this.areWeInTheProcessOfMovingAPiece = false;
+    this.areWeAddingOrMoving = '';
 
     // ========
     // elements
@@ -122,7 +124,169 @@ export class MemoryUiHandler extends UiHandler {
     this.els.checkPositionButton.classList.remove('hidden');
     this.els.piecesContainer.classList.remove('hidden');
     this.els.container.classList.add('active');
+    this.initListenersForPiecesContainer();
     this.clearBoard();
+  };
+
+  initListenersForPiecesContainer = () => {
+    // remove all existing listeners to avoid clones
+    this.removeListenersForPiecesContainer();
+    // and re-init the listeners so that the new pieces can be moved
+    document.querySelectorAll('.pieces-container .draggable-piece').forEach((piece) => {
+      piece.addEventListener('click', this.prepareToUpdateBoard);
+    });
+  };
+
+  removeListenersForPiecesContainer = () => {
+    document.querySelectorAll('.draggable-piece').forEach((piece) => {
+      piece.removeEventListener('click', this.prepareToUpdateBoard);
+    });
+  };
+
+  initListenersForPiecesOnBoard = () => {
+    // remove all existing listeners to avoid clones
+    this.removeListenersForPiecesOnBoard();
+    // and re-init the listeners so that the new pieces can be moved
+    document.querySelectorAll('.piece-on-board').forEach((piece) => {
+      piece.addEventListener('click', this.prepareToUpdateBoard);
+    });
+  };
+
+  removeListenersForPiecesOnBoard = () => {
+    document.querySelectorAll('.piece-on-board').forEach((piece) => {
+      piece.removeEventListener('click', this.prepareToUpdateBoard);
+    });
+  };
+
+  prepareToUpdateBoard = (e) => {
+    let target = e.target;
+    while (!target.classList.contains('draggable-piece')) {
+      target = target.parentNode;
+    }
+
+    let addingOrMoving;
+    if (target.dataset.isPartOfPiecesContainer === 'true' || this.areWeAddingOrMoving == 'adding') addingOrMoving = 'adding';
+    else addingOrMoving = 'moving';
+
+    if (this.areWeInTheProcessOfMovingAPiece) {
+      // this.areWeInTheProcessOfMovingAPiece is a hacky workaround
+      // I'm so tired of this shit with event propagation dont blame me
+      this.areWeInTheProcessOfMovingAPiece = false;
+      this.areWeAddingOrMoving = '';
+      if (target.dataset.isPartOfPiecesContainer === 'true') {
+        this.cancelMove();
+        return;
+      }
+      if (addingOrMoving == 'adding') this.insertPiece(e);
+      else this.movePiece(e);
+      return;
+    } else {
+      this.areWeInTheProcessOfMovingAPiece = true;
+      this.areWeAddingOrMoving = addingOrMoving;
+      e.stopPropagation();
+
+      // Find the piece element (sometimes the event target is the SVG element inside the div)
+
+      if (addingOrMoving === 'adding') {
+        this.cancelMove();
+        this.areWeInTheProcessOfMovingAPiece = true;
+        this.areWeAddingOrMoving = addingOrMoving;
+      }
+
+      // Add indicator to the piece that is moving
+      target.classList.add('selected-to-move');
+
+      // Add removePiece event listener if we're moving a piece already on the board
+      if (addingOrMoving === 'moving') {
+        target.addEventListener('click', this.removePiece);
+        target.removeEventListener('click', this.prepareToUpdateBoard);
+      }
+
+      // Add markers and event listeners to all squares except the one we're moving from
+      document.querySelectorAll('.board .square').forEach((square) => {
+        if (addingOrMoving === 'moving' && e.target === square.querySelector('.draggable-piece')) return;
+        square.classList.add('legal-target');
+        square.addEventListener('click', addingOrMoving == 'adding' ? this.insertPiece : this.movePiece);
+      });
+      document.querySelector('.pieces-container').addEventListener('click', this.cancelMove);
+      document.addEventListener('click', this.cancelMove);
+    }
+  };
+
+  cleanup = () => {
+    this.areWeInTheProcessOfMovingAPiece = false;
+    this.areWeAddingOrMoving = '';
+    const pieceEl = document.querySelector('.selected-to-move');
+    if (pieceEl) {
+      pieceEl.classList.remove('selected-to-move');
+    }
+
+    document.querySelectorAll('.square').forEach((square) => {
+      square.classList.remove('legal-target');
+      square.classList.remove('selected-to-move');
+    });
+
+    document.querySelectorAll('.draggable-piece').forEach((piece) => {
+      piece.removeEventListener('click', this.removePiece);
+    });
+    document.querySelectorAll('.board .square').forEach((square) => {
+      square.removeEventListener('click', this.movePiece);
+      square.removeEventListener('click', this.insertPiece);
+    });
+    document.querySelector('.pieces-container').removeEventListener('click', this.cancelMove);
+    document.removeEventListener('click', this.cancelMove);
+
+    this.game.piecesOnBoardChanged();
+  };
+
+  insertPiece = (e) => {
+    e.stopPropagation();
+
+    const pieceEl = document.querySelector('.selected-to-move');
+
+    let targetSquare = e.target;
+    while (!targetSquare.classList.contains('square')) {
+      targetSquare = targetSquare.parentNode;
+    }
+
+    const pieceFenNotation = pieceEl.dataset.fenPiece;
+    let div = document.createElement('div');
+    div.innerHTML = fenToSVGMap[pieceFenNotation];
+    div = div.querySelector('div');
+    div.classList.add('draggable-piece', 'piece-on-board');
+    div.draggable = true;
+    targetSquare.innerHTML = '';
+    targetSquare.appendChild(div);
+    this.cleanup();
+  };
+
+  movePiece = (e) => {
+    e.stopPropagation();
+    const pieceEl = document.querySelector('.selected-to-move');
+
+    let targetSquare = e.target;
+    while (!targetSquare.classList.contains('square')) {
+      targetSquare = targetSquare.parentNode;
+    }
+
+    if (targetSquare.classList.contains('legal-target')) {
+      targetSquare.innerHTML = '';
+      pieceEl.remove();
+      targetSquare.appendChild(pieceEl);
+    }
+    this.cleanup();
+  };
+
+  removePiece = (e) => {
+    console.log('removePiece');
+    e.stopPropagation();
+    const delme = document.querySelector('.board .square div.selected-to-move');
+    if (delme) delme.remove();
+    this.cleanup();
+  };
+
+  cancelMove = () => {
+    this.cleanup();
   };
 
   checkPositionButtonPressed = () => {

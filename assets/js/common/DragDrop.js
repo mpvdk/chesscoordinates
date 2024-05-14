@@ -1,7 +1,8 @@
 import { fenToSVGMap } from '../common/Utils.js';
 
 export class DragDrop {
-  constructor() {
+  constructor(onDragStart = null) {
+    this.onDragStart = onDragStart;
     this.draggingPieceFenNotation = '';
     this.sourceSquare = null;
     this.validateOnSquareDropCb = null;
@@ -10,69 +11,22 @@ export class DragDrop {
   }
 
   initListenersForPieces = () => {
+    // remove all existing listeners to avoid clones
+    this.removePiecesListeners();
+    // and re-init the listeners so that the new pieces can be moved
     document.querySelectorAll('.draggable-piece').forEach((piece) => {
       piece.addEventListener('dragstart', this.onPieceDragStart);
     });
-    document.querySelectorAll('.piece-on-board').forEach((piece) => {
-      piece.addEventListener('click', this.prepareToMovePieceOnBoard);
-    });
   };
 
-  prepareToMovePieceOnBoard = (e) => {
-    e.stopPropagation();
-    const pieceEl = e.target;
-
-    const movePiece = (e) => {
-      e.stopPropagation();
-
-      const targetSquare = e.target;
-      if (targetSquare.classList.contains('legal-target')) {
-        // move  pieceEl to targetSquare
-        targetSquare.appendChild(pieceEl); // appendChild both removes and adds the element
-      }
-
-      cleanup();
-    };
-
-    const cancelMove = () => {
-      console.log('cancelled');
-      cleanup();
-    };
-
-    const removePiece = (e) => {
-      e.stopPropagation();
-
-      pieceEl.remove();
-
-      cleanup();
-    };
-
-    const cleanup = () => {
-      pieceEl.classList.remove('selected-to-move');
-      pieceEl.removeEventListener('click', removePiece);
-      // add markers on all empty squares and add event listeners
-      document.querySelectorAll('.board .square').forEach((square) => {
-        square.classList.remove('legal-target');
-        square.removeEventListener('click', movePiece);
-      });
-      // remove cancel move listener
-      document.removeEventListener('click', cancelMove);
-    };
-
-    // overlay marker over piece
-    pieceEl.classList.add('selected-to-move');
-    pieceEl.addEventListener('click', removePiece);
-    // add markers on all empty squares and add event listeners
-    document.querySelectorAll('.board .square').forEach((square) => {
-      if (square.innerHTML === '') {
-        square.classList.add('legal-target');
-        square.addEventListener('click', movePiece);
-      }
+  removePiecesListeners = () => {
+    document.querySelectorAll('.draggable-piece').forEach((piece) => {
+      piece.removeEventListener('dragstart', this.onPieceDragStart);
     });
-    document.addEventListener('click', cancelMove);
   };
 
   onPieceDragStart = (e) => {
+    if (this.onDragStart) this.onDragStart(e);
     this.draggingPieceFenNotation = e.target.dataset.fenPiece;
     if (e.target.parentElement.nodeName == 'TD') {
       this.sourceSquare = e.target.parentElement.dataset.square;
@@ -85,11 +39,23 @@ export class DragDrop {
     this.validateOnSquareDropCb = validateOnSquareDropCb;
     this.squareDropCommitCb = squareDropCommitCb;
     this.isCastleMoveCb = isCastleMoveCb;
+    // remove all existing listeners to avoid clones
+    this.removeSquaresListeners();
+    // and re-init the listeners so that the new pieces can be moved
     document.querySelectorAll('.board .square').forEach((square) => {
       square.addEventListener('dragover', this.onSquareDragOver);
       square.addEventListener('dragenter', this.onSquareDragEnter);
       square.addEventListener('dragleave', this.onSquareDragLeave);
       square.addEventListener('drop', this.onSquareDrop);
+    });
+  };
+
+  removeSquaresListeners = () => {
+    document.querySelectorAll('.board .square').forEach((square) => {
+      square.removeEventListener('dragover', this.onSquareDragOver);
+      square.removeEventListener('dragenter', this.onSquareDragEnter);
+      square.removeEventListener('dragleave', this.onSquareDragLeave);
+      square.removeEventListener('drop', this.onSquareDrop);
     });
   };
 
@@ -187,9 +153,6 @@ export class DragDrop {
         document.querySelector(`td[data-square="${rookFrom}"] div`).remove();
       }
 
-      // init listeners
-      this.initListenersForPieces();
-
       if (this.squareDropCommitCb) this.squareDropCommitCb(from, to, piece);
     }
   };
@@ -197,7 +160,6 @@ export class DragDrop {
   removeAllListeners = () => {
     document.querySelectorAll('.draggable-piece').forEach((piece) => {
       piece.removeEventListener('dragstart', this.onPieceDragStart);
-      piece.removeEventListener('dragend', this.onPieceDragEnd);
     });
     document.querySelectorAll('#board .square').forEach((square) => {
       square.removeEventListener('dragover', this.onSquareDragOver);

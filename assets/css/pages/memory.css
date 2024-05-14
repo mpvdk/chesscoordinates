@@ -61,6 +61,10 @@ main {
     margin-bottom: -10px;
     background-color: color-mix(in srgb, var(--colors-background) 80%, var(--colors-white));
 
+    .selected-to-move {
+      background-color: var(--colors-primary-hover);
+    }
+
     .row {
       display: flex;
       flex-direction: row;
