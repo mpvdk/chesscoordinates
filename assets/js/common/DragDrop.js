@@ -1,8 +1,8 @@
 import { fenToSVGMap } from '../common/Utils.js';
 
 export class DragDrop {
-  constructor(onDragStart = null) {
-    this.onDragStart = onDragStart;
+  constructor(onDragStartCb = null) {
+    this.onDragStartCb = onDragStartCb;
     this.draggingPieceFenNotation = '';
     this.sourceSquare = null;
     this.validateOnSquareDropCb = null;
@@ -26,7 +26,7 @@ export class DragDrop {
   };
 
   onPieceDragStart = (e) => {
-    if (this.onDragStart) this.onDragStart(e);
+    if (this.onDragStartCb) this.onDragStartCb(e);
     this.draggingPieceFenNotation = e.target.dataset.fenPiece;
     if (e.target.parentElement.nodeName == 'TD') {
       this.sourceSquare = e.target.parentElement.dataset.square;
@@ -127,33 +127,8 @@ export class DragDrop {
         document.querySelector(`td[data-square="${from}"] div`).remove();
       }
 
-      if (this.isCastleMoveCb && this.isCastleMoveCb()) {
-        // This is a castle - we need to move the rook as well
-        let rookFrom;
-        let rookTo;
-        if (to[0] === 'g') {
-          rookFrom = 'h' + to[1];
-          rookTo = 'f' + to[1];
-        } else {
-          rookFrom = 'a' + to[1];
-          rookTo = 'd' + to[1];
-        }
-        // create element from string
-        let rookDiv = document.createElement('div');
-        rookDiv.innerHTML = fenToSVGMap[to[1] == 1 ? 'R' : 'r'];
-        rookDiv = rookDiv.querySelector('div');
-        // and add class(es) and attribute(s)
-        rookDiv.classList.add('draggable-piece');
-        rookDiv.classList.add('piece-on-board');
-        rookDiv.draggable = true;
-        // and insert into the board square
-        document.querySelector(`td[data-square="${rookTo}"]`).innerHTML = '';
-        document.querySelector(`td[data-square="${rookTo}"]`).appendChild(rookDiv);
-        // and lastly remove the rook from the original square
-        document.querySelector(`td[data-square="${rookFrom}"] div`).remove();
-      }
-
       if (this.squareDropCommitCb) this.squareDropCommitCb(from, to, piece);
+      this.initListenersForPieces();
     }
   };
 

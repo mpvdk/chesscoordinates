@@ -56,39 +56,9 @@ export class MovesUiHandler extends UiHandler {
       const moveIsCorrectAnswer = this.game.validateAnswer(from, to);
 
       if (moveIsCorrectAnswer) {
-        // check if move was castle
-        if (this.game.isCastleMove()) {
-          // move the rook
-          const move = this.game.getCurrentPrompt();
-          const colourToMove = this.game.state.currentBoard.turn();
-          let rookFrom = '';
-          let rookTo = '';
-          if (move === 'O-O') {
-            rookFrom = colourToMove === 'w' ? 'h1' : 'h8';
-            rookTo = colourToMove === 'w' ? 'f1' : 'f8';
-          } else {
-            rookFrom = colourToMove === 'w' ? 'a1' : 'a8';
-            rookTo = colourToMove === 'w' ? 'd1' : 'd8';
-          }
-          const rookEl = document.querySelector(`.square[data-square="${rookFrom}"] .draggable-piece`);
-          const targetSquareEl = document.querySelector(`.square[data-square="${rookTo}"]`);
-          targetSquareEl.innerHTML = '';
-          targetSquareEl.appendChild(rookEl);
-        }
-        // check if move was en passant
-        if (this.game.isEnPassantMove()) {
-          // remove the captured pawn
-          const fileOfPawnToCapture = to[0];
-          const rankOfPawnToCapture = this.game.state.currentBoard.turn() === 'w' ? '5' : '4';
-          const squareOfPawnToCapture = fileOfPawnToCapture + rankOfPawnToCapture;
-          const squareEl = document.querySelector(`.square[data-square="${squareOfPawnToCapture}"]`);
-          squareEl.innerHTML = '';
-        }
-
         // actually move the original piece
         squareEl.innerHTML = '';
         squareEl.appendChild(this.savedPiece);
-
         this.game.commitAnswer(from, to);
       }
     } else {
@@ -121,6 +91,35 @@ export class MovesUiHandler extends UiHandler {
         }
       }
     }
+  };
+
+  removeCapturedPawnFromEnPassantMove = (to) => {
+    // remove the captured pawn
+    const fileOfPawnToCapture = to[0];
+    const rankOfPawnToCapture = this.game.state.currentBoard.turn() === 'w' ? '5' : '4';
+    const squareOfPawnToCapture = fileOfPawnToCapture + rankOfPawnToCapture;
+    const squareEl = document.querySelector(`.square[data-square="${squareOfPawnToCapture}"]`);
+    squareEl.innerHTML = '';
+  };
+
+  moveRookFromCastleMove = () => {
+    const move = this.game.getCurrentPrompt();
+    const colourToMove = this.game.state.currentBoard.turn();
+
+    let rookFrom = '';
+    let rookTo = '';
+    if (move === 'O-O') {
+      rookFrom = colourToMove === 'w' ? 'h1' : 'h8';
+      rookTo = colourToMove === 'w' ? 'f1' : 'f8';
+    } else {
+      rookFrom = colourToMove === 'w' ? 'a1' : 'a8';
+      rookTo = colourToMove === 'w' ? 'd1' : 'd8';
+    }
+
+    const rookEl = document.querySelector(`.square[data-square="${rookFrom}"] .draggable-piece`);
+    const targetSquareEl = document.querySelector(`.square[data-square="${rookTo}"]`);
+    targetSquareEl.innerHTML = '';
+    targetSquareEl.appendChild(rookEl);
   };
 
   updatePrompt = (move) => {

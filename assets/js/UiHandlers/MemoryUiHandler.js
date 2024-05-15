@@ -278,7 +278,6 @@ export class MemoryUiHandler extends UiHandler {
   };
 
   removePiece = (e) => {
-    console.log('removePiece');
     e.stopPropagation();
     const delme = document.querySelector('.board .square div.selected-to-move');
     if (delme) delme.remove();

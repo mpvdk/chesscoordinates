@@ -42,7 +42,7 @@ export class MovesGame extends Game {
     });
 
     this.state.prompt.moves = game
-      .slice(randomCutoff, -1)
+      .slice(randomCutoff)
       .map((i) => i.split(' '))
       .flat();
     this.state.prompt.currentIndex = 0;
@@ -101,14 +101,26 @@ export class MovesGame extends Game {
   };
 
   commitAnswer = (from, to) => {
+    // update ui
+    // castle and en passant logic needs to be called before .move()
+    if (this.isCastleMove()) this.uiHandler.moveRookFromCastleMove();
+    if (this.isEnPassantMove()) this.uiHandler.removeCapturedPawnFromEnPassantMove(to);
+    this.uiHandler.highlightLastMove(from, to);
+
+    // now we can move()
     this.state.currentBoard.move({ from: from, to: to });
-    if (this.state.prompt.currentIndex >= this.state.prompt.moves.length) {
+
+    // update the prompt
+    if (this.state.prompt.currentIndex >= this.state.prompt.moves.length - 1) {
+      // game is out of moves - start a new game
       this.initPrompt();
     } else {
+      // else just move to the next move in the prompt
       this.state.prompt.currentIndex++;
     }
+
+    // show the new prompt to the user
     this.uiHandler.updatePrompt(this.state.prompt.moves[this.state.prompt.currentIndex]);
-    this.uiHandler.highlightLastMove(from, to);
   };
 
   isCastleMove = () => {
@@ -122,7 +134,7 @@ export class MovesGame extends Game {
     const move = moves.find((m) => {
       return m.san === promptMove;
     });
-    return moves.flags.contains('e');
+    return move.flags.includes('e');
   };
 
   getCurrentPrompt = () => {
