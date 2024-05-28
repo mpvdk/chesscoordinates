@@ -29,8 +29,10 @@ export class MemoryUiHandler extends UiHandler {
     this.els.difficultyWarning = document.querySelector('.difficulty-warning');
     this.els.customFenContainer = document.querySelector('.custom-fen-container');
     this.els.customFenWarning = document.querySelector('.invalid-custom-fen-warning');
-    this.els.customFenButton = document.querySelector('.custom-fen-button');
+    this.els.customOrAutoFenCheckbox = document.querySelector('#custom-or-auto-fen-checkbox');
     this.els.customFenInput = document.querySelector('.custom-fen-input');
+    this.els.generatedFensText = document.querySelector('.generated-fens-text');
+    this.els.customFenText = document.querySelector('.custom-fen-text');
 
     // =========
     // listeners
@@ -43,15 +45,24 @@ export class MemoryUiHandler extends UiHandler {
     this.els.newGameButton.addEventListener('click', game.resetGame);
     this.els.retryButton.addEventListener('click', game.restartGameWithSameFen);
     this.els.difficultySelectionInputs.forEach((el) => el.addEventListener('click', this.difficultyChanged));
-    this.els.customFenButton.addEventListener('click', this.customFenButtonPressed);
+    this.els.customOrAutoFenCheckbox.addEventListener('change', this.customOrAUtoFenCheckboxChanged);
     this.els.customFenInput.addEventListener('input', this.customFenInputChanged);
   }
 
-  customFenButtonPressed = () => {
+  customOrAUtoFenCheckboxChanged = (e) => {
     this.els.customFenInput.classList.toggle('hidden');
     this.els.difficultySelectionContainer.classList.toggle('hidden');
     this.els.customFenWarning.classList.add('hidden');
-    this.els.customFenButton.innerHTML = this.els.customFenInput.classList.contains('hidden') ? 'Use a custom FEN' : 'Use auto-generated FENs';
+
+    if (e.target.checked) {
+      // checked = custom fen
+      this.els.customFenText.classList.add('selected');
+      this.els.generatedFensText.classList.remove('selected');
+    } else {
+      // unchecked = auto generated fens
+      this.els.customFenText.classList.remove('selected');
+      this.els.generatedFensText.classList.add('selected');
+    }
   };
 
   customFenInputChanged = () => {

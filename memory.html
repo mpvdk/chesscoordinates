@@ -579,27 +579,34 @@
         </div>
 
         <!-- settings -->
-        <div class="settings">
+        <div class="settings-container">
           <p class="settings-heading">settings</p>
-          <div class="difficulty-selection-container">
-            <div class="difficulty-input-container">
-              <input type="checkbox" id="difficulty-easy" name="easy" value="easy" checked />
-              <label for="difficulty-easy">&lt; 11 pcs</label>
+          <div class="settings">
+            <div class="difficulty-selection-container">
+              <div class="difficulty-input-container">
+                <input type="checkbox" id="difficulty-easy" name="easy" value="easy" checked />
+                <label for="difficulty-easy">&lt; 11 pcs</label>
+              </div>
+              <div class="difficulty-input-container">
+                <input type="checkbox" id="difficulty-medium" name="medium" value="medium" checked />
+                <label for="difficulty-medium">11-20 pcs</label>
+              </div>
+              <div class="difficulty-input-container">
+                <input type="checkbox" id="difficulty-hard" name="hard" value="hard" checked />
+                <label for="difficulty-hard">&gt; 20 pcs</label>
+              </div>
+              <span class="difficulty-warning toast-hidden">Must have at least one difficulty selected</span>
             </div>
-            <div class="difficulty-input-container">
-              <input type="checkbox" id="difficulty-medium" name="medium" value="medium" checked />
-              <label for="difficulty-medium">11-20 pcs</label>
-            </div>
-            <div class="difficulty-input-container">
-              <input type="checkbox" id="difficulty-hard" name="hard" value="hard" checked />
-              <label for="difficulty-hard">&gt; 20 pcs</label>
-            </div>
-            <span class="difficulty-warning toast-hidden">Must have at least one difficulty selected</span>
-          </div>
-          <div class="custom-fen-container">
             <p class="invalid-custom-fen-warning hidden">invalid or incomplete fen</p>
             <input type="text" class="custom-fen-input hidden" placeholder="Enter FEN" />
-            <button class="custom-fen-button" aria-label="custom fen">Use a custom FEN</button>
+          </div>
+          <div class="custom-or-auto-fen-switch-container">
+            <p class="generated-fens-text selected">generated fens</p>
+            <label class="switch">
+              <input type="checkbox" id="custom-or-auto-fen-checkbox" />
+              <span class="slider round"></span>
+            </label>
+            <p class="custom-fen-text">custom fen</p>
           </div>
         </div>
 
