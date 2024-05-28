@@ -34,12 +34,37 @@ main {
     }
   }
 
+  #start-stop-flip-container {
+    width: 90vw;
+    max-width: 600px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    #flip-board-button {
+      width: 80px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #b4b4b4;
+      svg {
+        width: 40px;
+      }
+      &:hover {
+        background-color: #a4a4a4;
+      }
+    }
+    .start-stop-button {
+      width: 100% !important;
+    }
+  }
+
   .new-retry-buttons-container {
     display: flex;
     flex-flow: row;
     align-items: flex-start;
     justify-content: space-between;
     width: 95%;
+    max-width: 600px;
     gap: 10px;
     margin: 20px 0px 0px;
     .retry-game-button {
@@ -93,6 +118,7 @@ main {
 
   .settings-container {
     width: 90vw;
+    max-width: 600px;
     display: grid;
     grid-template-areas:
       'title title'
@@ -100,6 +126,9 @@ main {
       'settings settings';
     grid-template-columns: 1fr 1fr;
     justify-items: center;
+    border: 1px solid rgb(220, 220, 220);
+    padding: 10px;
+    border-radius: 5px;
 
     .settings-heading {
       font-size: 1.5rem;
@@ -117,7 +146,7 @@ main {
         display: flex;
         flex-direction: row;
         align-items: flex-start;
-        justify-content: space-between;
+        justify-content: center;
         gap: 10px;
         width: 100%;
         max-width: 600px;
@@ -137,8 +166,8 @@ main {
           label::before {
             content: '';
             display: inline-block;
-            width: 35px;
-            height: 35px;
+            width: 25px;
+            height: 25px;
             background-color: var(--colors-background);
             border: 2px solid #a0a0a0;
             border-radius: 5px;
@@ -148,9 +177,9 @@ main {
           }
           input[type='checkbox']:checked + label::before {
             content: '';
-            height: 35px;
-            width: 35px;
-            background-size: 35px 35px;
+            height: 25px;
+            width: 25px;
+            background-size: 25px 25px;
             background-image: url('../../images/check.svg');
             background-repeat: no-repeat;
             background-color: #a0a0a0;
@@ -160,7 +189,7 @@ main {
         .difficulty-warning {
           position: absolute;
           left: 50%;
-          transform: translate(-50%, 50px);
+          transform: translate(-50%, 30px);
           text-align: center;
           width: 100%;
           color: red;
@@ -178,7 +207,7 @@ main {
         width: 100%;
         font-size: 1.2rem;
         padding: 5px 10px;
-        margin-top: 5px;
+        margin-top: -5px;
         margin-bottom: 8px;
         border: 2px solid var(--colors-button-secondary);
         border-radius: 5px;
@@ -186,7 +215,7 @@ main {
       }
       .invalid-custom-fen-warning {
         position: absolute;
-        bottom: -20px;
+        bottom: -16px;
         left: 50%;
         transform: translateX(-50%);
         color: red;
@@ -206,7 +235,7 @@ main {
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
 
       p {
         flex-basis: 40%;
@@ -334,6 +363,7 @@ main {
     gap: 10px;
     justify-content: space-between;
     margin: 0px 0px;
+    max-width: 600px;
 
     button {
       width: 50%;
@@ -386,12 +416,16 @@ main {
     position: relative;
 
     &#memory-game {
-      .start-button {
+      .custom-or-auto-fen-switch-container {
+        margin-top: 10px;
+      }
+      #start-stop-flip-container {
         position: absolute;
         bottom: 0px;
         left: -440px;
         margin: 0px;
         width: 360px;
+        max-width: 360px;
       }
 
       .settings-container {

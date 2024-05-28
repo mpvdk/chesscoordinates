@@ -33,6 +33,30 @@ main {
       transition: all 50ms ease-in-out;
     }
   }
+
+  #start-stop-flip-container {
+    width: 90vw;
+    max-width: 600px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    #flip-board-button {
+      width: 80px !important;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #b4b4b4;
+      svg {
+        width: 40px;
+      }
+      &:hover {
+        background-color: #a4a4a4;
+      }
+    }
+    .start-stop-button {
+      width: 100% !important;
+    }
+  }
 }
 
 #squares-game {
@@ -99,12 +123,13 @@ main {
     position: relative;
 
     &#squares-game {
-      .start-stop-button {
+      #start-stop-flip-container {
         position: absolute;
         bottom: 0px;
         left: -440px;
         margin: 0px;
         width: 360px;
+        max-width: 360px;
       }
     }
   }
