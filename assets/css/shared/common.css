@@ -35,7 +35,7 @@
   --colors-orange: rgb(255, 131, 48);
 
   --colors-primary: rgb(66, 155, 113);
-  --colors-primary-hover: color-mix(in srgb, var(--colors-primary) 75%, transparent);
+  --colors-primary-hover: color-mix(in srgb, var(--colors-primary) 10%, transparent);
   --colors-primary-high-contrast: rgba(70, 129, 90, 1);
   --colors-chess-board-light: rgba(227, 193, 111, 1);
   --colors-chess-board-dark: rgba(184, 139, 74, 1);
@@ -75,7 +75,7 @@
 
   /* --colors-primary: rgba(81, 152, 114, 1); */
   --colors-primary: rgb(66, 155, 113);
-  --colors-primary-hover: color-mix(in srgb, var(--colors-primary) 75%, transparent);
+  --colors-primary-hover: color-mix(in srgb, var(--colors-primary) 10%, transparent);
   --colors-primary-high-contrast: rgba(70, 129, 90, 1);
   --colors-chess-board-light: rgba(227, 193, 111, 1);
   --colors-chess-board-dark: rgba(184, 139, 74, 1);

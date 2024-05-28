@@ -17,19 +17,21 @@ main {
 
   button {
     font-size: 2rem;
-    padding: 5px 5px;
+    padding: 1px 5px;
     width: 90vw;
     max-width: 600px;
     border-radius: 5px;
     background-color: var(--colors-primary);
     color: white;
-    border: none;
+    border: 2px solid var(--colors-primary);
     margin-top: 40px;
     cursor: pointer;
     transition: all 50ms ease-in-out;
 
     &:hover {
       background-color: var(--colors-primary-hover);
+      color: var(--colors-primary);
+      border-color: var(--colors-primary);
       transition: all 50ms ease-in-out;
     }
   }
@@ -41,20 +43,18 @@ main {
     justify-content: space-between;
     gap: 10px;
     #flip-board-button {
-      width: 80px !important;
+      width: 60px;
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: #b4b4b4;
+      border-color: #b4b4b4;
       svg {
         width: 40px;
       }
       &:hover {
-        background-color: #a4a4a4;
+        background-color: #dadada;
       }
-    }
-    .start-stop-button {
-      width: 100% !important;
     }
   }
 
