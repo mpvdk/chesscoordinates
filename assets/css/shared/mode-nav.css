@@ -73,7 +73,7 @@
       transform: translateY(-40px);
       &.active {
         color: var(--colors-white);
-        background-color: var(--colors-primary-hover);
+        background-color: var(--colors-primary);
       }
     }
 
